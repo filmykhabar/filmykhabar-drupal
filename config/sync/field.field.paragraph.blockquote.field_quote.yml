@@ -1,0 +1,21 @@
+uuid: 0712bb0b-92e3-465e-a281-2ccee47a4c3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote
+    - paragraphs.paragraphs_type.blockquote
+  module:
+    - text
+id: paragraph.blockquote.field_quote
+field_name: field_quote
+entity_type: paragraph
+bundle: blockquote
+label: Quote
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

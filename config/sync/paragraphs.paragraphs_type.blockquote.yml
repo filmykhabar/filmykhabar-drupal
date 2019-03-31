@@ -1,0 +1,9 @@
+uuid: 7d4e89bc-3f4c-4834-8f6a-71f23dc9e651
+langcode: en
+status: true
+dependencies: {  }
+id: blockquote
+label: Blockquote
+icon_uuid: null
+description: ''
+behavior_plugins: {  }
