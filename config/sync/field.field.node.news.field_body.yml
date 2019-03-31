@@ -1,0 +1,41 @@
+uuid: 33aa0f1a-ca33-4194-8308-e813929aa440
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.news
+    - paragraphs.paragraphs_type.blockquote
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: node.news.field_body
+field_name: field_body
+entity_type: node
+bundle: news
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      text: text
+      image: image
+      blockquote: blockquote
+    target_bundles_drag_drop:
+      text:
+        enabled: true
+        weight: -7
+      image:
+        enabled: true
+        weight: -6
+      blockquote:
+        enabled: true
+        weight: -5
+field_type: entity_reference_revisions
