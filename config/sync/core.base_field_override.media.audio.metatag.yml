@@ -1,0 +1,18 @@
+uuid: 5da7fd23-fc13-42ec-b3e1-7406a84a6d3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.audio
+id: media.audio.metatag
+field_name: metatag
+entity_type: media
+bundle: audio
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

@@ -1,0 +1,55 @@
+label: टिप्पणीहरू
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: 'रिसेट गर्नुहोस्'
+      pager:
+        options:
+          tags:
+            previous: '‹ अघिल्लो'
+            next: 'अर्को ›'
+            first: '« पहिलो'
+            last: 'अन्तिम »'
+      fields:
+        comment_bulk_form:
+          action_title: कारवाही
+        subject:
+          label: विषय
+        name:
+          label: लेखक
+        operations:
+          label: सञ्चालनहरू
+      filters:
+        subject:
+          expose:
+            label: विषय
+        langcode:
+          expose:
+            label: भाषा
+      title: टिप्पणीहरू
+      use_more_text: धेरै
+  page_published:
+    display_title: 'प्रकाशित कमेन्टहरु'
+    display_options:
+      menu:
+        title: टिप्पणीहरू
+  page_unapproved:
+    display_options:
+      filters:
+        subject:
+          expose:
+            label: विषय
+        langcode:
+          expose:
+            label: भाषा
+      fields:
+        comment_bulk_form:
+          action_title: कारवाही
+        subject:
+          label: विषय
+        name:
+          label: लेखक
+        operations:
+          label: सञ्चालनहरू

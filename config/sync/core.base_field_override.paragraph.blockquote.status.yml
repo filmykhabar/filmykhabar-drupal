@@ -1,0 +1,22 @@
+uuid: 888ebc3f-a754-4b22-ae6b-ba0fb925f163
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.blockquote
+id: paragraph.blockquote.status
+field_name: status
+entity_type: paragraph
+bundle: blockquote
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,9 @@
+label: 'हालको कमेन्टहरु'
+display:
+  default:
+    display_options:
+      title: 'हालको कमेन्टहरु'
+  block_1:
+    display_title: ब्लक
+    display_options:
+      block_description: 'हालको कमेन्टहरु'

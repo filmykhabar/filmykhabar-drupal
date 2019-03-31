@@ -1,0 +1,9 @@
+uuid: 2a4b04e2-09ca-4779-ba60-0c231d4edb55
+langcode: en
+status: true
+dependencies: {  }
+id: ne
+label: Nepali
+direction: ltr
+weight: -10
+locked: false

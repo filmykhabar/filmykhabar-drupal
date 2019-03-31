@@ -1,0 +1,12 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: 'रिसेट गर्नुहोस्'
+      title: स्रोत
+  page_1:
+    display_title: पृष्ठ
+    display_options:
+      menu:
+        title: स्रोत
