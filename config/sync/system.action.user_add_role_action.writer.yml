@@ -1,0 +1,14 @@
+uuid: 39c2ecf3-2004-4fd0-aa66-dec20f69d3ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.writer
+  module:
+    - user
+id: user_add_role_action.writer
+label: 'Add the Writer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: writer
