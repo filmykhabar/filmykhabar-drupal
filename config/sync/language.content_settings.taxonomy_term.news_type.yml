@@ -1,0 +1,11 @@
+uuid: 2caba42b-aad0-410c-8e3c-c9338a820902
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_type
+id: taxonomy_term.news_type
+target_entity_type_id: taxonomy_term
+target_bundle: news_type
+default_langcode: site_default
+language_alterable: false
