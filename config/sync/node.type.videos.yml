@@ -1,4 +1,4 @@
-uuid: 394360e1-ae09-4617-b4e5-81ec63d0adb5
+uuid: 8757c0f1-8052-4446-a4c2-fe94e70806e9
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: News
-type: news
-description: 'Use <em>News</em> content type for news contents.'
+name: Videos
+type: videos
+description: ''
 help: ''
 new_revision: true
 preview_mode: 1

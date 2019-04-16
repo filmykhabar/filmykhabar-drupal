@@ -1,0 +1,16 @@
+uuid: d164de42-8c03-48e8-b071-4726ef0a028c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.photos
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.photos
+target_entity_type_id: node
+target_bundle: photos
+default_langcode: site_default
+language_alterable: true

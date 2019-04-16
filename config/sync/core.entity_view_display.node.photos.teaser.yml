@@ -1,0 +1,31 @@
+uuid: 200b7ae6-7d90-46c1-8e50-dbf5b57e7a48
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.photos.body
+    - node.type.photos
+  module:
+    - text
+    - user
+id: node.photos.teaser
+targetEntityType: node
+bundle: photos
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

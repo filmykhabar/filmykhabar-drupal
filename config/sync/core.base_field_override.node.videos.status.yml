@@ -1,0 +1,22 @@
+uuid: 1defa014-9ceb-4ff0-836d-3d5e2fa2d3cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.videos
+id: node.videos.status
+field_name: status
+entity_type: node
+bundle: videos
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

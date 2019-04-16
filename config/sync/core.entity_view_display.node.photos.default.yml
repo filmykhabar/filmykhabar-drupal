@@ -1,0 +1,29 @@
+uuid: 89c63ec4-6553-473f-aaf8-31f5e69b6bdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.photos.body
+    - node.type.photos
+  module:
+    - text
+    - user
+id: node.photos.default
+targetEntityType: node
+bundle: photos
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
