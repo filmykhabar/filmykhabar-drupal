@@ -6,4 +6,17 @@ id: reporter
 label: Reporter
 weight: -5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access content overview'
+  - 'access in-place editing'
+  - 'access toolbar'
+  - 'create news content'
+  - 'create url aliases'
+  - 'edit own news content'
+  - 'use text format full_html'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view post access counter'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'

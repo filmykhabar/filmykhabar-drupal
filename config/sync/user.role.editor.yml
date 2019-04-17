@@ -6,4 +6,27 @@ id: editor
 label: Editor
 weight: -6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access content overview'
+  - 'access in-place editing'
+  - 'access toolbar'
+  - 'create news content'
+  - 'create photos content'
+  - 'create url aliases'
+  - 'create videos content'
+  - 'edit any news content'
+  - 'edit any photos content'
+  - 'edit any videos content'
+  - 'revert news revisions'
+  - 'revert photos revisions'
+  - 'revert videos revisions'
+  - 'use text format full_html'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view news revisions'
+  - 'view own unpublished content'
+  - 'view photos revisions'
+  - 'view post access counter'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'
+  - 'view videos revisions'
