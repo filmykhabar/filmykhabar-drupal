@@ -1,9 +1,0 @@
-uuid: 61f37d5e-a005-4935-bc05-e783984467f4
-langcode: en
-status: true
-dependencies: {  }
-id: writer
-label: Writer
-weight: -6
-is_admin: null
-permissions: {  }

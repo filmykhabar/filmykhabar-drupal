@@ -1,0 +1,14 @@
+uuid: d22b3b53-7017-4795-bd10-740b61676557
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.reporter
+  module:
+    - user
+id: user_remove_role_action.reporter
+label: 'Remove the Reporter role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: reporter

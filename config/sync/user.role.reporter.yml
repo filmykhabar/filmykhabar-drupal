@@ -1,0 +1,9 @@
+uuid: 7809bb74-70ff-4d9c-bc50-b27108283409
+langcode: en
+status: true
+dependencies: {  }
+id: reporter
+label: Reporter
+weight: -5
+is_admin: null
+permissions: {  }

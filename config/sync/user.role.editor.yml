@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: editor
 label: Editor
-weight: -7
+weight: -6
 is_admin: null
 permissions: {  }

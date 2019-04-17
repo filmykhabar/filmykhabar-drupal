@@ -1,0 +1,9 @@
+uuid: 162a8908-a169-4913-be02-b609e9cdb833
+langcode: en
+status: true
+dependencies: {  }
+id: manager
+label: Manager
+weight: -7
+is_admin: null
+permissions: {  }
