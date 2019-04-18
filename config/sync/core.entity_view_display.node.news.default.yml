@@ -4,31 +4,42 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_author
+    - field.field.node.news.field_author_temp
     - field.field.node.news.field_body
     - field.field.node.news.field_image
+    - field.field.node.news.field_location_temp
     - field.field.node.news.field_tags
     - field.field.node.news.field_teaser_body
     - node.type.news
   module:
     - entity_reference_revisions
     - image
-    - text
     - user
 id: node.news.default
 targetEntityType: node
 bundle: news
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
+  field_author:
+    weight: 1
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_author_temp:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_body:
     type: entity_reference_revisions_entity_view
-    weight: 105
+    weight: 5
     label: above
     settings:
       view_mode: default
@@ -36,7 +47,7 @@ content:
     third_party_settings: {  }
     region: content
   field_image:
-    weight: 102
+    weight: 4
     label: above
     settings:
       image_style: ''
@@ -44,25 +55,28 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+  field_location_temp:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_tags:
-    weight: 104
+    weight: 6
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_teaser_body:
-    weight: 103
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
+  body: true
+  field_teaser_body: true
   langcode: true

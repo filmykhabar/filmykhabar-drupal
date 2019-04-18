@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_author
+    - field.field.node.news.field_author_temp
     - field.field.node.news.field_body
     - field.field.node.news.field_image
+    - field.field.node.news.field_location_temp
     - field.field.node.news.field_tags
     - field.field.node.news.field_teaser_body
     - image.style.thumbnail
@@ -23,7 +26,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 8
     settings:
       rows: 9
       summary_rows: 3
@@ -32,10 +35,27 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 8
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_author:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_author_temp:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_body:
     type: entity_reference_paragraphs
     weight: 3
@@ -56,8 +76,16 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_location_temp:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_tags:
-    weight: 5
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -75,20 +103,20 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 6
+    weight: 9
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 12
+    weight: 16
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -96,21 +124,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 12
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 17
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
+    weight: 13
     region: content
     third_party_settings: {  }
   title:
@@ -122,17 +150,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 14
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 18
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

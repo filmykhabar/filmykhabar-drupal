@@ -1,0 +1,19 @@
+uuid: 16bfbffc-b8cb-4540-ab21-3e6a124172e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_author_temp
+    - node.type.news
+id: node.news.field_author_temp
+field_name: field_author_temp
+entity_type: node
+bundle: news
+label: 'Author (Temp)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

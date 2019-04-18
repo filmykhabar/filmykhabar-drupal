@@ -1,0 +1,19 @@
+uuid: 63070045-b9d5-45b4-9f2f-affec8ea83db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_temp
+    - node.type.news
+id: node.news.field_location_temp
+field_name: field_location_temp
+entity_type: node
+bundle: news
+label: 'Location (Temp)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
