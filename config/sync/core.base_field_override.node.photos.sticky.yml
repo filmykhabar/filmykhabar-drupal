@@ -1,14 +1,14 @@
-uuid: 80376f71-c936-493d-8318-ca20a1b7cbec
+uuid: 248cf9ef-7e83-4d4b-817a-827ab4abcf6b
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.videos
-id: node.videos.promote
-field_name: promote
+    - node.type.photos
+id: node.photos.sticky
+field_name: sticky
 entity_type: node
-bundle: videos
-label: 'Promoted to front page'
+bundle: photos
+label: 'Sticky at top of lists'
 description: ''
 required: false
 translatable: false

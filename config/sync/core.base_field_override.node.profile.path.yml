@@ -1,19 +1,20 @@
-uuid: 364d4b22-6725-4bc4-be69-0af087a2aba6
+uuid: fdc62cdd-c94d-4148-970c-6cb0bcb257f5
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_last_name
     - node.type.profile
-id: node.profile.field_last_name
-field_name: field_last_name
+  module:
+    - path
+id: node.profile.path
+field_name: path
 entity_type: node
 bundle: profile
-label: 'Last Name'
+label: 'URL alias'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: path

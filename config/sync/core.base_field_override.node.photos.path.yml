@@ -1,0 +1,20 @@
+uuid: cb2850a1-8152-4233-89f2-7fde83a54ba7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.photos
+  module:
+    - path
+id: node.photos.path
+field_name: path
+entity_type: node
+bundle: photos
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

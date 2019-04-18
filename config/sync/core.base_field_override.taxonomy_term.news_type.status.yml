@@ -1,20 +1,20 @@
-uuid: 80376f71-c936-493d-8318-ca20a1b7cbec
+uuid: 8c597f2b-a4d7-43d0-a9c1-45ad56abf42e
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.videos
-id: node.videos.promote
-field_name: promote
-entity_type: node
-bundle: videos
-label: 'Promoted to front page'
+    - taxonomy.vocabulary.news_type
+id: taxonomy_term.news_type.status
+field_name: status
+entity_type: taxonomy_term
+bundle: news_type
+label: Published
 description: ''
 required: false
 translatable: false
 default_value:
   -
-    value: 0
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'On'
