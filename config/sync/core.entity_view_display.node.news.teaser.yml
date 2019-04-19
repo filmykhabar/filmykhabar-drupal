@@ -4,32 +4,32 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.news.body
+    - field.field.node.news.field_author
+    - field.field.node.news.field_author_temp
+    - field.field.node.news.field_body
+    - field.field.node.news.field_image
+    - field.field.node.news.field_location_temp
+    - field.field.node.news.field_tags
+    - field.field.node.news.field_teaser_body
     - node.type.news
   module:
-    - text
     - user
 id: node.news.teaser
 targetEntityType: node
 bundle: news
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     settings: {  }
     third_party_settings: {  }
     region: content
 hidden:
+  field_author: true
+  field_author_temp: true
   field_body: true
   field_image: true
+  field_location_temp: true
   field_tags: true
   field_teaser_body: true
   langcode: true
