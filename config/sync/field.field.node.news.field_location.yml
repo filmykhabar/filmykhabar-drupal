@@ -1,15 +1,15 @@
-uuid: 16bfbffc-b8cb-4540-ab21-3e6a124172e5
+uuid: 7940ed53-bfdd-41a4-beda-feedd15f41ed
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_author_temp
+    - field.storage.node.field_location
     - node.type.news
-id: node.news.field_author_temp
-field_name: field_author_temp
+id: node.news.field_location
+field_name: field_location
 entity_type: node
 bundle: news
-label: 'Author (Temp)'
+label: Location
 description: ''
 required: false
 translatable: false
