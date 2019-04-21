@@ -1,0 +1,9 @@
+uuid: d488268b-f7e0-4dfa-987d-8fa4098fb117
+langcode: en
+status: true
+dependencies: {  }
+name: 'News Location'
+vid: news_location
+description: ''
+hierarchy: 0
+weight: 0

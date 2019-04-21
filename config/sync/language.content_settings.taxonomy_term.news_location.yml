@@ -1,0 +1,11 @@
+uuid: f95a4550-f4a6-4f2a-bebd-1136934a54a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_location
+id: taxonomy_term.news_location
+target_entity_type_id: taxonomy_term
+target_bundle: news_location
+default_langcode: site_default
+language_alterable: false

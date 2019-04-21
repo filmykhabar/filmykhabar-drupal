@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.news.field_author
     - field.field.node.news.field_body
     - field.field.node.news.field_image
+    - field.field.node.news.field_news_location
     - field.field.node.news.field_news_type
     - field.field.node.news.field_tags
     - field.field.node.news.field_teaser_body
@@ -35,7 +36,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     region: content
   field_body:
     type: entity_reference_paragraphs
@@ -56,6 +57,15 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_news_location:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
     region: content
   field_news_type:
     weight: 6
