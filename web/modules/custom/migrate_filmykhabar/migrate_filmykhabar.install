@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function migrate_filmykhabar_uninstall() {
+  $configs  = [
+    'migrate_plus.migration.content_news',
+    'migrate_plus.migration.body_to_paragraph',
+  ];
+
+  foreach($configs as $config) {
+    $delete = \Drupal::database()->delete('config')
+      ->condition('name', $config)
+      ->execute();
+  }
+
+  drupal_flush_all_caches();
+}

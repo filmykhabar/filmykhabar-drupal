@@ -1,0 +1,19 @@
+id: body_to_paragraph
+label: Migrate body to paragraph
+
+source:
+  plugin: content_news
+
+process:
+  'field_text/value':
+    plugin: decode_content
+    source: body
+  'field_text/format':
+    plugin: default_value
+    default_value: full_html
+
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: text
+
+migration_dependencies: {}

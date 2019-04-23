@@ -1,0 +1,77 @@
+id: content_news
+label: Migrate News contents
+
+source:
+  plugin: content_news
+
+process:
+  nid: content_id
+  type:
+    plugin: default_value
+    default_value: news
+  title:
+    plugin: decode_content
+    source: title
+  # uid:
+  #   plugin: default_value
+  #   default_value: 4
+  field_image:
+    plugin: image_import
+    source: image
+    destination: image_destination
+    title: title_decoded
+    alt: title_decoded
+    skip_on_missing_source: TRUE
+    skip_on_error: TRUE
+  field_teaser_body:
+    plugin: decode_content
+    source: excerpt
+  field_body/target_id:
+    -
+      plugin: migration_lookup
+      migration: body_to_paragraph
+      source: content_id
+      no_stub: true
+    -
+      plugin: extract
+      index:
+        - '0'
+  field_body/target_revision_id:
+    -
+      plugin: migration_lookup
+      migration: body_to_paragraph
+      source: content_id
+      no_stub: true
+    -
+      plugin: extract
+      index:
+        - '1'
+  field_author:
+    plugin: entity_lookup
+    source: author_profile
+  field_news_location:
+    plugin: entity_lookup
+    source: news_location
+  field_news_type:
+    plugin: entity_lookup
+    source: news_type
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': path_alias
+  status:
+    plugin: default_value
+    default_value: 1
+  created:
+    plugin: date_string_to_timestamp
+    source: date_display
+  changed:
+    plugin: date_string_to_timestamp
+    source: date_modified
+
+destination:
+  plugin: 'entity:node'
+
+migration_dependencies:
+  optional:
+    - body_to_paragraph
