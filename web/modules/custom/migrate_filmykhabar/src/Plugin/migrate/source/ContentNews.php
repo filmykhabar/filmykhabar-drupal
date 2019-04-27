@@ -108,7 +108,7 @@ class ContentNews extends SqlBase {
     $row->setSourceProperty('image', $image);
 
     // Teaser image destination
-    $image_destination = 'public://' . date('Y-m', strtotime($row->getSourceProperty('date_display'))) . '/' . $content_id . '.' . $thumbnail_type;
+    $image_destination = 'public://images/' . date('Y-m', strtotime($row->getSourceProperty('date_display'))) . '/' . $content_id . '.' . $thumbnail_type;
     $row->setSourceProperty('image_destination', $image_destination);
 
     // Decoded title - for image alt/title
