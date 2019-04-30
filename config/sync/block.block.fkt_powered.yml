@@ -1,22 +1,22 @@
-uuid: c4660e4e-799f-4cc4-a4b8-c9f23b19acd0
+uuid: e34f178f-1baa-4818-ba9c-7fbc540395d4
 langcode: ne
 status: true
 dependencies:
   module:
     - system
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
-id: bartik_powered
-theme: bartik
-region: footer_fifth
+id: fkt_powered
+theme: fkt
+region: header
 weight: 10
 provider: null
 plugin: system_powered_by_block
 settings:
   id: system_powered_by_block
-  label: 'Powered by Drupal'
+  label: 'ड्रुपलबाट संचालित'
   provider: system
   label_display: '0'
 visibility: {  }

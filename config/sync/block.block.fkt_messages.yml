@@ -1,15 +1,15 @@
-uuid: 8dbd1d79-61a9-43c4-8bac-df432ac85a9a
+uuid: 9c0ec92f-cc46-4af5-9eb3-a13f5bfd7dab
 langcode: ne
 status: true
 dependencies:
   module:
     - system
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
-id: bartik_messages
-theme: bartik
+id: fkt_messages
+theme: fkt
 region: highlighted
 weight: 0
 provider: null

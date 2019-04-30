@@ -1,20 +1,20 @@
-uuid: 1bb0738c-7c7e-48e5-8eb3-aee177105549
+uuid: 4b2adcae-68f6-4fc1-b2d3-663be89b1086
 langcode: ne
 status: true
 dependencies:
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
-id: bartik_page_title
-theme: bartik
+id: fkt_page_title
+theme: fkt
 region: content
 weight: -50
 provider: null
 plugin: page_title_block
 settings:
   id: page_title_block
-  label: 'Page title'
+  label: 'पृष्ठको शीर्षक'
   provider: core
   label_display: '0'
 visibility: {  }

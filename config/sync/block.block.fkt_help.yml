@@ -1,22 +1,22 @@
-uuid: a925e870-273b-475d-99f0-747234a028d0
+uuid: a7e1df9b-0cb6-4ea8-b264-05f49c604e22
 langcode: ne
 status: true
 dependencies:
   module:
     - help
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
-id: bartik_help
-theme: bartik
+id: fkt_help
+theme: fkt
 region: content
 weight: -30
 provider: null
 plugin: help_block
 settings:
   id: help_block
-  label: Help
+  label: सहयोग
   provider: help
   label_display: '0'
 visibility: {  }

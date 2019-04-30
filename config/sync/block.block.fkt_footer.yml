@@ -1,4 +1,4 @@
-uuid: 7a170573-b77d-439d-8143-49b4cfbff6ef
+uuid: 20aec29c-a4d7-4b79-9e07-bed9f5fc7c14
 langcode: ne
 status: true
 dependencies:
@@ -7,12 +7,12 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
-id: bartik_footer
-theme: bartik
-region: footer_fifth
+id: fkt_footer
+theme: fkt
+region: header
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'

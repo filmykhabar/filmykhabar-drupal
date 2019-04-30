@@ -1,13 +1,13 @@
-uuid: 21a4c8f3-1d82-4acb-9b72-ed49a4bf8593
+uuid: 152a683e-817d-4bef-9830-a06063fc3ddf
 langcode: ne
 status: true
 dependencies:
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
-id: bartik_local_tasks
-theme: bartik
+id: fkt_local_tasks
+theme: fkt
 region: content
 weight: -40
 provider: null

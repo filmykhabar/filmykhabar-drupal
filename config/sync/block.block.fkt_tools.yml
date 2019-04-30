@@ -1,4 +1,4 @@
-uuid: ea79d44d-cb96-4abd-a1b3-7fc6453a5c1c
+uuid: e52f080d-8d66-45f7-b119-f9f5d2b5495d
 langcode: ne
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: NeHSoqm4XFqA7_0bDmR429ZZQt3LRbZMNRJTMsFyOfI
-id: bartik_tools
-theme: bartik
+id: fkt_tools
+theme: fkt
 region: sidebar_first
 weight: 0
 provider: null

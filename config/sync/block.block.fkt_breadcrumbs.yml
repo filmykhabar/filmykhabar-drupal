@@ -1,15 +1,15 @@
-uuid: 806a8a92-4dea-4730-a8da-60c0b0208049
+uuid: 6a3c0c39-417d-4f5d-bfd0-2a61115c0943
 langcode: ne
 status: true
 dependencies:
   module:
     - system
   theme:
-    - bartik
+    - fkt
 _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
-id: bartik_breadcrumbs
-theme: bartik
+id: fkt_breadcrumbs
+theme: fkt
 region: breadcrumb
 weight: 0
 provider: null
