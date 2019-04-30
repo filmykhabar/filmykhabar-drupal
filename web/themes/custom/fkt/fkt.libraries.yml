@@ -1,0 +1,27 @@
+global-styling:
+  version: 1.x
+  css:
+    base:
+      css/base/reset.css: {}
+      css/base/elements.css: {}
+      css/base/typography.css: {}
+      css/base/print.css: { media: print }
+    layout:
+      css/layout/layout.css: {}
+    component:
+      css/component/header.css: {}
+      css/component/menu.css: {}
+      css/component/breadcrumb.css: {}
+      css/component/messages.css: {}
+      css/component/content.css: {}
+      css/component/field.css: {}
+      css/component/footer.css: {}
+    theme:
+      css/theme/theme--light.css: {}
+      css/theme/theme--dark.css: {}
+
+google-fonts:
+  version: 1.x
+  css:
+    theme:
+      '//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800&subset=devanagari': { type: external, minified: true }

@@ -1,0 +1,88 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 22px;
+}
+
+html:lang(ne) {
+  font-family: 'Mukta', sans-serif;
+  font-weight: 400;
+}
+
+html:lang(en) {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  font-size: 2.50rem;
+  line-height: 2.33rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.50rem;
+  line-height: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+p {
+  line-height: 2rem;
+  margin-bottom: 1.50rem;
+}
+
+ul {
+}
+
+ol {
+}
+
+li {
+}
+
+span {
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}

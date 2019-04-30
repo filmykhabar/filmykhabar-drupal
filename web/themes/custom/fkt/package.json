@@ -1,0 +1,19 @@
+{
+  "name": "fkt",
+  "version": "1.0.0",
+  "description": "FilmyKhabar Theme.",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "node-sass": "^4.9.0",
+    "susy": "^3.0.5"
+  }
+}

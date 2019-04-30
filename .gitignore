@@ -25,3 +25,6 @@
 
 # Ignore operating system generated files.
 .DS_Store
+
+# Ignore other files and folders.
+node_modules

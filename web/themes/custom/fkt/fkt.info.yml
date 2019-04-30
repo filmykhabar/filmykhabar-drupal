@@ -1,0 +1,25 @@
+name: FilmyKhabar
+type: theme
+description: 'A custom Drupal 8 theme for <a href="https://www.filmykhabar.com">filmykhabar.com</a>.'
+package: Other
+core: 8.x
+
+libraries:
+  - fkt/global-styling
+  - fkt/google-fonts
+
+base theme: classy
+
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
