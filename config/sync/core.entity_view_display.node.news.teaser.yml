@@ -42,6 +42,10 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
 id: node.news.teaser
 targetEntityType: node
 bundle: news
