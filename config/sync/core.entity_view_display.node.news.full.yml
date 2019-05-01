@@ -1,8 +1,9 @@
-uuid: 62c32d2b-fb6d-48b3-ab50-dafa6c6a5563
+uuid: 537b30a7-6968-4cbe-99e9-38ee58e0f49f
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.news.field_author
     - field.field.node.news.field_body
     - field.field.node.news.field_image
@@ -15,7 +16,6 @@ dependencies:
     - ds
     - entity_reference_revisions
     - image
-    - text
     - user
 third_party_settings:
   ds:
@@ -27,9 +27,6 @@ third_party_settings:
       settings: {  }
     regions:
       content:
-        - langcode
-        - field_teaser_body
-        - links
         - field_author
         - field_news_location
         - node_post_date
@@ -40,16 +37,16 @@ third_party_settings:
     fields:
       node_post_date:
         plugin_id: node_post_date
-        weight: 5
+        weight: 2
         label: hidden
         formatter: ds_post_date_long
-id: node.news.default
+id: node.news.full
 targetEntityType: node
 bundle: news
-mode: default
+mode: full
 content:
   field_author:
-    weight: 3
+    weight: 0
     label: hidden
     settings:
       link: true
@@ -58,7 +55,7 @@ content:
     region: content
   field_body:
     type: entity_reference_revisions_entity_view
-    weight: 7
+    weight: 4
     label: hidden
     settings:
       view_mode: default
@@ -66,7 +63,7 @@ content:
     third_party_settings: {  }
     region: content
   field_image:
-    weight: 6
+    weight: 3
     label: hidden
     settings:
       image_style: ''
@@ -75,7 +72,7 @@ content:
     type: image
     region: content
   field_news_location:
-    weight: 4
+    weight: 1
     label: hidden
     settings:
       link: true
@@ -83,7 +80,7 @@ content:
     type: entity_reference_label
     region: content
   field_news_type:
-    weight: 8
+    weight: 5
     label: hidden
     settings:
       link: true
@@ -91,32 +88,14 @@ content:
     type: entity_reference_label
     region: content
   field_tags:
-    weight: 9
+    weight: 6
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_teaser_body:
-    type: text_default
-    weight: 1
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  langcode:
-    type: language
-    weight: 0
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-      native_language: false
-    third_party_settings: {  }
-  links:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_teaser_body: true
+  langcode: true
+  links: true
