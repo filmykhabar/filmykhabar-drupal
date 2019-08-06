@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.profile.body
+    - field.field.node.profile.field_first_name
+    - field.field.node.profile.field_image
+    - field.field.node.profile.field_last_name
     - node.type.profile
   module:
     - text

@@ -3,7 +3,6 @@ langcode: ne
 status: true
 dependencies:
   module:
-    - content_moderation
     - node
     - user
 _core:
@@ -41,9 +40,9 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: फिल्टर
           reset_button: true
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -134,7 +133,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Title
+          label: शीर्षक
           exclude: false
           alter:
             alter_text: false
@@ -264,7 +263,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
-          label: Author
+          label: लेखक
           exclude: false
           alter:
             alter_text: false
@@ -459,7 +458,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: सञ्चालनहरू
           exclude: false
           alter:
             alter_text: false
@@ -504,10 +503,11 @@ display:
           entity_type: node
           plugin_id: entity_operations
       filters:
-        latest_revision:
-          id: latest_revision
+        latest_translation_affected_revision:
+          id: latest_translation_affected_revision
+          field: latest_translation_affected_revision
+          plugin_id: latest_translation_affected_revision
           table: node_revision
-          field: latest_revision
           relationship: none
           group_type: group
           admin_label: ''
@@ -540,7 +540,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          plugin_id: latest_revision
         title:
           id: title
           table: node_field_revision
@@ -554,7 +553,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: Title
+            label: शीर्षक
             description: ''
             use_operator: false
             operator: title_op
@@ -677,7 +676,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: भाषा
             description: ''
             use_operator: false
             operator: langcode_op
@@ -798,8 +797,7 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:workflow_list'
+      tags: {  }
   moderated_content:
     display_plugin: page
     id: moderated_content
@@ -818,5 +816,4 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:workflow_list'
+      tags: {  }

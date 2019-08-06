@@ -22,7 +22,7 @@ type_settings:
       default_revision: false
       weight: -5
     published:
-      label: Published
+      label: प्रकाशित
       published: true
       default_revision: true
       weight: 0
@@ -60,3 +60,4 @@ type_settings:
         - draft
         - published
   entity_types: {  }
+  default_moderation_state: draft

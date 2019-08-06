@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'News Type'
 vid: news_type
 description: ''
-hierarchy: 0
 weight: 0
