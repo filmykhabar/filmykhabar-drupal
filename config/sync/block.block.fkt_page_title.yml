@@ -2,6 +2,8 @@ uuid: 4b2adcae-68f6-4fc1-b2d3-663be89b1086
 langcode: ne
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - fkt
 _core:
@@ -17,4 +19,9 @@ settings:
   label: 'पृष्ठको शीर्षक'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }
