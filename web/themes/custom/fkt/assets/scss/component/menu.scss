@@ -7,9 +7,35 @@ ul {
 
 .menu--main {
   .menu {
+    font-size: 0;
+
     .menu-item {
       display: inline-block;
-      padding: 0;
+      // padding: 0;
+      // margin: 0;
+    }
+
+    a {
+      font-size: 22px;
+      color: #fff;
+      text-decoration: none;
+      line-height: 50px;
+      display: inline-block;
+      padding: 0 15px;
+
+      &.is-active {
+        background-color: #B70118;
+        color: #fff;
+      }
+
+      &:hover {
+        background-color: #B70118;
+      }
     }
   }
+}
+
+.region-primary-menu {
+  background-color: #D0021B;
+  // height: 50px;
 }

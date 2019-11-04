@@ -1,1 +1,1 @@
-ul.menu{margin:0;padding:0}.menu--main .menu .menu-item{display:inline-block;padding:0}
+ul.menu{margin:0;padding:0}.menu--main .menu{font-size:0}.menu--main .menu .menu-item{display:inline-block}.menu--main .menu a{font-size:22px;color:#fff;text-decoration:none;line-height:50px;display:inline-block;padding:0 15px}.menu--main .menu a.is-active{background-color:#B70118;color:#fff}.menu--main .menu a:hover{background-color:#B70118}.region-primary-menu{background-color:#D0021B}
