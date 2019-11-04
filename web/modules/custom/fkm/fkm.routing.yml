@@ -1,0 +1,7 @@
+fkm.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\fkm\Controller\DefaultController::home'
+    _title: 'Home'
+  requirements:
+    _permission: 'access content'
