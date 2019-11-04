@@ -1,0 +1,25 @@
+uuid: 1083526c-7fbe-4a83-87b1-18b316442274
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4ac8e2dd-b6d7-4f62-a956-8b41c05846d9'
+  module:
+    - block_content
+  theme:
+    - fkt
+id: copyright
+theme: fkt
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'block_content:4ac8e2dd-b6d7-4f62-a956-8b41c05846d9'
+settings:
+  id: 'block_content:4ac8e2dd-b6d7-4f62-a956-8b41c05846d9'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
