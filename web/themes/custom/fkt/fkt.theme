@@ -4,3 +4,10 @@
  * @file
  * Functions to support theming in the fkt theme.
  */
+
+function fkt_preprocess_html(&$variables) {
+}
+
+function fkt_preprocess_page(&$variables) {
+  // kint($variables);
+}
