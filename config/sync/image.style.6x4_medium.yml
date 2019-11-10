@@ -1,0 +1,15 @@
+uuid: 356745fd-1cf9-48b0-b8a0-92ec9c46c600
+langcode: en
+status: true
+dependencies: {  }
+name: 6x4_medium
+label: '6x4 Medium (768x512)'
+effects:
+  56c5679d-2058-4522-9fb7-aecfed7c2c7f:
+    uuid: 56c5679d-2058-4522-9fb7-aecfed7c2c7f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 512
+      anchor: center-center

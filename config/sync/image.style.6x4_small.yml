@@ -1,0 +1,15 @@
+uuid: 09dde242-2c6b-4c1f-856a-c8aba425a808
+langcode: en
+status: true
+dependencies: {  }
+name: 6x4_small
+label: '6x4 Small (480×320)'
+effects:
+  fd0bf9b3-1205-427e-9b8d-6aa2f7c6fa63:
+    uuid: fd0bf9b3-1205-427e-9b8d-6aa2f7c6fa63
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 320
+      anchor: center-center

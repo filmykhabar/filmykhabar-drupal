@@ -1,0 +1,30 @@
+uuid: 6471fa5a-8301-4765-8021-25be7f693af4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.homepage_featured_content
+  module:
+    - system
+    - views
+  theme:
+    - fkt
+id: views_block__homepage_featured_content
+theme: fkt
+region: highlighted
+weight: 0
+provider: null
+plugin: 'views_block:homepage_featured_content-block_homepage_featured_content'
+settings:
+  id: 'views_block:homepage_featured_content-block_homepage_featured_content'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,15 @@
+uuid: 4df4f726-c1dd-420c-b617-9aa60a782b04
+langcode: en
+status: true
+dependencies: {  }
+name: 16x9_small
+label: '16x9 Small (480×270)'
+effects:
+  81a216ce-71cb-4610-80d5-0dd8e1203d81:
+    uuid: 81a216ce-71cb-4610-80d5-0dd8e1203d81
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 270
+      anchor: center-center

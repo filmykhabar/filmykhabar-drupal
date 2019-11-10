@@ -1,0 +1,29 @@
+uuid: 419e977b-82fd-4509-815b-e24de31a3ffc
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.6x4_large
+    - image.style.6x4_medium
+  theme:
+    - fkt
+id: homepage_featured_content_primary
+label: 'Homepage: Featured Content: Primary'
+image_style_mappings:
+  -
+    breakpoint_id: fkt.medium
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 6x4_large
+  -
+    breakpoint_id: fkt.small
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 6x4_large
+  -
+    breakpoint_id: fkt.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 6x4_medium
+breakpoint_group: fkt
+fallback_image_style: 6x4_large

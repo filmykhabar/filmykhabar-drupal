@@ -1,0 +1,32 @@
+// Desktop
+@media all and (min-width: 768px) {
+  .view-display-id-block_homepage_featured_content {
+    max-width: $desktop-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0;
+
+    > .view-content {
+      width: span(6 of 12);
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    > .attachment {
+      width: span(6 of 12);
+      display: inline-block;
+      margin-left: gutter();
+      font-size: 1rem;
+    }
+  }
+
+  .view-display-id-attachment_homepage_featured_content {
+    margin-top: 0;
+
+    > .view-content {
+      .views-row {
+        width: span(3 of 6);
+      }
+    }
+  }
+}
