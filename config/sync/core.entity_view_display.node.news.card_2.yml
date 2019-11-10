@@ -15,6 +15,7 @@ dependencies:
     - responsive_image.styles.homepage_featured_content_secondary
   module:
     - ds
+    - field_group
     - layout_builder
     - responsive_image
     - user
@@ -28,19 +29,21 @@ third_party_settings:
       settings: {  }
     regions:
       content:
+        - group_image_with_tag
         - field_image
         - node_title
+        - field_tags
         - field_author
         - node_post_date
     fields:
       node_post_date:
         plugin_id: node_post_date
-        weight: 3
+        weight: 4
         label: hidden
         formatter: ds_post_date_short
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 2
         label: hidden
         formatter: default
         settings:
@@ -50,6 +53,26 @@ third_party_settings:
   layout_builder:
     allow_custom: false
     enabled: false
+  field_group:
+    group_image_with_tag:
+      children:
+        - field_image
+        - field_tags
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: image-with-tag
+      label: 'Image with tag'
+      region: content
 id: node.news.card_2
 targetEntityType: node
 bundle: news
@@ -57,7 +80,7 @@ mode: card_2
 content:
   field_author:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
@@ -66,7 +89,7 @@ content:
       ds:
         ds_limit: ''
   field_image:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       responsive_image_style: homepage_featured_content_secondary
@@ -74,11 +97,20 @@ content:
     third_party_settings: {  }
     type: responsive_image
     region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings:
+      ds:
+        ds_limit: '1'
 hidden:
   field_body: true
   field_news_location: true
   field_news_type: true
-  field_tags: true
   field_teaser_body: true
   langcode: true
   links: true

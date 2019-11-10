@@ -22,6 +22,21 @@
       background-image: linear-gradient(to top,rgba(0, 0, 0, 1), rgba(255, 255, 255, 0));
       color: #fff;
     }
+
+    .field--name-field-tags {
+      margin-bottom: 5px;
+
+      a {
+        display: inline-block;
+        background-color: #B70118;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
   }
 
   > .attachment {
@@ -59,6 +74,27 @@
   font-size: 0;
 
   > .view-content {
+    .image-with-tag {
+      position: relative;
+    }
+
+    .field--name-field-tags {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      a {
+        display: inline-block;
+        background-color: #B70118;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+
     .field--name-node-title {
       font-size: 1rem;
       font-weight: 600;
