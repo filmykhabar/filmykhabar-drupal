@@ -1,0 +1,13 @@
+.layout-no-sidebars {
+  main {
+    .layout-content {
+      width: span(12 of 12);
+      margin-left: 0;
+    }
+
+    .layout-sidebar-first,
+    .layout-sidebar-second {
+      width: 0;
+    }
+  }
+}

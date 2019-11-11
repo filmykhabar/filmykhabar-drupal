@@ -29,4 +29,28 @@
       }
     }
   }
+
+  main {
+    .layout-content {
+      width: span(6 of 12);
+      float: left;
+      margin-left: span(3 wide);
+    }
+
+    .layout-sidebar-first {
+      width: span(3 of 12);
+      float: left;
+      margin-left: 0 - span(9 narrow);
+    }
+
+    .layout-sidebar-second {
+      width: span(3 of 12);
+      float: left;
+      margin-left: gutter();
+    }
+  }
+
+  @import "layout-sidebar-first";
+  @import "layout-sidebar-second";
+  @import "layout-no-sidebars";
 }

@@ -6,6 +6,11 @@ global-styling:
       css/base/elements.css: {}
       css/base/typography.css: {}
       css/base/print.css: { media: print }
+      css/base/font-awesome/regular.css: {}
+      css/base/font-awesome/solid.css: {}
+      css/base/font-awesome/brands.css: {}
+      css/base/font-awesome/v4-shims.css: {}
+      css/base/font-awesome/fontawesome.css: {}
     layout:
       css/layout/layout.css: {}
     component:

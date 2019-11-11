@@ -1,0 +1,12 @@
+.layout-sidebar-second {
+  main {
+    .layout-content {
+      width: span(9 of 12);
+      margin-left: 0;
+    }
+
+    .layout-sidebar-first {
+      width: 0;
+    }
+  }
+}

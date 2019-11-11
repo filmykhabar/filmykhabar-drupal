@@ -33,12 +33,13 @@ third_party_settings:
         - field_tags
         - group_description
         - node_title
+        - group_author_and_published_date
         - field_author
         - node_post_date
     fields:
       node_post_date:
         plugin_id: node_post_date
-        weight: 3
+        weight: 4
         label: hidden
         formatter: ds_post_date_short
       node_title:
@@ -58,8 +59,7 @@ third_party_settings:
       children:
         - field_tags
         - node_title
-        - field_author
-        - node_post_date
+        - group_author_and_published_date
       parent_name: ''
       weight: 1
       format_type: html_element
@@ -75,6 +75,25 @@ third_party_settings:
         speed: fast
       label: Description
       region: content
+    group_author_and_published_date:
+      children:
+        - field_author
+        - node_post_date
+      parent_name: group_description
+      weight: 2
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: author-and-published-date
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Author and Published date'
+      region: content
 id: node.news.card_1
 targetEntityType: node
 bundle: news
@@ -82,7 +101,7 @@ mode: card_1
 content:
   field_author:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
@@ -110,6 +129,7 @@ content:
       ds:
         ds_limit: '1'
 hidden:
+  addtoany: true
   field_body: true
   field_news_location: true
   field_news_type: true

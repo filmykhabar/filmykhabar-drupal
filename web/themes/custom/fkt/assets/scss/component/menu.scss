@@ -39,3 +39,43 @@ ul {
   background-color: #D0021B;
   // height: 50px;
 }
+
+ul {
+  &.tabs {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.25rem;
+
+    &::after {
+      clear: both;
+      content: ' ';
+      display: block;
+    }
+
+    li {
+      margin: 0 0 0.50rem 0;
+      padding-right: 0.50rem;
+      // border-bottom: 1px solid #eee;
+      float: left;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    a {
+      padding: 0.25rem 0.5rem;
+      background-color: #eee;
+      // border-radius: 10px 10px 0 0;
+
+      &.is-active {
+        background-color: #444;
+        color: #eee;
+      }
+
+      &:hover {
+        background-color: #444;
+        color: #eee;
+      }
+    }
+  }
+}

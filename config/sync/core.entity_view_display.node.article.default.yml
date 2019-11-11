@@ -22,6 +22,11 @@ targetEntityType: node
 bundle: article
 mode: default
 content:
+  addtoany:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   body:
     type: text_default
     weight: 0
@@ -62,3 +67,4 @@ content:
     third_party_settings: {  }
 hidden:
   langcode: true
+  search_api_excerpt: true

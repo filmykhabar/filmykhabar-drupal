@@ -1,0 +1,15 @@
+.layout-sidebar-first {
+  main {
+    .layout-content {
+      width: span(9 of 12);
+    }
+
+    .layout-sidebar-first {
+      margin-left: 0 - span(12 narrow);
+    }
+
+    .layout-sidebar-second {
+      width: 0;
+    }
+  }
+}

@@ -176,6 +176,29 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  block_latest_news:
+    display_plugin: block
+    id: block_latest_news
+    display_title: Block
+    position: 2
+    display_options:
+      display_extenders: {  }
+      block_description: 'Latest News'
+      pager:
+        type: some
+        options:
+          items_per_page: 5
+          offset: 0
+      defaults:
+        pager: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1

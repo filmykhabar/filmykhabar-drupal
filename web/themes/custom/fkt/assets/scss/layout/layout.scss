@@ -2,9 +2,10 @@
 
 $desktop-max-width: 1200px;
 
-header,
+.region-header,
 main,
-.region-primary-menu,
+.menu--main,
+.region-breadcrumb,
 .region-highlighted,
 .region-footer,
 .region-footer-bottom {
@@ -22,7 +23,16 @@ main,
   margin-right: auto;
 }
 
+.region-breadcrumb {
+  max-width: $desktop-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .region-highlighted {
+  max-width: $desktop-max-width;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 50px;
 }
 
@@ -41,11 +51,31 @@ main,
   }
 }
 
-.layout-content {
+// .layout-content {
+//   // background: susy-svg-grid() no-repeat scroll;
+//   max-width: $desktop-max-width;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+main {
   // background: susy-svg-grid() no-repeat scroll;
   max-width: $desktop-max-width;
   margin-left: auto;
   margin-right: auto;
+
+  .layout-content,
+  .layout-sidebar-first,
+  .layout-sidebar-second {
+    width: span(12);
+    display: block;
+  }
+
+  &::after {
+    clear: both;
+    content: ' ';
+    display: block;
+  }
 }
 
 .region-footer,

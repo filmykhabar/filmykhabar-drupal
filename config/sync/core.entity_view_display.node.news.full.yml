@@ -12,10 +12,12 @@ dependencies:
     - field.field.node.news.field_tags
     - field.field.node.news.field_teaser_body
     - node.type.news
+    - responsive_image.styles.homepage_featured_content_primary
   module:
     - ds
     - entity_reference_revisions
-    - image
+    - field_group
+    - responsive_image
     - user
 third_party_settings:
   ds:
@@ -27,26 +29,53 @@ third_party_settings:
       settings: {  }
     regions:
       content:
+        - group_author_and_published_date
+        - group_author_date_and_addtoany
         - field_author
-        - field_news_location
         - node_post_date
+        - addtoany
         - field_image
         - field_body
-        - field_news_type
         - field_tags
     fields:
       node_post_date:
         plugin_id: node_post_date
-        weight: 2
+        weight: 3
         label: hidden
         formatter: ds_post_date_long
+  field_group:
+    group_author_date_and_addtoany:
+      children:
+        - field_author
+        - node_post_date
+        - addtoany
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: author-published-date-and-addtoany
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Author, Date and AddToAny'
+      region: content
 id: node.news.full
 targetEntityType: node
 bundle: news
 mode: full
 content:
+  addtoany:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_author:
-    weight: 0
+    weight: 2
     label: hidden
     settings:
       link: true
@@ -55,7 +84,7 @@ content:
     region: content
   field_body:
     type: entity_reference_revisions_entity_view
-    weight: 4
+    weight: 6
     label: hidden
     settings:
       view_mode: default
@@ -63,32 +92,16 @@ content:
     third_party_settings: {  }
     region: content
   field_image:
-    weight: 3
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_news_location:
-    weight: 1
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_news_type:
     weight: 5
     label: hidden
     settings:
-      link: true
+      responsive_image_style: homepage_featured_content_primary
+      image_link: ''
     third_party_settings: {  }
-    type: entity_reference_label
+    type: responsive_image
     region: content
   field_tags:
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       link: true
@@ -96,6 +109,8 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_news_location: true
+  field_news_type: true
   field_teaser_body: true
   langcode: true
   links: true

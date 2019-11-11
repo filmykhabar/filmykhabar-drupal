@@ -1,0 +1,122 @@
+.path-node {
+  main {
+    padding-bottom: 1rem;
+  }
+
+  .page-title {
+    padding-bottom: 0.75rem;
+  }
+
+  .author-published-date-and-addtoany {
+    padding-bottom: 0.5rem;
+
+    > div {
+      float: left;
+      padding-right: 1rem;
+      line-height: 32px;
+    }
+
+    &::after {
+      clear: both;
+      content: ' ';
+      display: block;
+    }
+
+    .field--name-field-author {
+      > .field__item {
+        &::before {
+          font-family: "Font Awesome 5 Solid";
+          content: '\f11c';
+          padding-right: 0.25rem;
+        }
+      }
+    }
+
+    .field--name-node-post-date {
+      &::before {
+        font-family: "Font Awesome 5 Solid";
+        content: '\f073';
+        padding-right: 0.25rem;
+      }
+    }
+
+    .addtoany_list {
+      float: right;
+
+      > a {
+        padding: 0 0.25rem 0 0;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .field--name-field-body {
+    padding-top: 1.5rem;
+  }
+
+  .field--name-field-tags {
+    padding-bottom: 1rem;
+
+    .field__item {
+      display: inline-block;
+      padding-right: 0.5rem;
+
+      &::before {
+        font-family: "Font Awesome 5 Solid";
+        content: '\f02b';
+        padding-right: 0.25rem;
+      }
+    }
+  }
+
+  .paragraph--type--text {
+    a {
+      color: #4A90E2;
+      text-decoration: none;
+      line-height: 1.25rem;
+      display: inline-block;
+
+      &:hover {
+        border-bottom: 2px solid #4A90E2;
+      }
+    }
+  }
+
+  .paragraph--type--image {
+    margin-bottom: 1rem;
+  }
+
+  .paragraph--type--blockquote {
+    border-left: 3px solid #B70118;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+
+    * {
+      font-style: italic;
+      color: #888;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: #4A90E2;
+      text-decoration: none;
+      line-height: 1.25rem;
+      display: inline-block;
+
+      &:hover {
+        border-bottom: 2px solid #4A90E2;
+      }
+    }
+
+    p {
+      line-height: 2rem;
+    }
+  }
+}
