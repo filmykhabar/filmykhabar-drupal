@@ -53,4 +53,17 @@
   @import "layout-sidebar-first";
   @import "layout-sidebar-second";
   @import "layout-no-sidebars";
+
+  .view-display-id-page_news {
+    .field--name-field-image {
+      width: span(3 of 9);
+      float: left;
+    }
+
+    .news-teaser-description {
+      width: span(6 of 9);
+      float: left;
+      padding-left: gutter();
+    }
+  }
 }

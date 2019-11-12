@@ -12,8 +12,10 @@ dependencies:
     - field.field.node.news.field_tags
     - field.field.node.news.field_teaser_body
     - node.type.news
+    - responsive_image.styles.homepage_featured_content_secondary
   module:
     - ds
+    - field_group
     - responsive_image
     - text
     - user
@@ -27,25 +29,47 @@ third_party_settings:
       settings: {  }
     regions:
       content:
+        - field_image
+        - group_description
         - node_title
         - node_post_date
-        - field_image
         - field_teaser_body
     fields:
       node_post_date:
         plugin_id: node_post_date
-        weight: 1
+        weight: 3
         label: hidden
         formatter: ds_post_date_long
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 2
         label: hidden
         formatter: default
         settings:
           link: true
           wrapper: h3
           class: ''
+  field_group:
+    group_description:
+      children:
+        - node_title
+        - node_post_date
+        - field_teaser_body
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: news-teaser-description
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Description
+      region: content
 id: node.news.teaser
 targetEntityType: node
 bundle: news
@@ -53,21 +77,22 @@ mode: teaser
 content:
   field_image:
     type: responsive_image
-    weight: 2
+    weight: 0
     region: content
     label: hidden
     settings:
-      responsive_image_style: ''
-      image_link: ''
+      responsive_image_style: homepage_featured_content_secondary
+      image_link: content
     third_party_settings: {  }
   field_teaser_body:
     type: text_default
-    weight: 3
+    weight: 4
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
+  addtoany: true
   field_author: true
   field_body: true
   field_location: true
@@ -76,3 +101,4 @@ hidden:
   field_tags: true
   langcode: true
   links: true
+  search_api_excerpt: true

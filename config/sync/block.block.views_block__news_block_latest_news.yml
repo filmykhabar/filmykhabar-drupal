@@ -12,7 +12,7 @@ dependencies:
 id: views_block__news_block_latest_news
 theme: fkt
 region: sidebar_second
-weight: 0
+weight: -4
 provider: null
 plugin: 'views_block:news-block_latest_news'
 settings:
