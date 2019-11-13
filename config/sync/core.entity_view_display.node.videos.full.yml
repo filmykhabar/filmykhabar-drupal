@@ -1,19 +1,21 @@
-uuid: 2a0d159f-6d40-44c2-bf9c-09d17ab341da
+uuid: 08ae71f1-7ca3-40aa-8053-f52039edcb96
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.full
     - field.field.node.videos.field_body
     - field.field.node.videos.field_media_remote_video
-    - image.style.16x9_medium
     - node.type.videos
   module:
     - ds
-    - media
-    - paragraphs
+    - entity_reference_revisions
+    - layout_builder
     - user
 third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
   ds:
     layout:
       id: layout_onecol
@@ -24,27 +26,36 @@ third_party_settings:
     regions:
       content:
         - field_media_remote_video
+        - node_post_date
         - field_body
-id: node.videos.teaser
+    fields:
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 1
+        label: hidden
+        formatter: ds_post_date_long
+id: node.videos.full
 targetEntityType: node
 bundle: videos
-mode: teaser
+mode: full
 content:
   field_body:
-    type: paragraph_summary
-    weight: 1
+    type: entity_reference_revisions_entity_view
+    weight: 2
     region: content
     label: hidden
-    settings: {  }
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
   field_media_remote_video:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
-      image_style: 16x9_medium
-      image_link: content
+      view_mode: default
+      link: false
     third_party_settings: {  }
 hidden:
   addtoany: true

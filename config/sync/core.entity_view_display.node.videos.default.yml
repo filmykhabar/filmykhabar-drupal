@@ -3,27 +3,20 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.videos.body
+    - field.field.node.videos.field_body
+    - field.field.node.videos.field_media_remote_video
     - node.type.videos
   module:
-    - text
     - user
 id: node.videos.default
 targetEntityType: node
 bundle: videos
 mode: default
-content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
+content: {  }
 hidden:
+  addtoany: true
+  field_body: true
+  field_media_remote_video: true
   langcode: true
+  links: true
+  search_api_excerpt: true

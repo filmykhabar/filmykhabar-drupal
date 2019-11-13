@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.news.field_author
     - field.field.node.news.field_body
     - field.field.node.news.field_image
+    - field.field.node.news.field_media_image
     - field.field.node.news.field_news_location
     - field.field.node.news.field_news_type
     - field.field.node.news.field_tags
@@ -29,14 +30,15 @@ third_party_settings:
       settings: {  }
     regions:
       content:
-        - group_author_and_published_date
         - group_author_date_and_addtoany
-        - field_author
-        - node_post_date
-        - addtoany
         - field_image
+        - field_author
+        - field_media_image
+        - node_post_date
         - field_body
+        - addtoany
         - field_tags
+        - langcode
     fields:
       node_post_date:
         plugin_id: node_post_date
@@ -50,7 +52,7 @@ third_party_settings:
         - node_post_date
         - addtoany
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: html_element
       format_settings:
         id: ''
@@ -84,7 +86,7 @@ content:
     region: content
   field_body:
     type: entity_reference_revisions_entity_view
-    weight: 6
+    weight: 3
     label: hidden
     settings:
       view_mode: default
@@ -92,7 +94,7 @@ content:
     third_party_settings: {  }
     region: content
   field_image:
-    weight: 5
+    weight: 1
     label: hidden
     settings:
       responsive_image_style: homepage_featured_content_primary
@@ -100,18 +102,35 @@ content:
     third_party_settings: {  }
     type: responsive_image
     region: content
+  field_media_image:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
   field_tags:
-    weight: 7
+    weight: 4
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  langcode:
+    type: language
+    weight: 5
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
 hidden:
   field_news_location: true
   field_news_type: true
   field_teaser_body: true
-  langcode: true
   links: true
   search_api_excerpt: true
