@@ -1,16 +1,18 @@
-uuid: 08ae71f1-7ca3-40aa-8053-f52039edcb96
+uuid: 3cba55fe-7e54-45da-a55f-c9c1e8955403
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.videos.field_body
-    - field.field.node.videos.field_media_remote_video
-    - node.type.videos
+    - field.field.node.photos.body
+    - field.field.node.photos.field_media_image
+    - field.field.node.photos.field_photo_gallery
+    - node.type.photos
   module:
     - ds
     - entity_reference_revisions
     - layout_builder
+    - text
     - user
 third_party_settings:
   layout_builder:
@@ -26,39 +28,38 @@ third_party_settings:
     regions:
       content:
         - node_post_date
-        - field_media_remote_video
-        - field_body
+        - body
+        - field_photo_gallery
     fields:
       node_post_date:
         plugin_id: node_post_date
         weight: 0
         label: hidden
         formatter: ds_post_date_long
-id: node.videos.full
+id: node.photos.full
 targetEntityType: node
-bundle: videos
+bundle: photos
 mode: full
 content:
-  field_body:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_photo_gallery:
     type: entity_reference_revisions_entity_view
     weight: 2
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  field_media_remote_video:
-    type: entity_reference_entity_view
-    weight: 1
     region: content
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
 hidden:
   addtoany: true
+  field_media_image: true
   langcode: true
   links: true
   search_api_excerpt: true

@@ -66,4 +66,28 @@
       padding-left: gutter();
     }
   }
+
+  .view-display-id-page_photos {
+    .views-row {
+      width: span(3 of 9);
+      float: left;
+      margin-right: gutter();
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .field--name-field-photo-gallery {
+    > .field__item {
+      width: span(3 of 9);
+      float: left;
+      margin-right: gutter();
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+      }
+    }
+  }
 }

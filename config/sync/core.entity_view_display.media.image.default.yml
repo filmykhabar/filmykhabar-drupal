@@ -3,10 +3,11 @@ langcode: ne
 status: true
 dependencies:
   config:
+    - field.field.media.image.field_caption
     - field.field.media.image.field_credit_copyright
     - field.field.media.image.field_media_image
     - media.type.image
-    - responsive_image.styles.homepage_featured_content_secondary
+    - responsive_image.styles.homepage_featured_content_primary
   module:
     - responsive_image
 _core:
@@ -16,9 +17,16 @@ targetEntityType: media
 bundle: image
 mode: default
 content:
+  field_caption:
+    weight: 3
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_credit_copyright:
     weight: 2
-    label: hidden
+    label: visually_hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -27,7 +35,7 @@ content:
   field_media_image:
     label: visually_hidden
     settings:
-      responsive_image_style: homepage_featured_content_secondary
+      responsive_image_style: homepage_featured_content_primary
       image_link: file
     third_party_settings: {  }
     type: responsive_image

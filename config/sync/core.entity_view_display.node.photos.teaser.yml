@@ -5,27 +5,58 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.photos.body
+    - field.field.node.photos.field_media_image
+    - field.field.node.photos.field_photo_gallery
     - node.type.photos
   module:
-    - text
+    - ds
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_media_image
+        - node_title
+        - node_post_date
+    fields:
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 2
+        label: hidden
+        formatter: ds_post_date_short
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: ''
+          class: ''
 id: node.photos.teaser
 targetEntityType: node
 bundle: photos
 mode: teaser
 content:
-  body:
+  field_media_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
     settings:
-      trim_length: 600
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
+  addtoany: true
+  body: true
+  field_photo_gallery: true
   langcode: true
+  links: true
+  search_api_excerpt: true

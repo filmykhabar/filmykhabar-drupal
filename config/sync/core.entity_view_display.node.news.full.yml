@@ -38,7 +38,6 @@ third_party_settings:
         - field_body
         - addtoany
         - field_tags
-        - langcode
     fields:
       node_post_date:
         plugin_id: node_post_date
@@ -119,18 +118,10 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  langcode:
-    type: language
-    weight: 5
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-      native_language: false
-    third_party_settings: {  }
 hidden:
   field_news_location: true
   field_news_type: true
   field_teaser_body: true
+  langcode: true
   links: true
   search_api_excerpt: true

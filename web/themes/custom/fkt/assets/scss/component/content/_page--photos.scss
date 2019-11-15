@@ -1,0 +1,35 @@
+.path-photos {
+  .page-title {
+    margin-bottom: 2rem;
+    border-bottom: 5px solid #444;
+  }
+
+  .view-display-id-page_photos {
+    .views-row {
+      border: 1px solid #eee;
+      padding: 5px;
+      margin-bottom: 1.5rem;
+
+      background-color: #444;
+      color: #eee;
+
+      a {
+        color: #eee;
+      }
+    }
+
+    .field--name-node-title {
+      margin-top: 5px;
+      font-weight: 600;
+      height: 3rem;
+    }
+
+    .field--name-field-credit-copyright {
+      display: none;
+    }
+
+    .field--name-field-caption {
+      display: none;
+    }
+  }
+}
