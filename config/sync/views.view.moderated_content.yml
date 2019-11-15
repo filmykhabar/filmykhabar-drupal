@@ -40,9 +40,9 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: फिल्टर
+          submit_button: Filter
           reset_button: true
-          reset_button_label: 'रिसेट गर्नुहोस्'
+          reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -133,7 +133,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: शीर्षक
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -263,7 +263,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
-          label: लेखक
+          label: Author
           exclude: false
           alter:
             alter_text: false
@@ -458,7 +458,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: सञ्चालनहरू
+          label: Operations
           exclude: false
           alter:
             alter_text: false
@@ -553,7 +553,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: शीर्षक
+            label: Title
             description: ''
             use_operator: false
             operator: title_op
@@ -676,7 +676,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: भाषा
+            label: Language
             description: ''
             use_operator: false
             operator: langcode_op
