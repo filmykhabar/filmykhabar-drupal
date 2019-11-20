@@ -1,0 +1,45 @@
+.webform-submission-contact-form {
+  label {
+    display: block;
+    margin-bottom: 5px;
+    // font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    padding: 5px 10px;
+    border: 2px solid #eee;
+    width: 100%;
+    color: #666;
+  }
+
+  textarea {
+    padding: 5px 10px;
+    border: 2px solid #eee;
+    width: 100%;
+    line-height: 1.5rem;
+    color: #666;
+  }
+
+  input[type="submit"] {
+    border: 0;
+    line-height: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #D0021B;
+    color :#fff;
+    font-weight: 600;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #B70118;
+    }
+  }
+}
+
+.path-webform {
+  .page-title {
+    margin-bottom: 2rem;
+    border-bottom: 5px solid #444;
+  }
+}
