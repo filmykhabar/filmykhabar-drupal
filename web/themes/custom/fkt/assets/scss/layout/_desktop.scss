@@ -54,6 +54,19 @@
   @import "layout-sidebar-second";
   @import "layout-no-sidebars";
 
+  .block-views-blocknews-block-latest-news {
+    .field--name-field-image {
+      width: span(2 of 9);
+      float: left;
+    }
+
+    .news-teaser-description {
+      width: span(7 of 9);
+      float: left;
+      padding-left: gutter();
+    }
+  }
+
   .view-display-id-page_news {
     .field--name-field-image {
       width: span(3 of 9);

@@ -13,3 +13,31 @@
 .block-fb-likebox {
   overflow: hidden;
 }
+
+.path-frontpage {
+  .block-views-blocknews-block-latest-news {
+    h2 {
+      margin-bottom: 1rem;
+      border-bottom: 5px solid #444;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .views-row {
+      margin-bottom: 1rem;
+
+      &::after {
+        clear: both;
+        content: ' ';
+        display: block;
+      }
+    }
+
+    .field--name-field-teaser-body {
+      display: none;
+    }
+  }
+}

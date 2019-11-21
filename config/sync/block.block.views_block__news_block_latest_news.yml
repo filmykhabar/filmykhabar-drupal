@@ -1,0 +1,30 @@
+uuid: d813b365-291e-4c42-a7da-3d4a9e9945de
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - system
+    - views
+  theme:
+    - fkt
+id: views_block__news_block_latest_news
+theme: fkt
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:news-block_latest_news'
+settings:
+  id: 'views_block:news-block_latest_news'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

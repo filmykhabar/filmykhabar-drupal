@@ -78,6 +78,7 @@ display:
       row:
         type: 'entity:node'
         options:
+          relationship: none
           view_mode: teaser
       fields:
         title:
@@ -183,7 +184,7 @@ display:
   block_latest_news:
     display_plugin: block
     id: block_latest_news
-    display_title: Block
+    display_title: 'Block: Latest News'
     position: 2
     display_options:
       display_extenders: {  }
@@ -195,6 +196,32 @@ display:
           offset: 0
       defaults:
         pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
+        title: false
+        style: false
+        row: false
+      display_description: ''
+      use_more: false
+      use_more_always: false
+      use_more_text: more
+      link_display: '0'
+      link_url: ''
+      title: 'ताजा समाचार'
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
     cache_metadata:
       max-age: -1
       contexts:
