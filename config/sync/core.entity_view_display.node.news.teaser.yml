@@ -96,6 +96,7 @@ hidden:
   field_author: true
   field_body: true
   field_location: true
+  field_media_image: true
   field_news_location: true
   field_news_type: true
   field_tags: true
