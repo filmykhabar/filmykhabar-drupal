@@ -19,7 +19,7 @@ use Drupal\migrate\Row;
  * @code
  * field_text:
  *   plugin: decode_content
- *   source: text
+ *   source: key-of-text-field
  * @endcode
  *
  */

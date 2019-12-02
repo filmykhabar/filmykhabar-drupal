@@ -15,21 +15,25 @@ process:
   # uid:
   #   plugin: default_value
   #   default_value: 4
-  field_image:
-    plugin: image_import
-    source: image
-    destination: image_destination
-    title: title_decoded
-    alt: title_decoded
-    skip_on_missing_source: TRUE
-    skip_on_error: TRUE
+  # field_image:
+  #   plugin: image_import
+  #   source: image
+  #   destination: image_destination
+  #   title: title_decoded
+  #   alt: title_decoded
+  #   skip_on_missing_source: TRUE
+  #   skip_on_error: TRUE
+  field_media_image:
+    plugin: migration_lookup
+    migration: content_news_media_image
+    source: content_id
   field_teaser_body:
     plugin: decode_content
     source: excerpt
   field_body/target_id:
     -
       plugin: migration_lookup
-      migration: body_to_paragraph
+      migration: content_news_body_to_paragraph
       source: content_id
       no_stub: true
     -
@@ -39,7 +43,7 @@ process:
   field_body/target_revision_id:
     -
       plugin: migration_lookup
-      migration: body_to_paragraph
+      migration: content_news_body_to_paragraph
       source: content_id
       no_stub: true
     -
@@ -74,4 +78,5 @@ destination:
 
 migration_dependencies:
   optional:
-    - body_to_paragraph
+    - content_news_body_to_paragraph
+    - content_news_media_image

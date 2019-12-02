@@ -1,5 +1,5 @@
-id: body_to_paragraph
-label: Migrate body to paragraph
+id: content_news_body_to_paragraph
+label: Migrate news body to paragraph entity
 
 source:
   plugin: content_news
