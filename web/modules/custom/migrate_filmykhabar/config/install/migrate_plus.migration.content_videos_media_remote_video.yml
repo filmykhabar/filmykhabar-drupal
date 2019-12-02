@@ -1,0 +1,17 @@
+id: content_videos_media_remote_video
+label: Migrate remote video url to media entity
+
+source:
+  plugin: content_videos
+
+process:
+  title:
+    plugin: decode_content
+    source: title
+  field_media_oembed_video: url
+
+destination:
+  plugin: 'entity:media'
+  default_bundle: remote_video
+
+migration_dependencies: {}
