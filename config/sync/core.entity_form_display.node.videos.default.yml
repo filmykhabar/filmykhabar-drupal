@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.videos.field_body
     - field.field.node.videos.field_media_remote_video
+    - field.field.node.videos.field_video_type
     - node.type.videos
   module:
     - paragraphs
@@ -33,13 +34,19 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_media_remote_video:
-    weight: 1
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_video_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   langcode:
     type: language_select

@@ -19,9 +19,9 @@ process:
   # uid:
   #   plugin: default_value
   #   default_value: 4
-  # field_video_type:
-  #   plugin: entity_lookup
-  #   source: video_type
+  field_video_type:
+    plugin: entity_lookup
+    source: video_type
   'path/pathauto':
     plugin: default_value
     default_value: 0

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.videos.field_body
     - field.field.node.videos.field_media_remote_video
+    - field.field.node.videos.field_video_type
     - node.type.videos
   module:
     - user
@@ -17,6 +18,7 @@ hidden:
   addtoany: true
   field_body: true
   field_media_remote_video: true
+  field_video_type: true
   langcode: true
   links: true
   search_api_excerpt: true
