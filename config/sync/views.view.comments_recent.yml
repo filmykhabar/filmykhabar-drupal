@@ -9,13 +9,12 @@ dependencies:
 _core:
   default_config_hash: HacS-nsDH7uyoKhQHNyV_MNRClmPVuhU_fWZgNuEyIs
 id: comments_recent
-label: 'Recent comments'
+label: 'हालको कमेन्टहरु'
 module: views
 description: 'Recent comments.'
 tag: default
 base_table: comment_field_data
 base_field: cid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -179,6 +178,8 @@ display:
           plugin_id: boolean
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
           entity_type: comment
           entity_field: status
@@ -191,6 +192,8 @@ display:
           plugin_id: boolean
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
           entity_type: node
           entity_field: status
@@ -221,7 +224,7 @@ display:
           plugin_id: field
           entity_type: comment
           entity_field: cid
-      title: 'Recent comments'
+      title: 'हालको कमेन्टहरु'
       empty:
         area_text_custom:
           id: area_text_custom
@@ -246,10 +249,10 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: ब्लक
     position: 1
     display_options:
-      block_description: 'Recent comments'
+      block_description: 'हालको कमेन्टहरु'
       block_category: 'Lists (Views)'
       allow:
         items_per_page: true

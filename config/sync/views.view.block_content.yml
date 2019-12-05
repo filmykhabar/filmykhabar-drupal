@@ -14,7 +14,6 @@ description: 'Find and manage custom blocks.'
 tag: default
 base_table: block_content_field_data
 base_field: id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -42,7 +41,7 @@ display:
         options:
           submit_button: Apply
           reset_button: false
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -122,7 +121,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Block description'
+          label: 'ब्लकको वर्णन गर्नुहोस्'
           exclude: false
           alter:
             alter_text: false
@@ -308,7 +307,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: सञ्चालनहरू
           exclude: false
           alter:
             alter_text: false
@@ -366,7 +365,7 @@ display:
           exposed: true
           expose:
             operator_id: info_op
-            label: 'Block description'
+            label: 'ब्लकको वर्णन गर्नुहोस्'
             description: ''
             use_operator: false
             operator: info_op
@@ -378,6 +377,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -419,6 +420,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -457,6 +460,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -514,7 +519,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: पृष्ठ
     position: 1
     display_options:
       display_extenders: {  }

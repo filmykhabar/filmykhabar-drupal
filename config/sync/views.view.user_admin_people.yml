@@ -7,13 +7,12 @@ dependencies:
 _core:
   default_config_hash: wTJRNzsLVTenCALONNlVfgm_pBOlqucSPuVFLOD56ck
 id: user_admin_people
-label: People
+label: व्‍यक्तिहरू
 module: user
 description: 'Find and manage people interacting with your site.'
 tag: default
 base_table: users_field_data
 base_field: uid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -38,9 +37,9 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: फिल्टर
           reset_button: true
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -199,7 +198,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Username
+          label: 'प्रयोगकर्ता नाम'
           exclude: false
           alter:
             alter_text: false
@@ -251,7 +250,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Status
+          label: अवस्था
           exclude: false
           alter:
             alter_text: false
@@ -296,7 +295,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: Active
+            format_custom_true: सक्रिय
             format_custom_false: Blocked
           entity_type: user
           entity_field: status
@@ -307,7 +306,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Roles
+          label: भूमिका
           exclude: false
           alter:
             alter_text: false
@@ -358,7 +357,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Member for'
+          label: 'सदस्यता समय'
           exclude: false
           alter:
             alter_text: false
@@ -414,7 +413,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Last access'
+          label: 'अन्तिम पटक प्रवेश गरेको'
           exclude: false
           alter:
             alter_text: false
@@ -470,7 +469,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: सञ्चालनहरू
           exclude: false
           alter:
             alter_text: false
@@ -604,6 +603,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -645,9 +646,11 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
-            label: Status
+            label: अवस्था
             description: ''
             identifier: status
             optional: true
@@ -658,7 +661,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Active
+                title: सक्रिय
                 operator: '='
                 value: '1'
               2:
@@ -694,6 +697,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -721,7 +726,7 @@ display:
           exposed: true
           expose:
             operator_id: permission_op
-            label: Permission
+            label: अनुमति
             description: ''
             use_operator: false
             operator: permission_op
@@ -734,6 +739,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -771,6 +778,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -812,6 +821,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -842,7 +853,7 @@ display:
           plugin_id: date
           entity_type: user
           entity_field: created
-      title: People
+      title: व्‍यक्तिहरू
       empty:
         area_text_custom:
           id: area_text_custom
@@ -857,7 +868,7 @@ display:
           plugin_id: text_custom
       use_more: false
       use_more_always: false
-      use_more_text: more
+      use_more_text: धेरै
       display_comment: ''
       use_ajax: false
       hide_attachment_summary: false
@@ -883,22 +894,22 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: पृष्ठ
     position: 1
     display_options:
       path: admin/people/list
       show_admin_links: false
       menu:
         type: 'default tab'
-        title: List
+        title: सूचि
         description: 'Find and manage people interacting with your site.'
         menu_name: admin
         weight: -10
         context: ''
       tab_options:
         type: normal
-        title: People
-        description: 'Manage user accounts, roles, and permissions.'
+        title: व्‍यक्तिहरू
+        description: 'प्रयोगकर्ताको खाता, भूमिका र अनुमतिको व्यवस्थापन गर्नुहोस'
         menu_name: admin
         weight: 0
       defaults:

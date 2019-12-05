@@ -14,7 +14,6 @@ description: 'Find and moderate content.'
 tag: ''
 base_table: node_field_revision
 base_field: vid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -40,9 +39,9 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: फिल्टर
           reset_button: true
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -133,7 +132,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Title
+          label: शीर्षक
           exclude: false
           alter:
             alter_text: false
@@ -263,7 +262,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
-          label: Author
+          label: लेखक
           exclude: false
           alter:
             alter_text: false
@@ -383,7 +382,7 @@ display:
           separator: ', '
           field_api_classes: false
           entity_type: node
-          plugin_id: field
+          plugin_id: moderation_state_field
         changed:
           id: changed
           table: node_field_revision
@@ -458,7 +457,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: सञ्चालनहरू
           exclude: false
           alter:
             alter_text: false
@@ -527,6 +526,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -553,7 +554,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: Title
+            label: शीर्षक
             description: ''
             use_operator: false
             operator: title_op
@@ -565,6 +566,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -606,6 +609,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -649,6 +654,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: true
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -676,7 +683,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: भाषा
             description: ''
             use_operator: false
             operator: langcode_op
@@ -689,6 +696,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -729,6 +738,8 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

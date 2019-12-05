@@ -8,13 +8,12 @@ dependencies:
 _core:
   default_config_hash: cCq1vjj1qmyd39oBIUyOe8YPDsobJ5fZRhp2Xy5O7lA
 id: comment
-label: Comments
+label: टिप्पणीहरू
 module: comment
 description: 'Find and manage comments.'
 tag: default
 base_table: comment_field_data
 base_field: cid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -42,7 +41,7 @@ display:
         options:
           submit_button: Apply
           reset_button: false
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -55,10 +54,10 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+            previous: '‹ अघिल्लो'
+            next: 'अर्को ›'
+            first: '« पहिलो'
+            last: 'अन्तिम »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -180,7 +179,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: कारवाही
           include_exclude: include
           selected_actions:
             - comment_delete_action
@@ -194,7 +193,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Subject
+          label: विषय
           exclude: false
           alter:
             alter_text: false
@@ -324,7 +323,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Author
+          label: लेखक
           exclude: false
           alter:
             alter_text: false
@@ -520,7 +519,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: सञ्चालनहरू
           exclude: false
           alter:
             alter_text: false
@@ -653,6 +652,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -681,7 +682,7 @@ display:
           exposed: true
           expose:
             operator_id: subject_op
-            label: Subject
+            label: विषय
             description: ''
             use_operator: false
             operator: subject_op
@@ -693,6 +694,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -733,6 +736,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -762,7 +767,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: भाषा
             description: ''
             use_operator: false
             operator: langcode_op
@@ -775,6 +780,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -806,7 +813,7 @@ display:
           entity_type: comment
           entity_field: changed
           plugin_id: date
-      title: Comments
+      title: टिप्पणीहरू
       header: {  }
       footer: {  }
       empty:
@@ -825,7 +832,7 @@ display:
       display_extenders: {  }
       use_more: false
       use_more_always: true
-      use_more_text: more
+      use_more_text: धेरै
       use_ajax: false
       hide_attachment_summary: false
       show_admin_links: true
@@ -860,13 +867,13 @@ display:
   page_published:
     display_plugin: page
     id: page_published
-    display_title: 'Published comments'
+    display_title: 'प्रकाशित कमेन्टहरु'
     position: 1
     display_options:
       path: admin/content/comment
       menu:
         type: tab
-        title: Comments
+        title: टिप्पणीहरू
         description: 'Comments published'
         parent: ''
         weight: 0
@@ -926,6 +933,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -954,7 +963,7 @@ display:
           exposed: true
           expose:
             operator_id: subject_op
-            label: Subject
+            label: विषय
             description: ''
             use_operator: false
             operator: subject_op
@@ -966,6 +975,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1006,6 +1017,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1035,7 +1048,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: भाषा
             description: ''
             use_operator: false
             operator: langcode_op
@@ -1048,6 +1061,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1117,7 +1132,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: कारवाही
           include_exclude: include
           selected_actions:
             - comment_delete_action
@@ -1131,7 +1146,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Subject
+          label: विषय
           exclude: false
           alter:
             alter_text: false
@@ -1261,7 +1276,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Author
+          label: लेखक
           exclude: false
           alter:
             alter_text: false
@@ -1457,7 +1472,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: सञ्चालनहरू
           exclude: false
           alter:
             alter_text: false

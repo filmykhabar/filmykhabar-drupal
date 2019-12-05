@@ -54,7 +54,7 @@ tips:
   search-api-index-fields-type:
     id: search-api-index-fields-type
     plugin: text
-    label: Type
+    label: प्रकार
     body: 'The data type to use when indexing the field. Determines how a field can be used in searches. For information on the available types, see the <a href="#search-api-data-types-table">"Data types" box</a> at the bottom of the page.'
     weight: 6
     attributes:

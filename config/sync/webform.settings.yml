@@ -9,7 +9,7 @@ settings:
   default_form_close_message: 'Sorry… This form is closed to new submissions.'
   default_form_exception_message: 'Unable to display this webform. Please contact the site administrator.'
   default_submit_button_label: Submit
-  default_reset_button_label: Reset
+  default_reset_button_label: 'रिसेट गर्नुहोस्'
   default_form_submit_once: false
   default_form_confidential_message: 'This form is confidential. You must <a href="[site:login-url]/logout?destination=[current-page:url:relative]">Log out</a> to submit it.'
   default_form_access_denied_message: 'Please login to access this form.'
@@ -119,7 +119,7 @@ element:
   classes: "container-inline clearfix\nform--inline clearfix\nmessages messages--error\nmessages messages--warning\nmessages messages--status\n"
   horizontal_rule_classes: "webform-horizontal-rule--solid\nwebform-horizontal-rule--dashed\nwebform-horizontal-rule--dotted\nwebform-horizontal-rule--gradient\nwebform-horizontal-rule--thin\nwebform-horizontal-rule--medium\nwebform-horizontal-rule--thick\nwebform-horizontal-rule--flaired\nwebform-horizontal-rule--glyph\n"
   default_description_display: ''
-  default_more_title: More
+  default_more_title: थप
   default_section_title_tag: h2
   default_empty_option: true
   default_empty_option_required: ''

@@ -14,7 +14,6 @@ description: ''
 tag: aggregator
 base_table: aggregator_item
 base_field: iid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -42,7 +41,7 @@ display:
         options:
           submit_button: Apply
           reset_button: false
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc

@@ -17,7 +17,6 @@ description: ''
 tag: aggregator
 base_table: aggregator_feed
 base_field: fid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -45,7 +44,7 @@ display:
         options:
           submit_button: Apply
           reset_button: false
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -133,7 +132,7 @@ display:
           entity_field: fid
       filters: {  }
       sorts: {  }
-      title: Sources
+      title: स्रोत
       header: {  }
       footer: {  }
       empty: {  }
@@ -410,13 +409,13 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: पृष्ठ
     position: 1
     display_options:
       path: aggregator/sources
       menu:
         type: normal
-        title: Sources
+        title: स्रोत
         description: ''
         weight: 0
         context: '0'
