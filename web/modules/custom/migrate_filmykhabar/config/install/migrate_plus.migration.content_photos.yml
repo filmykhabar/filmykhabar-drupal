@@ -1,0 +1,43 @@
+id: content_photos
+label: Migrate photos
+
+source:
+  plugin: content_photos
+
+process:
+  nid: category_detail_id
+  type:
+    plugin: default_value
+    default_value: photos
+  title:
+    plugin: decode_content
+    source: title
+  field_media_image:
+    plugin: migration_lookup
+    migration: content_photos_media_image
+    source: category_id
+    no_stub: true
+  field_photo_gallery:
+    plugin: sub_process
+    source: field_photo_gallery
+    process:
+      target_id: target_id
+      target_revision_id: target_revision_id
+  status:
+    plugin: default_value
+    default_value: 1
+  created:
+    plugin: date_string_to_timestamp
+    source: date_created
+  changed:
+    plugin: date_string_to_timestamp
+    source: date_modified
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': path_alias
+
+destination:
+  plugin: 'entity:node'
+
+migration_dependencies: {}

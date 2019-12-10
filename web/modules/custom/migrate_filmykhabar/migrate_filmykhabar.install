@@ -10,6 +10,10 @@ function migrate_filmykhabar_uninstall() {
     'migrate_plus.migration.content_news_body_to_paragraph',
     'migrate_plus.migration.content_videos',
     'migrate_plus.migration.content_videos_media_remote_video',
+    'migrate_plus.migration.content_photos',
+    'migrate_plus.migration.content_photos_media_image',
+    'migrate_plus.migration.pictures_media_image',
+    'migrate_plus.migration.pictures_paragraphs_item',
   ];
 
   foreach($configs as $config) {

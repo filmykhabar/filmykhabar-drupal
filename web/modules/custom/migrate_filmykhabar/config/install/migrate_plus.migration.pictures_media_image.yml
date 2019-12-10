@@ -1,0 +1,34 @@
+id: pictures_media_image
+label: Migrate pictures to media entity
+
+source:
+  plugin: pictures
+
+process:
+  name:
+    plugin: decode_content
+    source: title
+  field_media_image:
+    plugin: image_import
+    source: image
+    destination: image_destination
+    title: title_decoded
+    alt: title_decoded
+    skip_on_missing_source: TRUE
+    skip_on_error: TRUE
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': path_alias
+  created:
+    plugin: date_string_to_timestamp
+    source: date_created
+  changed:
+    plugin: date_string_to_timestamp
+    source: date_modified
+
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+
+migration_dependencies: {}

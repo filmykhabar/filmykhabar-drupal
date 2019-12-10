@@ -1,0 +1,20 @@
+id: pictures_paragraphs_item
+label: Migrate media image to paragraphs item
+
+source:
+  plugin: pictures
+
+process:
+  field_media_image:
+    plugin: migration_lookup
+    migration: pictures_media_image
+    source: picture_id
+    no_stub: true
+
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: image
+
+migration_dependencies:
+  optional:
+    - pictures_media_image

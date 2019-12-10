@@ -1,0 +1,24 @@
+id: content_photos_media_image
+label: Migrate photos image to media entity
+
+source:
+  plugin: content_photos
+
+process:
+  title:
+    plugin: decode_content
+    source: title
+  field_media_image:
+    plugin: image_import
+    source: image
+    destination: image_destination
+    title: title_decoded
+    alt: title_decoded
+    skip_on_missing_source: TRUE
+    skip_on_error: TRUE
+
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+
+migration_dependencies: {}
