@@ -44,6 +44,7 @@ class Pictures extends SqlBase {
       ->fields('c', array('parent_id'))
       ->fields('cd', array('category_detail_code'))
       ->condition('p.category_id', $subquery, 'IN')
+      // ->condition('p.category_id', array('66', '67', '71', '73', '75', '320', '321', '322'), 'IN')
       ->condition('p.status', $status)
       ->orderBy('p.date_created', 'ASC');
 

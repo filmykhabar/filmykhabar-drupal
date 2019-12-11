@@ -5,7 +5,7 @@ source:
   plugin: content_videos
 
 process:
-  nid: video_id
+  # nid: video_id
   type:
     plugin: default_value
     default_value: videos
@@ -40,5 +40,5 @@ destination:
   plugin: 'entity:node'
 
 migration_dependencies:
-  optional:
+  required:
     - content_videos_media_remote_video

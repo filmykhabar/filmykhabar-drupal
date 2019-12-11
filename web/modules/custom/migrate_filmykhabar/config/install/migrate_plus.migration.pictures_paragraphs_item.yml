@@ -16,5 +16,5 @@ destination:
   default_bundle: image
 
 migration_dependencies:
-  optional:
+  required:
     - pictures_media_image

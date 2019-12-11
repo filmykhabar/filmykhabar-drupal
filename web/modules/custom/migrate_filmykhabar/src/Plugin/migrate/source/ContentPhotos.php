@@ -51,6 +51,7 @@ class ContentPhotos extends SqlBase {
       ->condition('c.type', $c_type)
       ->condition('c.status', $status)
       ->condition('c.parent_id', $subquery, 'IN')
+      // ->condition('c.category_id', array('66', '67', '71', '73', '75', '320', '321', '322'), 'IN')
       ->orderBy('c.date_created', 'ASC');
 
     return $query;

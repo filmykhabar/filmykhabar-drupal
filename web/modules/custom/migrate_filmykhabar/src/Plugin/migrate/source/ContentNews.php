@@ -46,6 +46,7 @@ class ContentNews extends SqlBase {
       ->fields('cd', $fields_content_detail)
       ->condition('c.category_id', array(1, 44, 54, 55, 56, 57), 'IN')
       ->condition('c.status', 402)
+      ->range(0, 100)
       ->orderBy('c.content_id', 'ASC');
 
     return $query;

@@ -77,6 +77,6 @@ destination:
   plugin: 'entity:node'
 
 migration_dependencies:
-  optional:
-    - content_news_body_to_paragraph
+  required:
     - content_news_media_image
+    - content_news_body_to_paragraph

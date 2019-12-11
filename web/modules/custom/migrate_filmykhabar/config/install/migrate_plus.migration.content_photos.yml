@@ -5,7 +5,7 @@ source:
   plugin: content_photos
 
 process:
-  nid: category_detail_id
+  # nid: category_detail_id
   type:
     plugin: default_value
     default_value: photos
@@ -40,4 +40,7 @@ process:
 destination:
   plugin: 'entity:node'
 
-migration_dependencies: {}
+migration_dependencies:
+  required:
+    - content_photos_media_image
+    - pictures_paragraphs_item
