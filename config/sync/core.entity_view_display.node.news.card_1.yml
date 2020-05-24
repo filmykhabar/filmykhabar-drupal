@@ -7,17 +7,16 @@ dependencies:
     - field.field.node.news.field_author
     - field.field.node.news.field_body
     - field.field.node.news.field_image
+    - field.field.node.news.field_media_image
     - field.field.node.news.field_news_location
     - field.field.node.news.field_news_type
     - field.field.node.news.field_tags
     - field.field.node.news.field_teaser_body
     - node.type.news
-    - responsive_image.styles.homepage_featured_content_primary
   module:
     - ds
     - field_group
     - layout_builder
-    - responsive_image
     - user
 third_party_settings:
   ds:
@@ -26,10 +25,11 @@ third_party_settings:
       library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        label: ''
     regions:
       content:
-        - field_image
+        - field_media_image
         - field_tags
         - group_description
         - node_title
@@ -109,15 +109,15 @@ content:
     third_party_settings:
       ds:
         ds_limit: ''
-  field_image:
+  field_media_image:
+    type: entity_reference_entity_view
     weight: 0
+    region: content
     label: hidden
     settings:
-      responsive_image_style: homepage_featured_content_primary
-      image_link: content
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: responsive_image
-    region: content
   field_tags:
     type: entity_reference_label
     weight: 0
@@ -131,7 +131,7 @@ content:
 hidden:
   addtoany: true
   field_body: true
-  field_media_image: true
+  field_image: true
   field_news_location: true
   field_news_type: true
   field_teaser_body: true

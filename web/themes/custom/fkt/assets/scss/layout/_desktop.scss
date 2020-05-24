@@ -55,7 +55,7 @@
   @import "layout-no-sidebars";
 
   .block-views-blocknews-block-latest-news {
-    .field--name-field-image {
+    .field--type-entity-reference {
       width: span(2 of 9);
       float: left;
     }
@@ -68,7 +68,7 @@
   }
 
   .view-display-id-page_news {
-    .field--name-field-image {
+    .field--type-entity-reference {
       width: span(3 of 9);
       float: left;
     }
@@ -81,6 +81,18 @@
   }
 
   .view-display-id-page_photos {
+    .views-row {
+      width: span(3 of 9);
+      float: left;
+      margin-right: gutter();
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .view-display-id-page_videos {
     .views-row {
       width: span(3 of 9);
       float: left;
