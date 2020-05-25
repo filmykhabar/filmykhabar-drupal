@@ -1,0 +1,52 @@
+uuid: 027c0fa9-543c-4f9a-8718-5a5d09b3b583
+langcode: ne
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GAUWdTSO0sc0-xlUFsUZmFrvyyygbj88wp8AXTTzAm8
+id: content_photos
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Migrate photos'
+source:
+  plugin: content_photos
+process:
+  type:
+    plugin: default_value
+    default_value: photos
+  title:
+    plugin: decode_content
+    source: title
+  field_media_image:
+    plugin: migration_lookup
+    migration: content_photos_media_image
+    source: category_id
+    no_stub: true
+  field_photo_gallery:
+    plugin: sub_process
+    source: field_photo_gallery
+    process:
+      target_id: target_id
+      target_revision_id: target_revision_id
+  status:
+    plugin: default_value
+    default_value: 1
+  created:
+    plugin: date_string_to_timestamp
+    source: date_created
+  changed:
+    plugin: date_string_to_timestamp
+    source: date_modified
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias: path_alias
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - content_photos_media_image
+    - pictures_paragraphs_item

@@ -1,0 +1,47 @@
+uuid: 1f87c1d3-1b7a-4e7c-a620-fd2c1898a6f0
+langcode: ne
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PPq_cZBkzWQkvgz4GWG08ahSKP5CwMWRIYxWlZ02W-c
+id: content_videos
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Migrate Video contents'
+source:
+  plugin: content_videos
+process:
+  type:
+    plugin: default_value
+    default_value: videos
+  title:
+    plugin: decode_content
+    source: title
+  field_media_remote_video:
+    plugin: migration_lookup
+    migration: content_videos_media_remote_video
+    source: video_id
+  field_video_type:
+    plugin: entity_lookup
+    source: video_type
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias: path_alias
+  status:
+    plugin: default_value
+    default_value: 1
+  created:
+    plugin: date_string_to_timestamp
+    source: date_created
+  changed:
+    plugin: date_string_to_timestamp
+    source: date_modified
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - content_videos_media_remote_video
