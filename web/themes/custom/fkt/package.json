@@ -6,14 +6,14 @@
     "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-imagemin": "^6.1.1",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-minify": "^3.1.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.4",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.14.1",
     "susy": "^3.0.5"
   }
 }
