@@ -29,6 +29,7 @@
         "drupal/csv_importer": "^1.4",
         "drupal/devel": "^2.0",
         "drupal/ds": "^3.3",
+        "drupal/elasticsearch_connector": "^7.0",
         "drupal/entityqueue": "^1.0@alpha",
         "drupal/fb_likebox": "^2.1",
         "drupal/field_group": "^3.0",
