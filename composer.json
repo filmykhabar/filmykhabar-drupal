@@ -32,7 +32,7 @@
         "drupal/field_group": "^3.0",
         "drupal/metatag": "^1.8",
         "drupal/migrate_file": "^2.0",
-        "drupal/migrate_plus": "^4.1",
+        "drupal/migrate_plus": "^5.1",
         "drupal/migrate_tools": "^4.1",
         "drupal/paragraphs": "^1.7",
         "drupal/pathauto": "^1.3",
