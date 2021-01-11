@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e28cb7a448b61887e197efd145776fcf",
+    "content-hash": "fdeb5e7772b5f3d34470ab22a8b04f82",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3339,61 +3339,6 @@
                 "source": "http://cgit.drupalcode.org/entityqueue",
                 "issues": "https://www.drupal.org/project/issues/entityqueue",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
-            "name": "drupal/fb_likebox",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/fb_likebox.git",
-                "reference": "8.x-2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fb_likebox-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "883655bef0da0915c0ed220f1e0062b97c5e83d2"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1551183785",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "baekelandt",
-                    "homepage": "https://www.drupal.org/user/3157937"
-                },
-                {
-                    "name": "drozas",
-                    "homepage": "https://www.drupal.org/user/740628"
-                },
-                {
-                    "name": "naveenvalecha",
-                    "homepage": "https://www.drupal.org/user/2665733"
-                }
-            ],
-            "description": "Simple module that provides a configurable block with Facebook Likebox's plugin",
-            "homepage": "http://drupal.org/project/fb_likebox",
-            "support": {
-                "source": "https://git.drupalcode.org/project/fb_likebox"
             }
         },
         {
