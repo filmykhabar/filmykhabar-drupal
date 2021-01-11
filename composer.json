@@ -17,7 +17,7 @@
     "require": {
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
-        "drupal/addtoany": "^1.12",
+        "drupal/addtoany": "^1.14",
         "drupal/admin_toolbar": "^2.0",
         "drupal/chosen": "^2.7",
         "drupal/config_filter": "^1.4",
