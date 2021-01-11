@@ -19,7 +19,6 @@ module:
   comment: 0
   config: 0
   config_filter: 0
-  config_split: 0
   config_translation: 0
   contact: 0
   content_moderation: 0
@@ -29,6 +28,8 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  devel: 0
+  devel_generate: 0
   ds_switch_view_mode: 0
   dynamic_page_cache: 0
   editor: 0
@@ -47,6 +48,7 @@ module:
   image: 0
   inline_form_errors: 0
   jsonapi: 0
+  kint: 0
   language: 0
   layout_builder: 0
   layout_discovery: 0
@@ -57,6 +59,7 @@ module:
   metatag: 0
   migrate: 0
   migrate_file: 0
+  migrate_filmykhabar: 0
   migrate_plus: 0
   migrate_tools: 0
   node: 0
