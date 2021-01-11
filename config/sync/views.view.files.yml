@@ -1033,7 +1033,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: सबै
+            title: All
           title_enable: true
           title: 'File usage information for {{ arguments.fid }}'
           default_argument_type: fixed

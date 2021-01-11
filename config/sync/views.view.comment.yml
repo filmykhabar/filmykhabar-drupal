@@ -54,10 +54,10 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: '‹ अघिल्लो'
-            next: 'अर्को ›'
-            first: '« पहिलो'
-            last: 'अन्तिम »'
+            previous: '‹ previous'
+            next: 'next ›'
+            first: '« first'
+            last: 'last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -179,7 +179,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: कारवाही
+          action_title: Action
           include_exclude: include
           selected_actions:
             - comment_delete_action
@@ -519,7 +519,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: सञ्चालनहरू
+          label: Operations
           exclude: false
           alter:
             alter_text: false
@@ -1132,7 +1132,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: कारवाही
+          action_title: Action
           include_exclude: include
           selected_actions:
             - comment_delete_action
@@ -1472,7 +1472,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: सञ्चालनहरू
+          label: Operations
           exclude: false
           alter:
             alter_text: false

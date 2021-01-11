@@ -184,7 +184,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: कारवाही
+          action_title: Action
           include_exclude: exclude
           selected_actions: {  }
           entity_type: media
@@ -573,7 +573,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: सञ्चालनहरू
+          label: Operations
           exclude: false
           alter:
             alter_text: false

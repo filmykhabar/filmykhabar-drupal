@@ -515,7 +515,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: सञ्चालनहरू
+          label: Operations
           exclude: false
           alter:
             alter_text: false
