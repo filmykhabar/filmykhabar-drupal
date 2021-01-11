@@ -26,6 +26,7 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/csv_importer": "^1.11",
+        "drupal/ctools": "^3.4",
         "drupal/ds": "^3.3",
         "drupal/elasticsearch_connector": "^7.0@alpha",
         "drupal/entityqueue": "^1.0@alpha",
