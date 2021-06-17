@@ -47,7 +47,7 @@ class ContentNews extends SqlBase {
       ->condition('c.category_id', array(1, 44, 54, 55, 56, 57), 'IN')
       ->condition('c.status', 402)
       ->range(0, 100)
-      ->orderBy('c.content_id', 'ASC');
+      ->orderBy('c.content_id', 'DESC');
 
     return $query;
   }
