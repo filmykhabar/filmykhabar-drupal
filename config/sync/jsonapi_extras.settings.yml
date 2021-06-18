@@ -1,5 +1,5 @@
-path_prefix: jsonapi
-include_count: false
+path_prefix: api/v1
+include_count: true
 _core:
   default_config_hash: eZ7KZ6nM56SRhfriFWCo1372Z9UiKufhSLRbkdhVmUg
 langcode: ne

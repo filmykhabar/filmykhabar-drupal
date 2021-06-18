@@ -1,0 +1,101 @@
+uuid: 6b8b805a-f4e7-4685-b95c-05371c86064f
+langcode: en
+status: true
+dependencies:
+  module:
+    - aggregator
+id: aggregator_feed--aggregator_feed
+disabled: true
+path: aggregator_feed/aggregator_feed
+resourceType: aggregator_feed--aggregator_feed
+resourceFields:
+  fid:
+    fieldName: fid
+    publicName: fid
+    enhancer:
+      id: ''
+    disabled: false
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  langcode:
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+    disabled: false
+  title:
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+    disabled: false
+  url:
+    fieldName: url
+    publicName: url
+    enhancer:
+      id: ''
+    disabled: false
+  refresh:
+    fieldName: refresh
+    publicName: refresh
+    enhancer:
+      id: ''
+    disabled: false
+  checked:
+    fieldName: checked
+    publicName: checked
+    enhancer:
+      id: ''
+    disabled: false
+  queued:
+    fieldName: queued
+    publicName: queued
+    enhancer:
+      id: ''
+    disabled: false
+  link:
+    fieldName: link
+    publicName: link
+    enhancer:
+      id: ''
+    disabled: false
+  description:
+    fieldName: description
+    publicName: description
+    enhancer:
+      id: ''
+    disabled: false
+  image:
+    fieldName: image
+    publicName: image
+    enhancer:
+      id: ''
+    disabled: false
+  hash:
+    fieldName: hash
+    publicName: hash
+    enhancer:
+      id: ''
+    disabled: false
+  etag:
+    fieldName: etag
+    publicName: etag
+    enhancer:
+      id: ''
+    disabled: false
+  modified:
+    fieldName: modified
+    publicName: modified
+    enhancer:
+      id: ''
+    disabled: false
+  metatag:
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+    disabled: false

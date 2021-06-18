@@ -1,0 +1,65 @@
+uuid: 4a1ce68d-2ed6-4403-b473-5106877d3c17
+langcode: en
+status: true
+dependencies:
+  module:
+    - aggregator
+id: aggregator_item--aggregator_item
+disabled: true
+path: aggregator_item/aggregator_item
+resourceType: aggregator_item--aggregator_item
+resourceFields:
+  iid:
+    fieldName: iid
+    publicName: iid
+    enhancer:
+      id: ''
+    disabled: false
+  langcode:
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+    disabled: false
+  fid:
+    fieldName: fid
+    publicName: fid
+    enhancer:
+      id: ''
+    disabled: false
+  title:
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+    disabled: false
+  link:
+    fieldName: link
+    publicName: link
+    enhancer:
+      id: ''
+    disabled: false
+  author:
+    fieldName: author
+    publicName: author
+    enhancer:
+      id: ''
+    disabled: false
+  description:
+    fieldName: description
+    publicName: description
+    enhancer:
+      id: ''
+    disabled: false
+  timestamp:
+    fieldName: timestamp
+    publicName: timestamp
+    enhancer:
+      id: ''
+    disabled: false
+  guid:
+    fieldName: guid
+    publicName: guid
+    enhancer:
+      id: ''
+    disabled: false
