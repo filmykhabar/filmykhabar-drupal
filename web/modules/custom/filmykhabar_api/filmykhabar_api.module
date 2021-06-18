@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains filmykhabar_api.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function filmykhabar_api_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the filmykhabar_api module.
+    case 'help.page.filmykhabar_api':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('RESTful APIs for FilmyKhabar.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
