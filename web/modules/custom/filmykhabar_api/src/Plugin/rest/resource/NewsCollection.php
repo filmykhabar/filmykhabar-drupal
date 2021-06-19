@@ -66,11 +66,13 @@ class NewsCollection extends ResourceBase
 
         try {
             $query = $this->database->select('node_field_data', 'nfd');
+            $query->join('node__field_teaser_body', 'nftb', 'nftb.entity_id = nfd.nid');
             $query
                 ->condition('nfd.status', 1)
-                ->fields('nfd', ['nid', 'title', 'created'])
+                ->fields('nfd', ['nid', 'title', 'created', 'changed'])
                 ->range(0, 11)
                 ->orderBy('nfd.created', 'DESC');
+            $query->addField('nftb', 'field_teaser_body_value', 'teaserBody');
 
             $responseData = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
         } catch (\Exception $e) {
