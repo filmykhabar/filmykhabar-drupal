@@ -12,14 +12,14 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
  * Provides a resource to get view modes by entity and bundle.
  *
  * @RestResource(
- *   id = "news_resource",
- *   label = @Translation("News resource"),
+ *   id = "news_collection",
+ *   label = @Translation("News collection"),
  *   uri_paths = {
- *     "canonical" = "/api/v1/content/news"
+ *     "canonical" = "/api/v1/news"
  *   }
  * )
  */
-class NewsResource extends ResourceBase {
+class NewsCollection extends ResourceBase {
 
   /**
    * A current user instance.
@@ -41,15 +41,13 @@ class NewsResource extends ResourceBase {
     /**
      * Responds to GET requests.
      *
-     * @param string $payload
-     *
      * @return \Drupal\rest\ResourceResponse
      *   The HTTP response object.
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      *   Throws exception expected.
      */
-    public function get($payload) {
+    public function get() {
 
         // You must to implement the logic of your REST Resource here.
         // Use current user after pass authentication to validate access.
@@ -57,7 +55,7 @@ class NewsResource extends ResourceBase {
             throw new AccessDeniedHttpException();
         }
 
-        return new ResourceResponse($payload, 200);
+        return new ResourceResponse('hello world', 200);
     }
 
 }

@@ -1,11 +1,11 @@
 uuid: 8a7bfc31-de11-4340-8184-d1d52fa21690
 langcode: ne
-status: true
+status: false
 dependencies:
   module:
-    - basic_auth
-    - hal
     - node
+    - serialization
+    - user
 _core:
   default_config_hash: t_jfECmZhJqBOJuSOFn87EOi_TWi-_fRYTuJgd19vgg
 id: entity.node
@@ -15,9 +15,9 @@ configuration:
   methods:
     - GET
     - POST
-    - PATCH
     - DELETE
+    - PATCH
   formats:
-    - hal_json
+    - json
   authentication:
-    - basic_auth
+    - cookie

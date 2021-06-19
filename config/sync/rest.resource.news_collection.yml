@@ -1,0 +1,18 @@
+uuid: d4448e82-a73a-43c7-b5c3-28a526019f97
+langcode: en
+status: true
+dependencies:
+  module:
+    - filmykhabar_api
+    - serialization
+    - user
+id: news_collection
+plugin_id: news_collection
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie
