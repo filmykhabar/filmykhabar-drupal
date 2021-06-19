@@ -19,24 +19,33 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
  *   }
  * )
  */
-class News extends ResourceBase {
+class News extends ResourceBase
+{
 
-  /**
-   * A current user instance.
-   *
-   * @var \Drupal\Core\Session\AccountProxyInterface
-   */
-  protected $currentUser;
+    /**
+     * A current user instance.
+     *
+     * @var \Drupal\Core\Session\AccountProxyInterface
+     */
+    protected $currentUser;
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
-    $instance->logger = $container->get('logger.factory')->get('filmykhabar_api');
-    $instance->currentUser = $container->get('current_user');
-    return $instance;
-  }
+    /**
+     * The database connection.
+     */
+    protected $database;
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+    {
+        $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+        $instance->logger = $container->get('logger.factory')->get('filmykhabar_api');
+        $instance->currentUser = $container->get('current_user');
+        $instance->database = $container->get('database');
+        $instance->entityTypeManager = $container->get('entity_type.manager');
+        return $instance;
+    }
 
     /**
      * Responds to GET requests.
@@ -49,7 +58,8 @@ class News extends ResourceBase {
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
      *   Throws exception expected.
      */
-    public function get($nid) {
+    public function get($nid)
+    {
 
         // You must to implement the logic of your REST Resource here.
         // Use current user after pass authentication to validate access.
@@ -57,7 +67,31 @@ class News extends ResourceBase {
             throw new AccessDeniedHttpException();
         }
 
-        return new ResourceResponse($nid, 200);
-    }
+        $responseData = [];
 
+        $node = $this->entityTypeManager->getStorage('node')->load($nid);
+        if (!empty($node)) {
+            $responseData = [
+                'nid' => $node->id(),
+                'title' => $node->getTitle(),
+                'type' => $node->get('type')->getValue()[0]['target_id'],
+                'uuid' => $node->get('uuid')->getValue()[0]['value'],
+                'status' => $node->isPublished(),
+                'teaser_body' => $node->get('field_teaser_body')->getValue()[0]['value'],
+            ];
+
+            // Teaser image
+
+            // Body
+        }
+
+        // return new ResourceResponse($responseData, 200);
+
+        $response = new ResourceResponse($responseData, 200);
+        // In order to generate fresh result every time (without clearing
+        // the cache), you need to invalidate the cache.
+        $response->addCacheableDependency($responseData);
+
+        return $response;
+    }
 }
