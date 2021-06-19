@@ -13,6 +13,8 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'post comments'
+  - 'restful get news'
+  - 'restful get news_collection'
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
