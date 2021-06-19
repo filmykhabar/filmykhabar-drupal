@@ -2,7 +2,6 @@
 
 namespace Drupal\filmykhabar_api\Plugin\rest\resource;
 
-use Drupal\rest\ModifiedResourceResponse;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -76,13 +75,20 @@ class News extends ResourceBase
                 'title' => $node->getTitle(),
                 'type' => $node->get('type')->getValue()[0]['target_id'],
                 'uuid' => $node->get('uuid')->getValue()[0]['value'],
-                'status' => $node->isPublished(),
-                'teaser_body' => $node->get('field_teaser_body')->getValue()[0]['value'],
+                'status' => (int) $node->isPublished(),
             ];
 
-            // Teaser image
+            $teaserBody = $node->get('field_teaser_body')->getValue();
+            if (!empty($teaserBody[0]['value'])) {
+                $teaserBody = $teaserBody[0]['value'];
+            }
+            $responseData['teaser_body'] = $teaserBody;
 
-            // Body
+            //@todo: Teaser image
+            $responseData['teaserImage'] = [];
+
+            //@todo: Body
+            $responseData['body'] = $teaserBody;
         }
 
         // return new ResourceResponse($responseData, 200);
