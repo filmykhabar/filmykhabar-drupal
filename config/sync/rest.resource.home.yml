@@ -1,0 +1,18 @@
+uuid: dba79099-9302-4802-b27b-4b5ae79a1136
+langcode: en
+status: true
+dependencies:
+  module:
+    - filmykhabar_api
+    - serialization
+    - user
+id: home
+plugin_id: home
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

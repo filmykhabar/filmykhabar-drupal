@@ -12,6 +12,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'restful get home'
   - 'restful get news'
   - 'restful get news_collection'
   - 'search content'
