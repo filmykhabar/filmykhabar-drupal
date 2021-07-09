@@ -64,13 +64,30 @@ class Home extends ResourceBase
     //   throw new AccessDeniedHttpException();
     // }
 
-    $responseData = [
-      'featured' => [],
-      'latestContents' => [],
-      'latestVideos' => [],
-    ];
+    $responseData = [];
+
+    // Featured contetns
+    $responseData['featured'] = $this->getFeaturedContents();
 
     // Latest contents
+    $responseData['latest'] = $this->getLatestContents();
+
+    $response = new ResourceResponse($responseData, 200);
+    $response->addCacheableDependency($responseData);
+
+    return $response;
+  }
+
+  public function getFeaturedContents()
+  {
+    $featuredContents = [];
+
+    return $featuredContents;
+  }
+
+  public function getLatestContents()
+  {
+    $latestContents = [];
     try {
       $query = $this->database->select('node_field_data', 'nfd');
       $query->join('node__field_teaser_body', 'nftb', 'nftb.entity_id = nfd.nid');
@@ -82,17 +99,13 @@ class Home extends ResourceBase
       $query->addField('nftb', 'field_teaser_body_value', 'teaserBody');
 
       $result = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
-
       if (!empty($result)) {
-        $responseData['latestContents'] = $result;
+        $latestContents = $result;
       }
     } catch (\Exception $e) {
       $this->logger->error($e->getMessage());
     }
 
-    $response = new ResourceResponse($responseData, 200);
-    $response->addCacheableDependency($responseData);
-
-    return $response;
+    return $latestContents;
   }
 }
