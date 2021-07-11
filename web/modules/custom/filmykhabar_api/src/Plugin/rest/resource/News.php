@@ -141,6 +141,7 @@ class News extends ResourceBase
                 }
 
                 if (!empty($paragraphItem)) {
+                    $paragraphItem['id'] = (int) $paragraph->id();
                     $body[] = $paragraphItem;
                 }
             }
