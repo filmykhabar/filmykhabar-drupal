@@ -106,7 +106,7 @@ class Home extends ResourceBase
         foreach ($nodes as $node) {
             $data = [
                 'nid' => (int) $node->id(),
-                'title' => $node->label(),
+                'title' => $node->getTitle(),
                 'created' => (int) $node->getCreatedTime(),
                 'changed' => (int) $node->getChangedTime(),
                 'status' => (int) $node->isPublished(),

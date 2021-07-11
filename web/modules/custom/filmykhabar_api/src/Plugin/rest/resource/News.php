@@ -6,6 +6,8 @@ use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Provides a resource to get view modes by entity and bundle.
@@ -71,33 +73,130 @@ class News extends ResourceBase
         $node = $this->entityTypeManager->getStorage('node')->load($nid);
         if (!empty($node)) {
             $responseData = [
-                'nid' => $node->id(),
+                'nid' => (int) $node->id(),
                 'title' => $node->getTitle(),
                 'type' => $node->get('type')->getValue()[0]['target_id'],
-                'uuid' => $node->get('uuid')->getValue()[0]['value'],
                 'status' => (int) $node->isPublished(),
+                'created' => (int) $node->getCreatedTime(),
+                'changed' => (int) $node->getChangedTime(),
             ];
 
             $teaserBody = $node->get('field_teaser_body')->getValue();
-            if (!empty($teaserBody[0]['value'])) {
-                $teaserBody = $teaserBody[0]['value'];
-            }
+            $teaserBody = isset($teaserBody[0]['value']) ? $teaserBody[0]['value'] : "";
             $responseData['teaser_body'] = $teaserBody;
 
-            //@todo: Teaser image
-            $responseData['teaserImage'] = [];
+            // Teaser image
+            $responseData['teaserImage'] = $this->getMediaImage($node->get('field_media_image'));
 
-            //@todo: Body
-            $responseData['body'] = $teaserBody;
+            // Body
+            $body = $this->getParagraphItems($node->get('field_body')->referencedEntities());
+            $responseData['body'] = $body;
         }
 
-        // return new ResourceResponse($responseData, 200);
-
         $response = new ResourceResponse($responseData, 200);
-        // In order to generate fresh result every time (without clearing
-        // the cache), you need to invalidate the cache.
         $response->addCacheableDependency($responseData);
 
         return $response;
+    }
+
+    public function getParagraphItems($paragraphs)
+    {
+        $body = [];
+        if (!empty($paragraphs) && is_array($paragraphs)) {
+            foreach ($paragraphs as $paragraph) {
+                $paragraphItem = [];
+                $paragraphType = $paragraph->get('type')->getValue();
+                $paragraphType = isset($paragraphType[0]['target_id']) ? $paragraphType[0]['target_id'] : "";
+
+                switch ($paragraphType) {
+                    case 'text':
+                        $fieldText = $paragraph->get('field_text')->getValue();
+                        $fieldText = isset($fieldText[0]['value']) ? $fieldText[0]['value'] : "";
+
+                        $paragraphItem = [
+                            'type' => $paragraphType,
+                            'value' => $fieldText,
+                        ];
+                        break;
+
+                    case 'image':
+                        $mediaImage = $this->getMediaImage($paragraph->get('field_media_image'));
+                        $paragraphItem = [
+                            'type' => $paragraphType,
+                            'media' => $mediaImage
+                        ];
+                        break;
+
+                    case 'blockquote':
+                        $fieldQuote = $paragraph->get('field_quote')->getValue();
+                        $fieldQuote = isset($fieldQuote[0]['value']) ? $fieldQuote[0]['value'] : "";
+
+                        $paragraphItem = [
+                            'type' => $paragraphType,
+                            'value' => $fieldQuote,
+                        ];
+                        break;
+
+                    default:
+                }
+
+                if (!empty($paragraphItem)) {
+                    $body[] = $paragraphItem;
+                }
+            }
+        }
+        return $body;
+    }
+
+    public function getMediaImage($fieldMediaImage)
+    {
+        $returnData = [];
+        $fieldMediaImage = $fieldMediaImage->first();
+        if (!empty($fieldMediaImage)) {
+            $fieldMediaImage = $fieldMediaImage->get('entity')->getTarget()->getValue();
+            if (!empty($fieldMediaImage)) {
+                // Image name
+                $name = $fieldMediaImage->get('name')->getValue();
+                $name = isset($name[0]['value']) ? $name[0]['value'] : '';
+
+                // Image caption
+                $caption = $fieldMediaImage->get('field_caption')->getValue();
+                $caption = isset($caption[0]['value']) ? $caption[0]['value'] : '';
+
+                // Image credit/copyright
+                $creditCopyright = $fieldMediaImage->get('field_credit_copyright')->getValue();
+                $creditCopyright = isset($creditCopyright[0]['value']) ? $creditCopyright[0]['value'] : '';
+
+                // Media image
+                $mediaImageUrl = "";
+                $mediaImageStyles = [];
+                $mediaImageAlt = "";
+                $mediaImageTitle = "";
+                $mediaImage = $fieldMediaImage->get('field_media_image')->getValue();
+                if (isset($mediaImage[0]['target_id'])) {
+                    $file = File::load($mediaImage[0]['target_id']);
+                    $fileUri = $file->getFileUri();
+                    $mediaImageUrl = file_create_url($fileUri);
+                    $mediaImageStyles = [
+                        '6x4_medium' => ImageStyle::load('6x4_medium')->buildUrl($fileUri),
+                    ];
+                }
+                $mediaImageAlt = isset($mediaImage[0]['alt']) ? $mediaImage[0]['alt'] : '';
+                $mediaImageTitle = isset($mediaImage[0]['title']) ? $mediaImage[0]['title'] : '';
+
+                $returnData = [
+                    'mid' => (int) $fieldMediaImage->id(),
+                    'name' => $name,
+                    'caption' => $caption,
+                    'credit' => $creditCopyright,
+                    'url' => $mediaImageUrl,
+                    'alt' => $mediaImageAlt,
+                    'title' => $mediaImageTitle,
+                    'styles' => $mediaImageStyles,
+                ];
+            }
+        }
+
+        return $returnData;
     }
 }
