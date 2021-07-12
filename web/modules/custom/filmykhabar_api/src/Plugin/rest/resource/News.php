@@ -83,7 +83,7 @@ class News extends ResourceBase
 
             $teaserBody = $node->get('field_teaser_body')->getValue();
             $teaserBody = isset($teaserBody[0]['value']) ? $teaserBody[0]['value'] : "";
-            $responseData['teaser_body'] = $teaserBody;
+            $responseData['teaserBody'] = $teaserBody;
 
             // Teaser image
             $responseData['teaserImage'] = $this->getMediaImage($node->get('field_media_image'));
@@ -91,12 +91,38 @@ class News extends ResourceBase
             // Body
             $body = $this->getParagraphItems($node->get('field_body')->referencedEntities());
             $responseData['body'] = $body;
+
+            // Tags
+            $tags = $this->getTags($node->get('field_tags')->referencedEntities());
+            $responseData['tags'] = $tags;
         }
 
         $response = new ResourceResponse($responseData, 200);
         $response->addCacheableDependency($responseData);
 
         return $response;
+    }
+
+    public function getTags($tags)
+    {
+        $returnData = [];
+        if (!empty($tags) && is_array($tags)) {
+            foreach ($tags as $tag) {
+                // Tag description
+                $description = $tag->get('description')->getValue();
+                $description = !empty($description[0]['value']) ? $description[0]['value'] : "";
+
+                $data = [
+                    'tid' => (int) $tag->id(),
+                    'name' => $tag->label(),
+                    'description' => $description,
+                ];
+
+                $returnData[] = $data;
+            }
+        }
+
+        return $returnData;
     }
 
     public function getParagraphItems($paragraphs)
