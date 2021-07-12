@@ -120,8 +120,6 @@ class Home extends ResourceBase
             // Teaser image
             $data['teaserImage'] = $this->getMediaImage($node->get('field_media_image'));
 
-            // $data['extras'] = $node;
-
             $returnData[] = $data;
         }
 
