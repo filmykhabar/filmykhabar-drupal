@@ -42,7 +42,8 @@
         "drupal/restui": "^1.20",
         "drupal/search_api": "^1.18",
         "drupal/webform": "^6.0",
-        "drush/drush": "^10.3"
+        "drush/drush": "^10.3",
+        "pachabhaiya/nepali-calendar": "^1.0@alpha"
     },
     "conflict": {
         "drupal/drupal": "*"

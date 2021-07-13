@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use NepaliCalendar\AdToBs\AdToBs;
 
 /**
  * Provides a resource to get view modes by entity and bundle.
@@ -45,6 +46,7 @@ class News extends ResourceBase
         $instance->currentUser = $container->get('current_user');
         $instance->database = $container->get('database');
         $instance->entityTypeManager = $container->get('entity_type.manager');
+        $instance->adToBs = new AdToBs();
         return $instance;
     }
 
@@ -95,12 +97,22 @@ class News extends ResourceBase
             // Tags
             $tags = $this->getTags($node->get('field_tags')->referencedEntities());
             $responseData['tags'] = $tags;
+
+            // Created date (formatted)
+            $responseData['created_formatted'] = $this->getNepaliDateFormatted($responseData['created']);
         }
 
         $response = new ResourceResponse($responseData, 200);
         $response->addCacheableDependency($responseData);
 
         return $response;
+    }
+
+    public function getNepaliDateFormatted($timestamp, $includeTime = false)
+    {
+        $nepaliDate = $this->adToBs->getNepaliDate($timestamp);
+        $returnData = "{$nepaliDate['F']} {$nepaliDate['d']}, {$nepaliDate['Y']}";
+        return $returnData;
     }
 
     public function getTags($tags)
