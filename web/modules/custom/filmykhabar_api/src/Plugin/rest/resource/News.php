@@ -108,7 +108,8 @@ class News extends ResourceBase
             $responseData['authors'] = $this->getProfiles($node->get('field_authors')->referencedEntities());
 
             // Location
-
+            $location = $this->getTags($node->get('field_news_location')->referencedEntities());
+            $responseData['location'] = isset($location[0]) ? $location[0] : [];
         }
 
         $response = new ResourceResponse($responseData, 200);
