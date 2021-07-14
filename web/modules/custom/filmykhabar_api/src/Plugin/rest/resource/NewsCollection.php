@@ -6,6 +6,7 @@ use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Drupal\filmykhabar_api\NepaliCalendarTrait;
 
 /**
  * Provides a resource to get view modes by entity and bundle.
@@ -20,6 +21,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
  */
 class NewsCollection extends ResourceBase
 {
+    use NepaliCalendarTrait;
 
     /**
      * A current user instance.
@@ -70,11 +72,16 @@ class NewsCollection extends ResourceBase
             $query
                 ->condition('nfd.status', 1)
                 ->fields('nfd', ['nid', 'title', 'created', 'changed'])
-                ->range(0, 11)
+                ->range(0, 50)
                 ->orderBy('nfd.created', 'DESC');
             $query->addField('nftb', 'field_teaser_body_value', 'teaserBody');
 
-            $responseData = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
+            $result = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($result as $row) {
+                $row['created_formatted'] = $this->getNepaliDateFormatted($row['created']);
+                $row['changed_formatted'] = $this->getNepaliDateFormatted($row['changed']);
+                $responseData[] = $row;
+            }
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
