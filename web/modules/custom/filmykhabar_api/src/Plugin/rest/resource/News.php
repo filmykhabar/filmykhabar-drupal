@@ -103,12 +103,57 @@ class News extends ResourceBase
 
             // Changed date (formatted)
             $responseData['changed_formatted'] = $this->getNepaliDateFormatted($responseData['changed']);
+
+            // Author
+            $responseData['author'] = $this->getProfiles($node->get('field_author')->referencedEntities());
+
+            // Location
+
         }
 
         $response = new ResourceResponse($responseData, 200);
         $response->addCacheableDependency($responseData);
 
         return $response;
+    }
+
+    public function getProfiles($profiles)
+    {
+        $returnData = [];
+        if (!empty($profiles) && is_array($profiles)) {
+            foreach ($profiles as $profile) {
+                // First name
+                $firstName = $profile->get('field_first_name')->getValue();
+                $firstName = isset($firstName[0]['value']) ? $firstName[0]['value'] : "";
+                $responseData['firstName'] = $firstName;
+
+                // Last name
+                $lastName = $profile->get('field_last_name')->getValue();
+                $lastName = isset($lastName[0]['value']) ? $lastName[0]['value'] : "";
+                $responseData['lastName'] = $lastName;
+
+                // Biography
+                $biography = $profile->get('body')->getValue();
+                $biography = isset($biography[0]['value']) ? $biography[0]['value'] : "";
+                $responseData['biography'] = $biography;
+
+                // Image
+                $image = $this->getImage($profile->get('field_image'));
+
+                $data = [
+                    'nid' => $profile->id(),
+                    'fullName' => $profile->getTitle(),
+                    'firstName' => $firstName,
+                    'lastName' => $lastName,
+                    'biography' => $biography,
+                    'image' => $image,
+                ];
+
+                $returnData[] = $data;
+            }
+        }
+
+        return $returnData;
     }
 
     public function getTags($tags)
@@ -181,6 +226,25 @@ class News extends ResourceBase
             }
         }
         return $body;
+    }
+
+    public function getImage($fieldImage)
+    {
+        $returnData = [];
+        $fieldImage = $fieldImage->getValue();
+        if (isset($fieldImage[0]['target_id'])) {
+            $file = File::load($fieldImage[0]['target_id']);
+            $fileUri = $file->getFileUri();
+            $returnData['url'] = file_create_url($fileUri);
+            $returnData['styles'] = [
+                '6x4_medium' => ImageStyle::load('6x4_medium')->buildUrl($fileUri),
+            ];
+
+            $returnData['alt'] = isset($fieldImage[0]['alt']) ? $fieldImage[0]['alt'] : '';
+            $returnData['title'] = isset($fieldImage[0]['title']) ? $fieldImage[0]['title'] : '';
+        }
+
+        return $returnData;
     }
 
     public function getMediaImage($fieldMediaImage)
