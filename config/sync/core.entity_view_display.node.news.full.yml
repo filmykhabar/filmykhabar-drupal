@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.news.field_author
+    - field.field.node.news.field_authors
     - field.field.node.news.field_body
     - field.field.node.news.field_image
     - field.field.node.news.field_media_image
@@ -119,6 +120,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_authors: true
   field_news_location: true
   field_news_type: true
   field_teaser_body: true
