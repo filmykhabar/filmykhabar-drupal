@@ -126,17 +126,15 @@ class News extends ResourceBase
                 // First name
                 $firstName = $profile->get('field_first_name')->getValue();
                 $firstName = isset($firstName[0]['value']) ? $firstName[0]['value'] : "";
-                $responseData['firstName'] = $firstName;
 
                 // Last name
                 $lastName = $profile->get('field_last_name')->getValue();
                 $lastName = isset($lastName[0]['value']) ? $lastName[0]['value'] : "";
-                $responseData['lastName'] = $lastName;
 
                 // Biography
                 $biography = $profile->get('body')->getValue();
-                $biography = isset($biography[0]['value']) ? $biography[0]['value'] : "";
-                $responseData['biography'] = $biography;
+                $biographyValue = isset($biography[0]['value']) ? $biography[0]['value'] : "";
+                $biographySummary = isset($biography[0]['summary']) ? $biography[0]['summary'] : "";
 
                 // Image
                 $image = $this->getImage($profile->get('field_image'));
@@ -146,7 +144,8 @@ class News extends ResourceBase
                     'fullName' => $profile->getTitle(),
                     'firstName' => $firstName,
                     'lastName' => $lastName,
-                    'biography' => $biography,
+                    'biography' => $biographyValue,
+                    'summary' => $biographySummary,
                     'image' => $image,
                 ];
 
