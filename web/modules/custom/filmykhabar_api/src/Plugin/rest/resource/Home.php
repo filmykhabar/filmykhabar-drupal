@@ -9,6 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\filmykhabar_api\NepaliCalendarTrait;
 
 /**
  * Provides a resource to get view modes by entity and bundle.
@@ -23,6 +24,7 @@ use Drupal\image\Entity\ImageStyle;
  */
 class Home extends ResourceBase
 {
+    use NepaliCalendarTrait;
 
     /**
      * A current user instance.
@@ -112,6 +114,9 @@ class Home extends ResourceBase
                 'status' => (int) $node->isPublished(),
             ];
 
+            $data['created_formatted'] = $this->getNepaliDateFormatted($data['created']);
+            $data['changed_formatted'] = $this->getNepaliDateFormatted($data['changed']);
+
             // Teaser body
             $teaserBody = $node->get('field_teaser_body')->getValue();
             $teaserBody = isset($teaserBody[0]['value']) ? $teaserBody[0]['value'] : '';
@@ -192,8 +197,10 @@ class Home extends ResourceBase
             $query->addField('nftb', 'field_teaser_body_value', 'teaserBody');
 
             $result = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
-            if (!empty($result)) {
-                $latestContents = $result;
+            foreach ($result as $row) {
+                $row['created_formatted'] = $this->getNepaliDateFormatted($row['created']);
+                $row['changed_formatted'] = $this->getNepaliDateFormatted($row['changed']);
+                $latestContents[] = $row;
             }
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
