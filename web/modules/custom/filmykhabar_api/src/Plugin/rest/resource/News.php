@@ -104,8 +104,8 @@ class News extends ResourceBase
             // Changed date (formatted)
             $responseData['changed_formatted'] = $this->getNepaliDateFormatted($responseData['changed']);
 
-            // Author
-            $responseData['author'] = $this->getProfiles($node->get('field_author')->referencedEntities());
+            // Authors
+            $responseData['authors'] = $this->getProfiles($node->get('field_authors')->referencedEntities());
 
             // Location
 
