@@ -9,8 +9,24 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
+    - field_group
     - focal_point
     - path
+third_party_settings:
+  field_group:
+    group_image:
+      children:
+        - field_media_image
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Image
 _core:
   default_config_hash: nZlttO4YMwMCpkhYMz7bQ1ZMjABGc59YY1us3eSfvTY
 id: media.image.default
@@ -20,7 +36,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -33,7 +49,7 @@ content:
     type: string_textarea
     region: content
   field_credit_copyright:
-    weight: 2
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -48,11 +64,11 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_focal_point
-    weight: 1
+    weight: 2
     region: content
   langcode:
     type: language_select
-    weight: 4
+    weight: 5
     region: content
     settings:
       include_locked: true
@@ -67,7 +83,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -75,12 +91,12 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
