@@ -3,34 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.image.field_image
     - field.field.paragraph.image.field_media_image
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.image
   module:
-    - image
+    - media_library
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
 mode: default
 content:
-  field_image:
-    weight: 0
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
   field_media_image:
     weight: 1
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
+      media_types: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: media_library_widget
     region: content
   translation:
     weight: 2

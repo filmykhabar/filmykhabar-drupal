@@ -39,7 +39,7 @@ display:
         options:
           submit_button: फिल्टर
           reset_button: true
-          reset_button_label: 'रिसेट गर्नुहोस्'
+          reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -894,7 +894,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: पृष्ठ
+    display_title: Page
     position: 1
     display_options:
       path: admin/people/list

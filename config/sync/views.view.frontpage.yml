@@ -67,7 +67,7 @@ display:
         options:
           submit_button: Apply
           reset_button: false
-          reset_button_label: 'रिसेट गर्नुहोस्'
+          reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -297,7 +297,7 @@ display:
       path: node
       display_extenders: {  }
     display_plugin: page
-    display_title: पृष्ठ
+    display_title: Page
     id: page_1
     position: 1
     cache_metadata:

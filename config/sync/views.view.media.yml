@@ -11,7 +11,7 @@ dependencies:
 _core:
   default_config_hash: rRzAWaXpJGYA2gPG6BmGxy8gfFd4srCc-LQY3JB6tR8
 id: media
-label: मिडिया
+label: Media
 module: views
 description: ''
 tag: ''
@@ -44,7 +44,7 @@ display:
         options:
           submit_button: फिल्टर
           reset_button: false
-          reset_button_label: 'रिसेट गर्नुहोस्'
+          reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -374,7 +374,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: लेखक
+          label: Author
           exclude: false
           alter:
             alter_text: false
@@ -484,7 +484,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: प्रकाशित
+            format_custom_true: Published
             format_custom_false: Unpublished
           group_column: value
           group_columns: {  }
@@ -741,7 +741,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: प्रकाशित
+                title: Published
                 operator: '='
                 value: '1'
               2:
@@ -764,7 +764,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: भाषा
+            label: Language
             description: ''
             use_operator: false
             operator: langcode_op
@@ -849,7 +849,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: मिडिया
+      title: Media
       header: {  }
       footer: {  }
       empty:
@@ -880,14 +880,14 @@ display:
   media_page_list:
     display_plugin: page
     id: media_page_list
-    display_title: मिडिया
+    display_title: Media
     position: 1
     display_options:
       display_extenders: {  }
       path: admin/content/media
       menu:
         type: tab
-        title: मिडिया
+        title: Media
         description: ''
         expanded: false
         parent: ''

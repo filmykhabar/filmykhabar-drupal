@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.news.field_teaser_body
     - node.type.news
   module:
+    - media_library
     - paragraphs
     - path
     - text
@@ -51,12 +52,9 @@ content:
   field_media_image:
     weight: 2
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
+      media_types: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: media_library_widget
     region: content
   field_news_location:
     weight: 7
