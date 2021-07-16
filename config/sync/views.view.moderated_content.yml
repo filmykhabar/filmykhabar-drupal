@@ -39,7 +39,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: फिल्टर
+          submit_button: Filter
           reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -132,7 +132,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: शीर्षक
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -554,7 +554,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: शीर्षक
+            label: Title
             description: ''
             use_operator: false
             operator: title_op

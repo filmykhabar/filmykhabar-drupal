@@ -39,7 +39,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: फिल्टर
+          submit_button: Filter
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -353,7 +353,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: अवस्था
+          label: Status
           exclude: false
           alter:
             alter_text: false
@@ -669,7 +669,7 @@ display:
           exposed: true
           expose:
             operator_id: status_op
-            label: अवस्था
+            label: Status
             description: ''
             use_operator: false
             operator: status_op
