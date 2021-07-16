@@ -5,16 +5,13 @@ dependencies:
   config:
     - field.field.node.news.field_authors
     - field.field.node.news.field_body
-    - field.field.node.news.field_image
     - field.field.node.news.field_media_image
     - field.field.node.news.field_news_location
     - field.field.node.news.field_news_type
     - field.field.node.news.field_tags
     - field.field.node.news.field_teaser_body
-    - image.style.thumbnail
     - node.type.news
   module:
-    - image
     - paragraphs
     - path
     - text
@@ -46,18 +43,10 @@ content:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
-      add_mode: dropdown
+      add_mode: button
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: text
     third_party_settings: {  }
-    region: content
-  field_image:
-    weight: 1
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
     region: content
   field_media_image:
     weight: 2
