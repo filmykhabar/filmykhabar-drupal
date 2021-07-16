@@ -1,0 +1,14 @@
+uuid: 1e0c02d7-5d97-44f8-a047-fbd51e44f934
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.editor_in_chief
+  module:
+    - user
+id: user_add_role_action.editor_in_chief
+label: 'Add the Editor-in-Chief role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: editor_in_chief

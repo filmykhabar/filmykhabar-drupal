@@ -1,0 +1,14 @@
+uuid: 47d1a68e-9502-478c-8a49-280267a9f193
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.editor_in_chief
+  module:
+    - user
+id: user_remove_role_action.editor_in_chief
+label: 'Remove the Editor-in-Chief role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: editor_in_chief

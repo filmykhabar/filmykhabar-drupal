@@ -1,0 +1,14 @@
+uuid: 719097a2-08bf-4c36-8a62-51b79cc5a31b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.photographer
+  module:
+    - user
+id: user_remove_role_action.photographer
+label: 'Remove the Photographer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: photographer
