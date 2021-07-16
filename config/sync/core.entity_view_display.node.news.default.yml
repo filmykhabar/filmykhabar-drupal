@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.news.field_author
     - field.field.node.news.field_authors
     - field.field.node.news.field_body
     - field.field.node.news.field_image
@@ -49,7 +48,6 @@ content:
     region: content
 hidden:
   addtoany: true
-  field_author: true
   field_body: true
   field_image: true
   field_news_location: true

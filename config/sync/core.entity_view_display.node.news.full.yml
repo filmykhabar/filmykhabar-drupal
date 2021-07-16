@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.news.field_author
     - field.field.node.news.field_authors
     - field.field.node.news.field_body
     - field.field.node.news.field_image
@@ -76,14 +75,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_author:
-    weight: 2
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_body:
     type: entity_reference_revisions_entity_view
     weight: 3
