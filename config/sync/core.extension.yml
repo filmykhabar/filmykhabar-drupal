@@ -100,6 +100,7 @@ module:
   workflows: 0
   ds: 1
   forum: 1
+  menu_admin_per_menu: 1
   menu_link_content: 1
   pathauto: 1
   ds_extras: 2
