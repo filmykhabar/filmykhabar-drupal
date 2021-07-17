@@ -7,9 +7,8 @@ use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Drupal\file\Entity\File;
-use Drupal\image\Entity\ImageStyle;
 use Drupal\filmykhabar_api\NepaliCalendarTrait;
+use Drupal\filmykhabar_api\HelperTrait;
 
 /**
  * Provides a resource to get view modes by entity and bundle.
@@ -25,6 +24,7 @@ use Drupal\filmykhabar_api\NepaliCalendarTrait;
 class Home extends ResourceBase
 {
     use NepaliCalendarTrait;
+    use HelperTrait;
 
     /**
      * A current user instance.
@@ -126,58 +126,6 @@ class Home extends ResourceBase
             $data['teaserImage'] = $this->getMediaImage($node->get('field_media_image'));
 
             $returnData[] = $data;
-        }
-
-        return $returnData;
-    }
-
-    public function getMediaImage($fieldMediaImage)
-    {
-        $returnData = [];
-        $fieldMediaImage = $fieldMediaImage->first();
-        if (!empty($fieldMediaImage)) {
-            $fieldMediaImage = $fieldMediaImage->get('entity')->getTarget()->getValue();
-            if (!empty($fieldMediaImage)) {
-                // Image name
-                $name = $fieldMediaImage->get('name')->getValue();
-                $name = isset($name[0]['value']) ? $name[0]['value'] : '';
-
-                // Image caption
-                $caption = $fieldMediaImage->get('field_caption')->getValue();
-                $caption = isset($caption[0]['value']) ? $caption[0]['value'] : '';
-
-                // Image credit/copyright
-                $creditCopyright = $fieldMediaImage->get('field_credit_copyright')->getValue();
-                $creditCopyright = isset($creditCopyright[0]['value']) ? $creditCopyright[0]['value'] : '';
-
-                // Media image
-                $mediaImageUrl = "";
-                $mediaImageStyles = [];
-                $mediaImageAlt = "";
-                $mediaImageTitle = "";
-                $mediaImage = $fieldMediaImage->get('field_media_image')->getValue();
-                if (isset($mediaImage[0]['target_id'])) {
-                    $file = File::load($mediaImage[0]['target_id']);
-                    $fileUri = $file->getFileUri();
-                    $mediaImageUrl = file_create_url($fileUri);
-                    $mediaImageStyles = [
-                        '6x4_medium' => ImageStyle::load('6x4_medium')->buildUrl($fileUri),
-                    ];
-                }
-                $mediaImageAlt = isset($mediaImage[0]['alt']) ? $mediaImage[0]['alt'] : '';
-                $mediaImageTitle = isset($mediaImage[0]['title']) ? $mediaImage[0]['title'] : '';
-
-                $returnData = [
-                    'mid' => (int) $fieldMediaImage->id(),
-                    'name' => $name,
-                    'caption' => $caption,
-                    'credit' => $creditCopyright,
-                    'url' => $mediaImageUrl,
-                    'alt' => $mediaImageAlt,
-                    'title' => $mediaImageTitle,
-                    'styles' => $mediaImageStyles,
-                ];
-            }
         }
 
         return $returnData;
