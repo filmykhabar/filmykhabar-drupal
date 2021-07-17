@@ -3,7 +3,6 @@ module:
   addtoany: 0
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
-  admin_toolbar_tools: 0
   aggregator: 0
   automated_cron: 0
   ban: 0
@@ -76,6 +75,7 @@ module:
   responsive_image: 0
   rest: 0
   restui: 0
+  role_delegation: 0
   scheduler: 0
   search_api: 0
   search_api_db: 0
