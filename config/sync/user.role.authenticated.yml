@@ -9,14 +9,9 @@ label: 'Authenticated user'
 weight: -9
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
-  - 'access site-wide contact form'
-  - 'post comments'
   - 'restful get home'
   - 'restful get news'
   - 'restful get news_collection'
   - 'search content'
-  - 'skip comment approval'
   - 'use text format basic_html'
-  - 'view media'

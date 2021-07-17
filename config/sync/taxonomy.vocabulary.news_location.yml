@@ -5,4 +5,4 @@ dependencies: {  }
 name: 'News Location'
 vid: news_location
 description: ''
-weight: 0
+weight: -9
