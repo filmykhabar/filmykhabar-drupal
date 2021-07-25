@@ -64,27 +64,34 @@ class NewsCollection extends ResourceBase
             throw new AccessDeniedHttpException();
         }
 
-        $responseData = [];
+        $newsList = [];
+
+        $page = (!empty($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0) ? floor($_GET['page']) : 0;
+        $limit = (!empty($_GET['limit']) && is_numeric($_GET['limit']) && $_GET['limit'] > 0) ? floor($_GET['limit']) : 10;
+        $start = $page * $limit;
 
         try {
-            $query = $this->database->select('node_field_data', 'nfd');
-            $query->join('node__field_teaser_body', 'nftb', 'nftb.entity_id = nfd.nid');
+            $query = $this->getNewsListQuery();
             $query
-                ->condition('nfd.status', 1)
                 ->fields('nfd', ['nid', 'title', 'created', 'changed'])
-                ->range(0, 50)
-                ->orderBy('nfd.created', 'DESC');
+                ->orderBy('nfd.created', 'DESC')
+                ->range($start, $limit);
             $query->addField('nftb', 'field_teaser_body_value', 'teaserBody');
 
             $result = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
             foreach ($result as $row) {
                 $row['created_formatted'] = $this->getNepaliDateFormatted($row['created']);
                 $row['changed_formatted'] = $this->getNepaliDateFormatted($row['changed']);
-                $responseData[] = $row;
+                $newsList[] = $row;
             }
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
+
+        $responseData = [
+            'count' => $this->getNewsCount(),
+            'data' => $newsList
+        ];
 
         $response = new ResourceResponse($responseData, 200);
         // In order to generate fresh result every time (without clearing
@@ -92,5 +99,36 @@ class NewsCollection extends ResourceBase
         $response->addCacheableDependency($responseData);
 
         return $response;
+    }
+
+    public function getNewsListQuery()
+    {
+        $query = $this->database->select('node_field_data', 'nfd');
+        $query->join('node__field_teaser_body', 'nftb', 'nftb.entity_id = nfd.nid');
+        $query
+            ->condition('nfd.type', 'news')
+            ->condition('nfd.status', 1)
+            ->condition('nfd.langcode', 'ne');
+        return $query;
+    }
+
+    public function getNewsCount()
+    {
+        // You must to implement the logic of your REST Resource here.
+        // Use current user after pass authentication to validate access.
+        if (!$this->currentUser->hasPermission('access content')) {
+            throw new AccessDeniedHttpException();
+        }
+
+        $count = 0;
+
+        try {
+            $query = $this->getNewsListQuery();
+            $count = $query->countQuery()->execute()->fetchField();
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+        }
+
+        return (int) $count;
     }
 }
