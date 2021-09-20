@@ -51,7 +51,8 @@
         "drupal/upgrade_status": "^3.10",
         "drupal/webform": "^6.0",
         "drush/drush": "^10.3",
-        "pachabhaiya/nepali-calendar": "^1.0@alpha"
+        "pachabhaiya/nepali-calendar": "^1.0@alpha",
+        "phpstan/phpstan": "^0.12.99"
     },
     "conflict": {
         "drupal/drupal": "*"
