@@ -5,7 +5,7 @@ config:
   webroot: web
   via: nginx
   database: mariadb:10.4
-  composer_version: "1.10.22"
+  composer_version: "2.1.8"
 
 env_file:
   - .lando/database.env

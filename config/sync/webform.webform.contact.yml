@@ -15,7 +15,31 @@ id: contact
 title: सम्पर्क
 description: 'Basic email contact webform.'
 category: ''
-elements: "name:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#required': true\n  '#default_value': '[current-user:display-name]'\nemail:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\n  '#default_value': '[current-user:mail]'\nsubject:\n  '#type': textfield\n  '#title': Subject\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send message'"
+elements: |-
+  name:
+    '#type': textfield
+    '#title': 'Your Name'
+    '#required': true
+    '#default_value': '[current-user:display-name]'
+  email:
+    '#type': email
+    '#title': 'Email address'
+    '#required': true
+    '#default_value': '[current-user:mail]'
+  subject:
+    '#type': textfield
+    '#title': Subject
+    '#required': true
+    '#test': 'Testing contact webform from [site:name]'
+  message:
+    '#title': Message
+    '#type': textarea
+    '#required': true
+    '#test': 'Please ignore this email.'
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': 'Send message'
 css: ''
 javascript: ''
 settings:

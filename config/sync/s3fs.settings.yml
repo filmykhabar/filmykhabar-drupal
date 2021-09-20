@@ -31,3 +31,4 @@ keymodule:
 _core:
   default_config_hash: 2TdbOQWlW9VarRBSmW3arGSoJ8HpkzYb89aPE6E-iQo
 langcode: ne
+disable_shared_config_files: true
