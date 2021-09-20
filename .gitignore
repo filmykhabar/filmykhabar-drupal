@@ -19,3 +19,6 @@
 # Ignore other files and folders.
 node_modules
 /console/
+
+# Ignore database dump files.
+*.sql.gz
