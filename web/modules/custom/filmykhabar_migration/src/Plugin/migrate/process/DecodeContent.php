@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\migrate_filmykhabar\Plugin\migrate\process;
+namespace Drupal\filmykhabar_migration\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateException;
 use Drupal\migrate\MigrateExecutableInterface;
@@ -23,12 +23,14 @@ use Drupal\migrate\Row;
  * @endcode
  *
  */
-class DecodeContent extends ProcessPluginBase {
+class DecodeContent extends ProcessPluginBase
+{
 
   /**
    * {@inheritdoc}
    */
-  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property)
+  {
     $value = str_replace(array('&quot;', '&#039;', '&nbsp;', "  "), array('"', "'", " ", " "), $value);
     $value = html_entity_decode($value);
     $value = str_replace(array('<p> </p>', '<div> </div>'), array("", ""), $value);

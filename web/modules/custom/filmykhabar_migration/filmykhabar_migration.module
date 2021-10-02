@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains migrate_filmykhabar.module.
+ * Contains filmykhabar_migration.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,10 +10,11 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function migrate_filmykhabar_help($route_name, RouteMatchInterface $route_match) {
+function filmykhabar_migration_help($route_name, RouteMatchInterface $route_match)
+{
   switch ($route_name) {
-    // Main module help for the migrate_filmykhabar module.
-    case 'help.page.migrate_filmykhabar':
+      // Main module help for the filmykhabar_migration module.
+    case 'help.page.filmykhabar_migration':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Migrate data from old FilmyKhabar custom CMS to Drupal 8.') . '</p>';

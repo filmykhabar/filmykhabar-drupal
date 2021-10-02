@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\migrate_filmykhabar\Plugin\migrate\source;
+namespace Drupal\filmykhabar_migration\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
@@ -13,12 +13,14 @@ use Drupal\Core\Database\Database;
  *   id = "content_photos"
  * )
  */
-class ContentPhotos extends SqlBase {
+class ContentPhotos extends SqlBase
+{
 
   /**
    * {@inheritdoc}
    */
-  public function query() {
+  public function query()
+  {
     $c_type = 151;
     $parent_id = 11;
     $status = 402;
@@ -60,7 +62,8 @@ class ContentPhotos extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function fields() {
+  public function fields()
+  {
     $fields = [
       'category_id' => $this->t('Category ID'),
       'thumbnail_name' => $this->t('Thumbnail name'),
@@ -84,7 +87,8 @@ class ContentPhotos extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function getIds() {
+  public function getIds()
+  {
     return [
       'category_id' => [
         'type' => 'integer',
@@ -96,7 +100,8 @@ class ContentPhotos extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function prepareRow(Row $row) {
+  public function prepareRow(Row $row)
+  {
     $category_id = $row->getSourceProperty('category_id');
     $category_detail_id = $row->getSourceProperty('category_detail_id');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\migrate_filmykhabar\Plugin\migrate\source;
+namespace Drupal\filmykhabar_migration\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
@@ -12,12 +12,14 @@ use Drupal\migrate\Row;
  *   id = "pictures"
  * )
  */
-class Pictures extends SqlBase {
+class Pictures extends SqlBase
+{
 
   /**
    * {@inheritdoc}
    */
-  public function query() {
+  public function query()
+  {
     $c_type = 151; // table=OptionItem, option_item_id=151, option_item_code=picture
     $parent_id = 11; // table=Category, category_id=11 (category_detail_code=picture-gallery)
     $status = 402; // table=OptionItem, option_item_id=402, option_item_code=active
@@ -54,7 +56,8 @@ class Pictures extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function fields() {
+  public function fields()
+  {
     $fields = [
       'picture_id' => $this->t('Picture ID'),
       'category_id' => $this->t('Category ID'),
@@ -80,7 +83,8 @@ class Pictures extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function getIds() {
+  public function getIds()
+  {
     return [
       'picture_id' => [
         'type' => 'integer',
@@ -92,7 +96,8 @@ class Pictures extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function prepareRow(Row $row) {
+  public function prepareRow(Row $row)
+  {
     $picture_id = $row->getSourceProperty('picture_id');
     $category_detail_code = $row->getSourceProperty('category_detail_code');
 

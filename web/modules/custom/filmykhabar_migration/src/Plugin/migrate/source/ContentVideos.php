@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\migrate_filmykhabar\Plugin\migrate\source;
+namespace Drupal\filmykhabar_migration\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
@@ -12,12 +12,14 @@ use Drupal\migrate\Row;
  *   id = "content_videos"
  * )
  */
-class ContentVideos extends SqlBase {
+class ContentVideos extends SqlBase
+{
 
   /**
    * {@inheritdoc}
    */
-  public function query() {
+  public function query()
+  {
     $fields_video = [
       'video_id',
       'category_id',
@@ -51,7 +53,8 @@ class ContentVideos extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function fields() {
+  public function fields()
+  {
     $fields = [
       'video_id' => $this->t('Video ID'),
       'category_id' => $this->t('Category ID'),
@@ -78,7 +81,8 @@ class ContentVideos extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function getIds() {
+  public function getIds()
+  {
     return [
       'video_id' => [
         'type' => 'integer',
@@ -90,7 +94,8 @@ class ContentVideos extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function prepareRow(Row $row) {
+  public function prepareRow(Row $row)
+  {
     $video_id = $row->getSourceProperty('video_id');
 
     // Teaser image

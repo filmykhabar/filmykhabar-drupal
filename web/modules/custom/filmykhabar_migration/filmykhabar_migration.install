@@ -3,7 +3,8 @@
 /**
  * Implements hook_uninstall().
  */
-function migrate_filmykhabar_uninstall() {
+function filmykhabar_migration_uninstall()
+{
   $configs  = [
     'migrate_plus.migration.content_news',
     'migrate_plus.migration.content_news_media_image',
@@ -16,7 +17,7 @@ function migrate_filmykhabar_uninstall() {
     'migrate_plus.migration.pictures_paragraphs_item',
   ];
 
-  foreach($configs as $config) {
+  foreach ($configs as $config) {
     $delete = \Drupal::database()->delete('config')
       ->condition('name', $config)
       ->execute();

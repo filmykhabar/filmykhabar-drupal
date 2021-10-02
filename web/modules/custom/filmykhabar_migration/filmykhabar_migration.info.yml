@@ -1,8 +1,8 @@
-name: "Migrate FilmyKhabar.com"
+name: "FilmyKhabar Migration"
 type: module
-description: "Migrate data from old FilmyKhabar custom CMS to Drupal 8."
+description: "Migrate data from old FilmyKhabar custom CMS to new Drupal site."
 core_version_requirement: ^8.8 || ^9
-package: "Custom"
+package: "FilmyKhabar"
 dependencies:
   - drupal:migrate
   - migrate_plus:migrate_plus

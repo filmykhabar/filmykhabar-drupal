@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\migrate_filmykhabar\Plugin\migrate\source;
+namespace Drupal\filmykhabar_migration\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
@@ -12,12 +12,14 @@ use Drupal\migrate\Row;
  *   id = "content_news"
  * )
  */
-class ContentNews extends SqlBase {
+class ContentNews extends SqlBase
+{
 
   /**
    * {@inheritdoc}
    */
-  public function query() {
+  public function query()
+  {
     $fields_content = [
       'content_id',
       'category_id',
@@ -55,7 +57,8 @@ class ContentNews extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function fields() {
+  public function fields()
+  {
     $fields = [
       'content_id' => $this->t('Content ID'),
       'category_id' => $this->t('Category ID'),
@@ -87,7 +90,8 @@ class ContentNews extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function getIds() {
+  public function getIds()
+  {
     return [
       'content_id' => [
         'type' => 'integer',
@@ -99,7 +103,8 @@ class ContentNews extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function prepareRow(Row $row) {
+  public function prepareRow(Row $row)
+  {
     $content_id = $row->getSourceProperty('content_id');
 
     // Teaser image
@@ -174,7 +179,8 @@ class ContentNews extends SqlBase {
     return parent::prepareRow($row);
   }
 
-  public function getAuthorMapping($author) {
+  public function getAuthorMapping($author)
+  {
     $authors_map = array(
       "अखण्ड भण्डारी" => array("अखण्ड भण्डारी"),
       "अनुप भट्टराई" => array("अनुप भट्टराई"),
@@ -303,13 +309,13 @@ class ContentNews extends SqlBase {
 
     if (array_key_exists($author, $authors_map)) {
       return $authors_map[$author];
-    }
-    else {
+    } else {
       return array("फिल्मीखबर");
     }
   }
 
-  public function getLocationMapping($location) {
+  public function getLocationMapping($location)
+  {
     $location_map = array(
       "Kathmandu" => "काठमाडौं",
       "अकल्याण्ड" => "अकल्याण्ड",
@@ -394,8 +400,7 @@ class ContentNews extends SqlBase {
 
     if (array_key_exists($location, $location_map)) {
       return $location_map[$location];
-    }
-    else {
+    } else {
       return "";
     }
   }
