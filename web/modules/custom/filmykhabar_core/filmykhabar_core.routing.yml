@@ -1,0 +1,7 @@
+filmykhabar_core.home:
+  path: "/home"
+  defaults:
+    _controller: '\Drupal\filmykhabar_core\Controller\DefaultController::home'
+    _title: "Home"
+  requirements:
+    _permission: "access content"

@@ -1,13 +1,14 @@
 <?php
 
-namespace Drupal\fkm\Controller;
+namespace Drupal\filmykhabar_core\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
 /**
  * Class DefaultController.
  */
-class DefaultController extends ControllerBase {
+class DefaultController extends ControllerBase
+{
 
   /**
    * Home.
@@ -15,8 +16,8 @@ class DefaultController extends ControllerBase {
    * @return array
    *   Return empty array.
    */
-  public function home() {
+  public function home()
+  {
     return [];
   }
-
 }

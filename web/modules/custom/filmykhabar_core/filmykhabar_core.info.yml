@@ -1,0 +1,5 @@
+name: "FilmyKhabar Core"
+type: module
+description: "Provides core functionality for FilmyKhabar."
+core_version_requirement: ^8.8 || ^9
+package: "FilmyKhabar"

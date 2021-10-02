@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains filmykhabar_core.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function filmykhabar_core_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+      // Main module help for the filmykhabar_core module.
+    case 'help.page.filmykhabar_core':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides core functionality for FilmyKhabar.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
