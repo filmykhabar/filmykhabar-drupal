@@ -18,3 +18,18 @@ $ drush migrate-import content_news
 
 $ drush cr
 ```
+
+docker exec -it filmykhabar_database_1 bash
+
+mysql -u root -p drupal9
+password: <empty>
+
+mysql> GRANT ALL PRIVILEGES ON filmykhabar_old.\* TO 'drupal9'@'%';
+mysql> exit;
+
+mysql -u drupal9 -p drupal9
+mysql> show databases
+mysql> exit
+
+cd /app
+gunzip < filmykhabar_db.local.20210920-1.sql.gz | mysql -u drupal9 -p filmykhabar_old
