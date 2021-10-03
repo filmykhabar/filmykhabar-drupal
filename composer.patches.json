@@ -1,0 +1,8 @@
+{
+    "patches": {
+        "drupal/core": {
+            "Admin toolbar language": "patches/2313309-116.patch",
+            "D7 responsive image styles migration inconsistent with other migrations": "patches/3211510-4.patch"
+        }
+    }
+}

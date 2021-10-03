@@ -1,0 +1,736 @@
+diff --git a/core/misc/cspell/dictionary.txt b/core/misc/cspell/dictionary.txt
+index 80d6cb2fc6..34bb1857e2 100644
+--- a/core/misc/cspell/dictionary.txt
++++ b/core/misc/cspell/dictionary.txt
+@@ -501,6 +501,7 @@ enim
+ enoki
+ enregistrer
+ entit
++entitynodedelete
+ entitynodeedit
+ entityreference
+ entitytype
+diff --git a/core/modules/contextual/src/Element/ContextualLinks.php b/core/modules/contextual/src/Element/ContextualLinks.php
+index c4bd3b21f7..a96dd87a10 100644
+--- a/core/modules/contextual/src/Element/ContextualLinks.php
++++ b/core/modules/contextual/src/Element/ContextualLinks.php
+@@ -18,10 +18,27 @@ class ContextualLinks extends RenderElement {
+    */
+   public function getInfo() {
+     $class = static::class;
++
++    $pre_render = [];
++    $post_render = [];
++
++    $module_handler = static::moduleHandler();
++    if ($module_handler->moduleExists('language')) {
++      $pre_render[] = [
++        '\Drupal\language\ConfigurableLanguageManager',
++        'switchToUserAdminLanguage',
++      ];
++      $post_render[] = [
++        '\Drupal\language\ConfigurableLanguageManager',
++        'restoreLanguage',
++      ];
++    }
++
++    $pre_render[] = [$class, 'preRenderLinks'];
++
+     return [
+-      '#pre_render' => [
+-        [$class, 'preRenderLinks'],
+-      ],
++      '#pre_render' => $pre_render,
++      '#post_render' => $post_render,
+       '#theme' => 'links__contextual',
+       '#links' => [],
+       '#attributes' => ['class' => ['contextual-links']],
+diff --git a/core/modules/contextual/tests/src/Functional/ContextualDynamicContextTest.php b/core/modules/contextual/tests/src/Functional/ContextualDynamicContextTest.php
+index 34e3e61b2f..72ef3c186b 100644
+--- a/core/modules/contextual/tests/src/Functional/ContextualDynamicContextTest.php
++++ b/core/modules/contextual/tests/src/Functional/ContextualDynamicContextTest.php
+@@ -3,11 +3,10 @@
+ namespace Drupal\Tests\contextual\Functional;
+ 
+ use Drupal\Component\Serialization\Json;
+-use Drupal\Component\Utility\Crypt;
+-use Drupal\Core\Site\Settings;
+ use Drupal\Core\Url;
+ use Drupal\language\Entity\ConfigurableLanguage;
+ use Drupal\Tests\BrowserTestBase;
++use Drupal\Tests\contextual\Traits\ContextualTestTrait;
+ 
+ /**
+  * Tests if contextual links are showing on the front page depending on
+@@ -17,6 +16,8 @@
+  */
+ class ContextualDynamicContextTest extends BrowserTestBase {
+ 
++  use ContextualTestTrait;
++
+   /**
+    * {@inheritdoc}
+    */
+@@ -217,70 +218,4 @@ public function testTokenProtection() {
+     $this->assertEquals('200', $response->getStatusCode());
+   }
+ 
+-  /**
+-   * Asserts that a contextual link placeholder with the given id exists.
+-   *
+-   * @param string $id
+-   *   A contextual link id.
+-   */
+-  protected function assertContextualLinkPlaceHolder($id) {
+-    $this->assertSession()->elementAttributeContains(
+-      'css',
+-      'div[data-contextual-id="' . $id . '"]',
+-      'data-contextual-token',
+-      $this->createContextualIdToken($id)
+-    );
+-  }
+-
+-  /**
+-   * Asserts that a contextual link placeholder with the given id does not exist.
+-   *
+-   * @param string $id
+-   *   A contextual link id.
+-   */
+-  protected function assertNoContextualLinkPlaceHolder($id) {
+-    $this->assertSession()->elementNotExists('css', 'div[data-contextual-id="' . $id . '"]');
+-  }
+-
+-  /**
+-   * Get server-rendered contextual links for the given contextual link ids.
+-   *
+-   * @param array $ids
+-   *   An array of contextual link ids.
+-   * @param string $current_path
+-   *   The Drupal path for the page for which the contextual links are rendered.
+-   *
+-   * @return \Psr\Http\Message\ResponseInterface
+-   *   The response object.
+-   */
+-  protected function renderContextualLinks($ids, $current_path) {
+-    $tokens = array_map([$this, 'createContextualIdToken'], $ids);
+-    $http_client = $this->getHttpClient();
+-    $url = Url::fromRoute('contextual.render', [], [
+-      'query' => [
+-        '_format' => 'json',
+-        'destination' => $current_path,
+-      ],
+-    ]);
+-
+-    return $http_client->request('POST', $this->buildUrl($url), [
+-      'cookies' => $this->getSessionCookies(),
+-      'form_params' => ['ids' => $ids, 'tokens' => $tokens],
+-      'http_errors' => FALSE,
+-    ]);
+-  }
+-
+-  /**
+-   * Creates a contextual ID token.
+-   *
+-   * @param string $id
+-   *   The contextual ID to create a token for.
+-   *
+-   * @return string
+-   *   The contextual ID token.
+-   */
+-  protected function createContextualIdToken($id) {
+-    return Crypt::hmacBase64($id, Settings::getHashSalt() . $this->container->get('private_key')->get());
+-  }
+-
+ }
+diff --git a/core/modules/contextual/tests/src/Functional/ContextualTranslationTest.php b/core/modules/contextual/tests/src/Functional/ContextualTranslationTest.php
+new file mode 100644
+index 0000000000..7239967d10
+--- /dev/null
++++ b/core/modules/contextual/tests/src/Functional/ContextualTranslationTest.php
+@@ -0,0 +1,120 @@
++<?php
++
++namespace Drupal\tests\contextual\Functional;
++
++use Drupal\Component\Serialization\Json;
++use Drupal\language\Entity\ConfigurableLanguage;
++use Drupal\Tests\BrowserTestBase;
++use Drupal\Tests\contextual\Traits\ContextualTestTrait;
++
++/**
++ * Tests contextual link translation.
++ *
++ * @group contextual
++ */
++class ContextualTranslationTest extends BrowserTestBase {
++
++  use ContextualTestTrait;
++
++  /**
++   * {@inheritdoc}
++   */
++  protected $defaultTheme = 'classy';
++
++  /**
++   * {@inheritdoc}
++   */
++  protected static $modules = [
++    'block',
++    'contextual',
++    'language',
++    'locale',
++    'node',
++    'system',
++  ];
++
++  /**
++   * The admin user.
++   *
++   * @var \Drupal\user\Entity\User
++   */
++  protected $adminUser;
++
++  /**
++   * The language manager.
++   *
++   * @var \Drupal\Core\Language\LanguageManagerInterface
++   */
++  protected $languageManager;
++
++  /**
++   * The locale storage.
++   *
++   * @var \Drupal\locale\StringStorageInterface
++   */
++  protected $localeStorage;
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function setUp(): void {
++    parent::setUp();
++
++    $this->languageManager = $this->container->get('language_manager');
++    $this->localeStorage = $this->container->get('locale.storage');
++
++    $this->drupalPlaceBlock('local_actions_block');
++    $this->drupalPlaceBlock('local_tasks_block');
++
++    $this->adminUser = $this->createUser([], NULL, TRUE);
++    $this->drupalLogin($this->adminUser);
++
++    $this->drupalCreateContentType(['type' => 'page', 'name' => 'Basic page']);
++
++    ConfigurableLanguage::createFromLangcode('nl')->save();
++    $this->rebuildContainer();
++
++    // Enable the 'Account administration pages' language detection.
++    $this->drupalGet('admin/config/regional/language/detection');
++    $this->submitForm(['language_interface[enabled][language-user-admin]' => TRUE], 'Save settings');
++  }
++
++  /**
++   * Tests that contextual links are shown in the preferred admin language.
++   */
++  public function testContextualLinksPreferredAdminLanguage() {
++    // Create a node and visit the translated page so new translation labels
++    // are added.
++    $nl_language = $this->languageManager->getLanguage('nl');
++    $node1 = $this->drupalCreateNode(['type' => 'page']);
++    $this->drupalGet($node1->toUrl('canonical', ['language' => $nl_language]));
++
++    // Add a translation for the 'Edit' string.
++    $edit_translation = $this->randomMachineName();
++    $this->drupalGet('admin/config/regional/translate');
++    $this->submitForm(['string' => 'Edit', 'langcode' => 'nl'], 'Filter');
++    $textarea = current($this->xpath('//textarea'));
++    $lid = (string) $textarea->getAttribute('name');
++    $this->submitForm([$lid => $edit_translation], 'Save translations');
++
++    $ids = [
++      'node:node=' . $node1->id() . ':changed=' . $node1->getChangedTime() . '&langcode=nl',
++    ];
++    // Render the contextual links. The 'Edit' label should be shown in the
++    // custom language.
++    $response = $this->renderContextualLinks($ids, 'node', ['language' => $nl_language]);
++    $json = Json::decode((string) $response->getBody());
++    $this->assertSame('<ul class="contextual-links"><li class="entitynodeedit-form"><a href="' . base_path() . 'nl/node/1/edit">' . $edit_translation . '</a></li><li class="entitynodedelete-form"><a href="' . base_path() . 'nl/node/1/delete">Delete</a></li></ul>', $json[$ids[0]]);
++
++    // Configure a preferred admin language.
++    $this->adminUser->set('preferred_admin_langcode', 'en');
++    $this->adminUser->save();
++
++    // Render the contextual links. The edit label should be shown in the
++    // preferred admin language.
++    $response = $this->renderContextualLinks($ids, 'node', ['language' => $nl_language]);
++    $json = Json::decode((string) $response->getBody());
++    $this->assertSame('<ul class="contextual-links"><li class="entitynodeedit-form"><a href="' . base_path() . 'nl/node/1/edit">Edit</a></li><li class="entitynodedelete-form"><a href="' . base_path() . 'nl/node/1/delete">Delete</a></li></ul>', $json[$ids[0]]);
++  }
++
++}
+diff --git a/core/modules/contextual/tests/src/Traits/ContextualTestTrait.php b/core/modules/contextual/tests/src/Traits/ContextualTestTrait.php
+new file mode 100644
+index 0000000000..a695f84d95
+--- /dev/null
++++ b/core/modules/contextual/tests/src/Traits/ContextualTestTrait.php
+@@ -0,0 +1,84 @@
++<?php
++
++namespace Drupal\Tests\contextual\Traits;
++
++use Drupal\Component\Utility\Crypt;
++use Drupal\Core\Site\Settings;
++use Drupal\Core\Url;
++
++/**
++ * Provides helper methods for testing contextual links.
++ *
++ * This trait is meant to be used only by test classes.
++ */
++trait ContextualTestTrait {
++
++  /**
++   * Asserts that a contextual link placeholder with the given id exists.
++   *
++   * @param string $id
++   *   A contextual link id.
++   */
++  protected function assertContextualLinkPlaceHolder($id) {
++    $this->assertSession()->elementAttributeContains(
++      'css',
++      'div[data-contextual-id="' . $id . '"]',
++      'data-contextual-token',
++      $this->createContextualIdToken($id)
++    );
++  }
++
++  /**
++   * Asserts that a contextual link placeholder with the given id does not exist.
++   *
++   * @param string $id
++   *   A contextual link id.
++   */
++  protected function assertNoContextualLinkPlaceHolder($id) {
++    $this->assertSession()->elementNotExists('css', 'div[data-contextual-id="' . $id . '"]');
++  }
++
++  /**
++   * Get server-rendered contextual links for the given contextual link ids.
++   *
++   * @param array $ids
++   *   An array of contextual link ids.
++   * @param string $current_path
++   *   The Drupal path for the page for which the contextual links are rendered.
++   * @param array $options
++   *   An array of options used to build the URL.
++   *
++   * @return \Psr\Http\Message\ResponseInterface
++   *   The response object.
++   */
++  protected function renderContextualLinks($ids, $current_path, array $options = []) {
++    $tokens = array_map([$this, 'createContextualIdToken'], $ids);
++    $http_client = $this->getHttpClient();
++    $url = Url::fromRoute('contextual.render', [], $options + [
++      'query' => [
++        '_format' => 'json',
++        'destination' => $current_path,
++      ],
++    ]);
++
++    return $http_client->request('POST', $this->buildUrl($url), [
++      'cookies' => $this->getSessionCookies(),
++      'form_params' => ['ids' => $ids, 'tokens' => $tokens],
++      'http_errors' => FALSE,
++    ]);
++  }
++
++  /**
++   * Creates a contextual ID token.
++   *
++   * @param string $id
++   *   The contextual ID to create a token for.
++   *
++   * @return string
++   *   The contextual ID token.
++   */
++  protected function createContextualIdToken($id) {
++    return Crypt::hmacBase64($id, Settings::getHashSalt() . $this->container->get('private_key')->get());
++  }
++
++}
+diff --git a/core/modules/language/src/ConfigurableLanguageManager.php b/core/modules/language/src/ConfigurableLanguageManager.php
+index 143adf604b..668b72dd50 100644
+--- a/core/modules/language/src/ConfigurableLanguageManager.php
++++ b/core/modules/language/src/ConfigurableLanguageManager.php
+@@ -8,6 +8,7 @@
+ use Drupal\Core\Language\Language;
+ use Drupal\Core\Language\LanguageDefault;
+ use Drupal\Core\Language\LanguageManager;
++use Drupal\Core\Security\TrustedCallbackInterface;
+ use Drupal\Core\StringTranslation\TranslatableMarkup;
+ use Drupal\Core\Url;
+ use Drupal\language\Config\LanguageConfigFactoryOverrideInterface;
+@@ -17,7 +18,7 @@
+ /**
+  * Overrides default LanguageManager to provide configured languages.
+  */
+-class ConfigurableLanguageManager extends LanguageManager implements ConfigurableLanguageManagerInterface {
++class ConfigurableLanguageManager extends LanguageManager implements ConfigurableLanguageManagerInterface, TrustedCallbackInterface {
+ 
+   /**
+    * The configuration storage service.
+@@ -235,6 +236,69 @@ public function getCurrentLanguage($type = LanguageInterface::TYPE_INTERFACE) {
+     return $this->negotiatedLanguages[$type];
+   }
+ 
++  /**
++   * Sets current language.
++   *
++   * @param \Drupal\Core\Language\LanguageInterface $language
++   *   Language interface.
++   * @param string $type
++   *   Type interface.
++   */
++  public function setCurrentLanguage(LanguageInterface $language, $type = LanguageInterface::TYPE_INTERFACE) {
++    $this->negotiatedLanguages[$type] = $language;
++  }
++
++  /**
++   * Sets admin language.
++   *
++   * @param array $element
++   *   A renderable array.
++   *
++   * @return array
++   *   A renderable array.
++   */
++  public static function switchToUserAdminLanguage(array $element) {
++    $user = \Drupal::currentUser();
++    $userAdminLangcode = $user->getPreferredAdminLangcode(FALSE);
++
++    if ($userAdminLangcode && $user->hasPermission('access administration pages')) {
++      $languageManager = \Drupal::languageManager();
++      $translationManager = \Drupal::translation();
++
++      $element['#original_langcode'] = $languageManager->getCurrentLanguage(LanguageInterface::TYPE_INTERFACE)->getId();
++
++      $languageManager->setCurrentLanguage($languageManager->getLanguage($userAdminLangcode), LanguageInterface::TYPE_INTERFACE);
++      $translationManager->setDefaultLangcode($userAdminLangcode);
++    }
++
++    return $element;
++  }
++
++  /**
++   * Restore original language.
++   *
++   * @param \Drupal\Core\Render\Markup $content
++   *   Rendered markup.
++   * @param array $element
++   *   A renderable array.
++   *
++   * @return \Drupal\Core\Render\Markup
++   *   Rendered markup.
++   */
++  public static function restoreLanguage($content, $element) {
++    if (isset($element['#original_langcode'])) {
++      $langcode = $element['#original_langcode'];
++
++      $languageManager = \Drupal::languageManager();
++      $translationManager = \Drupal::translation();
++
++      $languageManager->setCurrentLanguage($languageManager->getLanguage($langcode), LanguageInterface::TYPE_INTERFACE);
++      $translationManager->setDefaultLangcode($langcode);
++    }
++
++    return $content;
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+@@ -485,4 +549,11 @@ public function getNegotiatedLanguageMethod($type = LanguageInterface::TYPE_INTE
+     }
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  public static function trustedCallbacks() {
++    return ['switchToUserAdminLanguage', 'restoreLanguage'];
++  }
++
+ }
+diff --git a/core/modules/toolbar/src/Element/Toolbar.php b/core/modules/toolbar/src/Element/Toolbar.php
+index 9546533fae..c177ab6129 100644
+--- a/core/modules/toolbar/src/Element/Toolbar.php
++++ b/core/modules/toolbar/src/Element/Toolbar.php
+@@ -3,8 +3,8 @@
+ namespace Drupal\toolbar\Element;
+ 
+ use Drupal\Component\Utility\Html;
+-use Drupal\Core\Render\Element\RenderElement;
+ use Drupal\Core\Render\Element;
++use Drupal\Core\Render\Element\RenderElement;
+ 
+ /**
+  * Provides a render element for the default Drupal toolbar.
+@@ -18,10 +18,27 @@ class Toolbar extends RenderElement {
+    */
+   public function getInfo() {
+     $class = static::class;
++
++    $pre_render = [];
++    $post_render = [];
++
++    $module_handler = static::moduleHandler();
++    if ($module_handler->moduleExists('language')) {
++      $pre_render[] = [
++        '\Drupal\language\ConfigurableLanguageManager',
++        'switchToUserAdminLanguage',
++      ];
++      $post_render[] = [
++        '\Drupal\language\ConfigurableLanguageManager',
++        'restoreLanguage',
++      ];
++    }
++
++    $pre_render[] = [$class, 'preRenderToolbar'];
++
+     return [
+-      '#pre_render' => [
+-        [$class, 'preRenderToolbar'],
+-      ],
++      '#pre_render' => $pre_render,
++      '#post_render' => $post_render,
+       '#theme' => 'toolbar',
+       '#attached' => [
+         'library' => [
+diff --git a/core/modules/toolbar/tests/src/Functional/ToolbarMenuTranslationTest.php b/core/modules/toolbar/tests/src/Functional/ToolbarMenuTranslationTest.php
+index 0fb7fbeb25..be494cbfa4 100644
+--- a/core/modules/toolbar/tests/src/Functional/ToolbarMenuTranslationTest.php
++++ b/core/modules/toolbar/tests/src/Functional/ToolbarMenuTranslationTest.php
+@@ -55,9 +55,8 @@ public function testToolbarClasses() {
+     $langcode = 'es';
+ 
+     // Add Spanish.
+-    $edit['predefined_langcode'] = $langcode;
+     $this->drupalGet('admin/config/regional/language/add');
+-    $this->submitForm($edit, 'Add language');
++    $this->submitForm(['predefined_langcode' => $langcode], 'Add language');
+ 
+     // The menu item 'Structure' in the toolbar will be translated.
+     $menu_item = 'Structure';
+@@ -65,49 +64,108 @@ public function testToolbarClasses() {
+     // Visit a page that has the string on it so it can be translated.
+     $this->drupalGet($langcode . '/admin/structure');
+ 
+-    // Search for the menu item.
++    // Check that the class is on the item before we translate it.
++    $this->assertSession()->elementsCount('xpath', '//a[contains(@class, "icon-system-admin-structure")]', 1);
++
++    // Translate the menu item.
++    $menu_item_translated = $this->randomMachineName();
++    $this->addLocalizedString($langcode, $menu_item, $menu_item_translated);
++
++    // Go to another page in the custom language and make sure the menu item
++    // was translated.
++    $this->drupalGet($langcode . '/admin/structure');
++    $this->assertSession()->pageTextContains($menu_item_translated);
++
++    // Toolbar icons are included based on the presence of a specific class on
++    // the menu item. Ensure that class also exists for a translated menu item.
++    $xpath = $this->xpath('//a[contains(@class, "icon-system-admin-structure")]');
++    $this->assertCount(1, $xpath, 'The menu item class is the same.');
++  }
++
++  /**
++   * Tests that the toolbar is shown in the preferred admin language.
++   */
++  public function testToolbarRenderedInPreferredAdminLanguage() {
++    // Enable the 'Account administration pages' language detection.
++    $this->drupalGet('admin/config/regional/language/detection');
++    $this->submitForm(['language_interface[enabled][language-user-admin]' => TRUE], 'Save settings');
++
++    $langcode = 'es';
++
++    // Add Spanish.
++    $this->drupalGet('admin/config/regional/language/add');
++    $this->submitForm(['predefined_langcode' => $langcode], 'Add language');
++
++    // The menu item 'Structure' and 'View profile' in the toolbar will be
++    // translated.
++    $menu_item_structure = 'Structure';
++    $menu_item_view_profile = 'View profile';
++
++    // Visit a page that has the string on it so it can be translated.
++    $this->drupalGet($langcode . '/admin/structure');
++    $menu_item_structure_translated = $this->randomMachineName();
++    $this->addLocalizedString($langcode, $menu_item_structure, $menu_item_structure_translated);
++
++    // Add a translation for a menu item added using user_toolbar().
++    $menu_item_view_profile_translated = $this->randomMachineName();
++    $this->addLocalizedString($langcode, $menu_item_view_profile, $menu_item_view_profile_translated);
++
++    // Go to another page in the custom language and make sure the menu item
++    // was translated.
++    $this->drupalGet($langcode . '/user');
++    $this->assertSession()->elementContains('css', '#toolbar-link-system-admin_structure', $menu_item_structure_translated);
++    $this->assertSession()->elementContains('css', '#toolbar-item-user-tray a[title="User account"]', $menu_item_view_profile_translated);
++
++    // Configure a preferred admin language.
++    $this->adminUser->set('preferred_admin_langcode', 'en');
++    $this->adminUser->save();
++
++    drupal_flush_all_caches();
++
++    // Go to another page in the custom language and make sure the menu item
++    // is shown in the preferred admin language.
++    $this->drupalGet($langcode . '/user');
++    $this->assertSession()->elementContains('css', '#toolbar-link-system-admin_structure', $menu_item_structure);
++    $this->assertSession()->elementContains('css', '#toolbar-item-user-tray a[title="User account"]', $menu_item_view_profile);
++  }
++
++  /**
++   * Add a localized string.
++   *
++   * @param string $langcode
++   *   The langcode.
++   * @param string $string
++   *   The string to translate.
++   * @param string $translation
++   *   The string translation.
++   */
++  protected function addLocalizedString(string $langcode, string $string, string $translation): void {
++    // Search for the label.
+     $search = [
+-      'string' => $menu_item,
++      'string' => $string,
+       'langcode' => $langcode,
+       'translation' => 'untranslated',
+     ];
+     $this->drupalGet('admin/config/regional/translate');
+     $this->submitForm($search, 'Filter');
+-    // Make sure will be able to translate the menu item.
++    // Make sure will be able to translate the label.
+     $this->assertSession()->pageTextNotContains('No strings available.');
+ 
+-    // Check that the class is on the item before we translate it.
+-    $this->assertSession()->elementsCount('xpath', '//a[contains(@class, "icon-system-admin-structure")]', 1);
++    $textarea = current($this->xpath('//textarea'));
+ 
+-    // Translate the menu item.
+-    $menu_item_translated = $this->randomMachineName();
+-    $textarea = $this->assertSession()->elementExists('xpath', '//textarea');
+     $lid = (string) $textarea->getAttribute('name');
+-    $edit = [
+-      $lid => $menu_item_translated,
+-    ];
+-    $this->drupalGet('admin/config/regional/translate');
+-    $this->submitForm($edit, 'Save translations');
++    $this->submitForm([$lid => $translation], 'Save translations');
+ 
+     // Search for the translated menu item.
+     $search = [
+-      'string' => $menu_item,
++      'string' => $string,
+       'langcode' => $langcode,
+       'translation' => 'translated',
+     ];
+     $this->drupalGet('admin/config/regional/translate');
+     $this->submitForm($search, 'Filter');
+     // Make sure the menu item string was translated.
+-    $this->assertSession()->pageTextContains($menu_item_translated);
+-
+-    // Go to another page in the custom language and make sure the menu item
+-    // was translated.
+-    $this->drupalGet($langcode . '/admin/structure');
+-    $this->assertSession()->pageTextContains($menu_item_translated);
+-
+-    // Toolbar icons are included based on the presence of a specific class on
+-    // the menu item. Ensure that class also exists for a translated menu item.
+-    $this->assertSession()->elementsCount('xpath', '//a[contains(@class, "icon-system-admin-structure")]', 1);
++    $this->assertSession()->pageTextContains($translation);
+   }
+ 
+ }
+diff --git a/core/modules/toolbar/toolbar.routing.yml b/core/modules/toolbar/toolbar.routing.yml
+index 10e6cc3295..80d6d19ff2 100644
+--- a/core/modules/toolbar/toolbar.routing.yml
++++ b/core/modules/toolbar/toolbar.routing.yml
+@@ -4,3 +4,5 @@ toolbar.subtrees:
+     _controller: '\Drupal\toolbar\Controller\ToolbarController::subtreesAjax'
+   requirements:
+     _custom_access: '\Drupal\toolbar\Controller\ToolbarController::checkSubTreeAccess'
++  options:
++    _admin_route: TRUE
+diff --git a/core/modules/user/src/ToolbarLinkBuilder.php b/core/modules/user/src/ToolbarLinkBuilder.php
+index b278db6dba..dc1bd2e7e2 100644
+--- a/core/modules/user/src/ToolbarLinkBuilder.php
++++ b/core/modules/user/src/ToolbarLinkBuilder.php
+@@ -2,6 +2,7 @@
+ 
+ namespace Drupal\user;
+ 
++use Drupal\Core\Extension\ModuleHandlerInterface;
+ use Drupal\Core\Security\TrustedCallbackInterface;
+ use Drupal\Core\Session\AccountProxyInterface;
+ use Drupal\Core\StringTranslation\StringTranslationTrait;
+@@ -21,14 +22,24 @@ class ToolbarLinkBuilder implements TrustedCallbackInterface {
+    */
+   protected $account;
+ 
++  /**
++   * The module handler.
++   *
++   * @var \Drupal\Core\Extension\ModuleHandlerInterface
++   */
++  protected $moduleHandler;
++
+   /**
+    * ToolbarHandler constructor.
+    *
+    * @param \Drupal\Core\Session\AccountProxyInterface $account
+    *   The current user.
++   * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
++   *   The module handler.
+    */
+-  public function __construct(AccountProxyInterface $account) {
++  public function __construct(AccountProxyInterface $account, ModuleHandlerInterface $module_handler) {
+     $this->account = $account;
++    $this->moduleHandler = $module_handler;
+   }
+ 
+   /**
+@@ -69,6 +80,18 @@ public function renderToolbarLinks() {
+       ],
+     ];
+ 
++    if ($this->moduleHandler->moduleExists('language')) {
++      $build['#pre_render'] = [
++        [
++          '\Drupal\language\ConfigurableLanguageManager',
++          'switchToUserAdminLanguage',
++        ],
++      ];
++      $build['#post_render'] = [
++        ['\Drupal\language\ConfigurableLanguageManager', 'restoreLanguage'],
++      ];
++    }
++
+     return $build;
+   }
+ 
+diff --git a/core/modules/user/user.services.yml b/core/modules/user/user.services.yml
+index f79e286a54..12e79bb0e0 100644
+--- a/core/modules/user/user.services.yml
++++ b/core/modules/user/user.services.yml
+@@ -58,7 +58,7 @@ services:
+       - { name: 'context_provider' }
+   user.toolbar_link_builder:
+     class: Drupal\user\ToolbarLinkBuilder
+-    arguments: ['@current_user']
++    arguments: ['@current_user', '@module_handler']
+   user.flood_control:
+     class: Drupal\user\UserFloodControl
+     arguments: ['@flood', '@event_dispatcher', '@request_stack']

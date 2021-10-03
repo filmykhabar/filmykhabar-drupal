@@ -16,7 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6",
+        "cweagans/composer-patches": "^1.7",
         "drupal/addtoany": "^1.14",
         "drupal/admin_toolbar": "^3.0",
         "drupal/chosen": "^3.0",
@@ -114,10 +114,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         },
-        "patches": {
-            "drupal/core": {
-                "Admin toolbar language": "https://www.drupal.org/files/issues/2021-09-17/2313309-116.patch"
-            }
-        }
+        "patches-file": "composer.patches.json",
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true
     }
 }
