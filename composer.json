@@ -117,5 +117,8 @@
         "patches-file": "composer.patches.json",
         "enable-patching": true,
         "composer-exit-on-patch-failure": true
+    },
+    "require-dev": {
+        "drupal/devel": "^4.1"
     }
 }
