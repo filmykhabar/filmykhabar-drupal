@@ -7,8 +7,8 @@
 /web/profiles/contrib/
 
 # Ignore sensitive information.
+/web/sites/*/services.local.yml
 /web/sites/*/settings.local.php
-/web/sites/development.services.yml
 
 # Ignore Drupal's file directory.
 /web/sites/*/files/

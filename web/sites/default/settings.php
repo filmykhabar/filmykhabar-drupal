@@ -854,6 +854,10 @@ switch ($appEnv) {
     $config['environment_indicator.indicator']['name'] = 'Local';
 }
 
+if (file_exists($app_root . '/' . $site_path . '/services.local.yml')) {
+  $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.local.yml';
+}
+
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
