@@ -2,12 +2,12 @@ uuid: eaf33f66-2937-4d24-8395-6fda2bbbdab0
 langcode: en
 status: false
 dependencies: {  }
-id: dev
-label: Dev
+id: local
+label: Local
 description: ''
 weight: 0
 storage: folder
-folder: ../config/dev
+folder: ../config/local
 module:
   devel: 0
   webprofiler: 0
