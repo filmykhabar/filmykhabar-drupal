@@ -1,0 +1,20 @@
+uuid: eaf33f66-2937-4d24-8395-6fda2bbbdab0
+langcode: en
+status: true
+dependencies: {  }
+id: dev
+label: Dev
+description: ''
+weight: 0
+storage: folder
+folder: ../config/dev
+module:
+  devel: 0
+  webprofiler: 0
+theme: {  }
+complete_list:
+  - devel.settings
+  - devel.toolbar.settings
+  - system.menu.devel
+  - webprofiler.config
+partial_list: {  }
