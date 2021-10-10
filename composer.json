@@ -32,6 +32,7 @@
         "drupal/ctools": "^3.4",
         "drupal/ds": "^3.9",
         "drupal/entityqueue": "^1.0@alpha",
+        "drupal/environment_indicator": "^4.0",
         "drupal/field_group": "^3.0",
         "drupal/focal_point": "^1.5",
         "drupal/jsonapi_extras": "^3.17",
