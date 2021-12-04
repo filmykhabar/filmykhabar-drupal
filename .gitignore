@@ -22,6 +22,8 @@ node_modules
 
 # Ignore database dump files.
 *.sql.gz
+/lando/db-dump/*
+!/lando/db-dump/.gitkeep
 
 # Ignore .env files.
 /.env
