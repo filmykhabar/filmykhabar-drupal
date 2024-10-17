@@ -158,12 +158,12 @@ class ContentNews extends SqlBase
       $row->setSourceProperty('news_type', $news_type);
     }
 
-    // Author
-    $author_decoded = str_replace(array('&quot;', '&#039;', '&nbsp;', "  "), array('"', "'", " ", " "), $row->getSourceProperty('author'));
-    $author_decoded = html_entity_decode($author_decoded);
-    $author_decoded = trim($author_decoded);
-    $author = $this->getAuthorMapping($author_decoded);
-    $row->setSourceProperty('author_profile', $author);
+    // // Author
+    // $author_decoded = str_replace(array('&quot;', '&#039;', '&nbsp;', "  "), array('"', "'", " ", " "), $row->getSourceProperty('author'));
+    // $author_decoded = html_entity_decode($author_decoded);
+    // $author_decoded = trim($author_decoded);
+    // $author = $this->getAuthorMapping($author_decoded);
+    // $row->setSourceProperty('author_profile', $author);
 
     // Location
     $location_decoded = str_replace(array('&quot;', '&#039;', '&nbsp;', "  "), array('"', "'", " ", " "), $row->getSourceProperty('location'));

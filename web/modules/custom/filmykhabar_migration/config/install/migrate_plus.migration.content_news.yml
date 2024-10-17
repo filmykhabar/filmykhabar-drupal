@@ -31,38 +31,34 @@ process:
     plugin: decode_content
     source: excerpt
   field_body/target_id:
-    -
-      plugin: migration_lookup
+    - plugin: migration_lookup
       migration: content_news_body_to_paragraph
       source: content_id
       no_stub: true
-    -
-      plugin: extract
+    - plugin: extract
       index:
-        - '0'
+        - "0"
   field_body/target_revision_id:
-    -
-      plugin: migration_lookup
+    - plugin: migration_lookup
       migration: content_news_body_to_paragraph
       source: content_id
       no_stub: true
-    -
-      plugin: extract
+    - plugin: extract
       index:
-        - '1'
-  field_author:
-    plugin: entity_lookup
-    source: author_profile
+        - "1"
+  # field_author:
+  #   plugin: entity_lookup
+  #   source: author_profile
   field_news_location:
     plugin: entity_lookup
     source: news_location
   field_news_type:
     plugin: entity_lookup
     source: news_type
-  'path/pathauto':
+  "path/pathauto":
     plugin: default_value
     default_value: 0
-  'path/alias': path_alias
+  "path/alias": path_alias
   status:
     plugin: default_value
     default_value: 1
@@ -74,7 +70,7 @@ process:
     source: date_modified
 
 destination:
-  plugin: 'entity:node'
+  plugin: "entity:node"
 
 migration_dependencies:
   required:
