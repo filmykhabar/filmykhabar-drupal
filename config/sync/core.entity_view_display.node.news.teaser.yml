@@ -54,12 +54,14 @@ third_party_settings:
         - node_title
         - node_post_date
         - field_teaser_body
+      label: Description
       parent_name: ''
+      region: content
       weight: 1
       format_type: html_element
       format_settings:
-        id: ''
         classes: news-teaser-description
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -67,8 +69,6 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: Description
-      region: content
 id: node.news.teaser
 targetEntityType: node
 bundle: news
@@ -76,20 +76,20 @@ mode: teaser
 content:
   field_media_image:
     type: entity_reference_entity_view
-    weight: 0
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_teaser_body:
     type: text_default
-    weight: 5
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 5
+    region: content
 hidden:
   addtoany: true
   field_authors: true

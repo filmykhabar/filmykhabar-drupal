@@ -32,20 +32,20 @@ mode: teaser
 content:
   field_body:
     type: paragraph_summary
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_media_remote_video:
     type: media_thumbnail
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: 16x9_medium
       image_link: content
+      image_style: 16x9_medium
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   langcode: true

@@ -47,12 +47,14 @@ third_party_settings:
         - field_author
         - node_post_date
         - addtoany
+      label: 'Author, Date and AddToAny'
       parent_name: ''
+      region: content
       weight: 0
       format_type: html_element
       format_settings:
-        id: ''
         classes: author-published-date-and-addtoany
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -60,43 +62,41 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: 'Author, Date and AddToAny'
-      region: content
 id: node.news.full
 targetEntityType: node
 bundle: news
 mode: full
 content:
   addtoany:
-    weight: 4
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 4
+    region: content
   field_body:
     type: entity_reference_revisions_entity_view
-    weight: 3
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 3
     region: content
   field_media_image:
     type: entity_reference_entity_view
-    weight: 2
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_tags:
-    weight: 4
+    type: entity_reference_label
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 4
     region: content
 hidden:
   field_authors: true

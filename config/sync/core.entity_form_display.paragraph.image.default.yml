@@ -13,12 +13,12 @@ bundle: image
 mode: default
 content:
   field_media_image:
+    type: media_library_widget
     weight: 1
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    type: media_library_widget
-    region: content
   translation:
     weight: 2
     region: content

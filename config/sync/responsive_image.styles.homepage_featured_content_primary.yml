@@ -11,19 +11,19 @@ id: homepage_featured_content_primary
 label: 'Homepage: Featured Content: Primary'
 image_style_mappings:
   -
+    image_mapping_type: image_style
+    image_mapping: 6x4_large
     breakpoint_id: fkt.medium
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: 6x4_large
-  -
     breakpoint_id: fkt.small
     multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: 6x4_large
   -
-    breakpoint_id: fkt.mobile
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: 6x4_medium
+    breakpoint_id: fkt.mobile
+    multiplier: 1x
 breakpoint_group: fkt
 fallback_image_style: 6x4_large

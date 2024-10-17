@@ -10,56 +10,56 @@ path: aggregator_item/aggregator_item
 resourceType: aggregator_item--aggregator_item
 resourceFields:
   iid:
+    disabled: false
     fieldName: iid
     publicName: iid
     enhancer:
       id: ''
-    disabled: false
   langcode:
+    disabled: false
     fieldName: langcode
     publicName: langcode
     enhancer:
       id: ''
-    disabled: false
   fid:
+    disabled: false
     fieldName: fid
     publicName: fid
     enhancer:
       id: ''
-    disabled: false
   title:
+    disabled: false
     fieldName: title
     publicName: title
     enhancer:
       id: ''
-    disabled: false
   link:
+    disabled: false
     fieldName: link
     publicName: link
     enhancer:
       id: ''
-    disabled: false
   author:
+    disabled: false
     fieldName: author
     publicName: author
     enhancer:
       id: ''
-    disabled: false
   description:
+    disabled: false
     fieldName: description
     publicName: description
     enhancer:
       id: ''
-    disabled: false
   timestamp:
+    disabled: false
     fieldName: timestamp
     publicName: timestamp
     enhancer:
       id: ''
-    disabled: false
   guid:
+    disabled: false
     fieldName: guid
     publicName: guid
     enhancer:
       id: ''
-    disabled: false

@@ -1,7 +1,41 @@
 uuid: 162a8908-a169-4913-be02-b609e9cdb833
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - entityqueue.entity_queue.homepage_featured_content
+    - filter.format.full_html
+    - media.type.file
+    - media.type.image
+    - media.type.remote_video
+    - node.type.article
+    - node.type.news
+    - node.type.page
+    - node.type.photos
+    - node.type.profile
+    - node.type.videos
+    - taxonomy.vocabulary.news_location
+    - taxonomy.vocabulary.tags
+  module:
+    - ban
+    - content_moderation
+    - entityqueue
+    - file
+    - filter
+    - media
+    - node
+    - paragraphs
+    - paragraphs_type_permissions
+    - path
+    - quickedit
+    - redirect
+    - role_delegation
+    - scheduler
+    - shortcut
+    - statistics
+    - system
+    - taxonomy
+    - toolbar
 id: manager
 label: Manager
 weight: -7

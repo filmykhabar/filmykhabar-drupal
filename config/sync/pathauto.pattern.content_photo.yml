@@ -11,22 +11,22 @@ type: 'canonical_entities:node'
 pattern: 'photo/[node:title]'
 selection_criteria:
   0515c7cd-bd2f-4f90-aef0-d78496df2bb9:
-    id: node_type
-    bundles:
-      photos: photos
+    id: 'entity_bundle:node'
     negate: false
+    uuid: 0515c7cd-bd2f-4f90-aef0-d78496df2bb9
     context_mapping:
       node: node
-    uuid: 0515c7cd-bd2f-4f90-aef0-d78496df2bb9
+    bundles:
+      photos: photos
   9da89794-6bcf-44fa-bcda-50b46eacd10a:
     id: language
+    negate: false
+    uuid: 9da89794-6bcf-44fa-bcda-50b46eacd10a
+    context_mapping:
+      language: 'node:langcode:language'
     langcodes:
       ne: ne
       en: en
-    negate: false
-    context_mapping:
-      language: 'node:langcode:language'
-    uuid: 9da89794-6bcf-44fa-bcda-50b46eacd10a
 selection_logic: and
 weight: -5
 relationships:

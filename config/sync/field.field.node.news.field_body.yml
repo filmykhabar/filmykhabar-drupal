@@ -23,19 +23,19 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       text: text
       image: image
       blockquote: blockquote
+    negate: 0
     target_bundles_drag_drop:
-      text:
-        enabled: true
-        weight: -7
-      image:
-        enabled: true
-        weight: -6
       blockquote:
-        enabled: true
         weight: -5
+        enabled: true
+      image:
+        weight: -6
+        enabled: true
+      text:
+        weight: -7
+        enabled: true
 field_type: entity_reference_revisions

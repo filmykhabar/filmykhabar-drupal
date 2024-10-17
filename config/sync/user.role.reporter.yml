@@ -1,7 +1,12 @@
 uuid: 7809bb74-70ff-4d9c-bc50-b27108283409
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.news
+    - node.type.photos
+  module:
+    - node
 id: reporter
 label: Reporter
 weight: -4

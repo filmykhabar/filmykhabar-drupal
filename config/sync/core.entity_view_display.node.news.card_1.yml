@@ -51,20 +51,22 @@ third_party_settings:
           wrapper: h3
           class: ''
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
   field_group:
     group_description:
       children:
         - field_tags
         - node_title
         - group_author_and_published_date
+      label: Description
       parent_name: ''
+      region: content
       weight: 1
       format_type: html_element
       format_settings:
-        id: ''
         classes: content-description
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -72,18 +74,18 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: Description
-      region: content
     group_author_and_published_date:
       children:
         - field_author
         - node_post_date
+      label: 'Author and Published date'
       parent_name: group_description
+      region: content
       weight: 2
       format_type: html_element
       format_settings:
-        id: ''
         classes: author-and-published-date
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -91,8 +93,6 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: 'Author and Published date'
-      region: content
 id: node.news.card_1
 targetEntityType: node
 bundle: news
@@ -100,23 +100,23 @@ mode: card_1
 content:
   field_media_image:
     type: entity_reference_entity_view
-    weight: 0
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-  field_tags:
-    type: entity_reference_label
     weight: 0
     region: content
+  field_tags:
+    type: entity_reference_label
     label: hidden
     settings:
       link: true
     third_party_settings:
       ds:
         ds_limit: '1'
+    weight: 0
+    region: content
 hidden:
   addtoany: true
   field_authors: true

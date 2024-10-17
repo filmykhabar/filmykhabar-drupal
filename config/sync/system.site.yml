@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+langcode: ne
 uuid: da07d68f-38b2-4638-b58f-8f4c529f6251
 name: FilmyKhabar.com
 mail: c.pachabhaiya+filmykhabar@gmail.com
@@ -8,8 +11,5 @@ page:
   front: /home
 admin_compact_mode: false
 weight_select_max: 100
-langcode: ne
 default_langcode: ne
-_core:
-  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
 mail_notification: ''

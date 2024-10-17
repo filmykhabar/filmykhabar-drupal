@@ -17,8 +17,8 @@ plugin: 'block_content:7574f41f-03df-4796-a701-f8bb627a1ffa'
 settings:
   id: 'block_content:7574f41f-03df-4796-a701-f8bb627a1ffa'
   label: 'Company Details'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full

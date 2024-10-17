@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: oqQElnvorzLoHb68o4B3zFkGuMV5_GQEGi7pHfUseVM
+langcode: ne
 fetcher: aggregator
 parser: aggregator
 processors:
@@ -8,6 +11,3 @@ items:
   expire: 9676800
 source:
   list_max: 3
-_core:
-  default_config_hash: oqQElnvorzLoHb68o4B3zFkGuMV5_GQEGi7pHfUseVM
-langcode: ne

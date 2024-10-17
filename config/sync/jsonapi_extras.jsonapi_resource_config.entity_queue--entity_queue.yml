@@ -10,74 +10,74 @@ path: entity_queue/entity_queue
 resourceType: entity_queue--entity_queue
 resourceFields:
   uuid:
+    disabled: false
     fieldName: uuid
     publicName: uuid
     enhancer:
       id: ''
-    disabled: false
   langcode:
+    disabled: false
     fieldName: langcode
     publicName: langcode
     enhancer:
       id: ''
-    disabled: false
   status:
+    disabled: false
     fieldName: status
     publicName: status
     enhancer:
       id: ''
-    disabled: false
   dependencies:
+    disabled: false
     fieldName: dependencies
     publicName: dependencies
     enhancer:
       id: ''
-    disabled: false
   third_party_settings:
+    disabled: false
     fieldName: third_party_settings
     publicName: third_party_settings
     enhancer:
       id: ''
-    disabled: false
   _core:
+    disabled: false
     fieldName: _core
     publicName: _core
     enhancer:
       id: ''
-    disabled: false
   id:
+    disabled: false
     fieldName: id
     publicName: id
     enhancer:
       id: ''
-    disabled: false
   label:
+    disabled: false
     fieldName: label
     publicName: label
     enhancer:
       id: ''
-    disabled: false
   handler:
+    disabled: false
     fieldName: handler
     publicName: handler
     enhancer:
       id: ''
-    disabled: false
   handler_configuration:
+    disabled: false
     fieldName: handler_configuration
     publicName: handler_configuration
     enhancer:
       id: ''
-    disabled: false
   entity_settings:
+    disabled: false
     fieldName: entity_settings
     publicName: entity_settings
     enhancer:
       id: ''
-    disabled: false
   queue_settings:
+    disabled: false
     fieldName: queue_settings
     publicName: queue_settings
     enhancer:
       id: ''
-    disabled: false

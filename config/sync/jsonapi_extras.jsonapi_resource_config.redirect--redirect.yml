@@ -10,68 +10,68 @@ path: redirect/redirect
 resourceType: redirect--redirect
 resourceFields:
   rid:
+    disabled: false
     fieldName: rid
     publicName: rid
     enhancer:
       id: ''
-    disabled: false
   uuid:
+    disabled: false
     fieldName: uuid
     publicName: uuid
     enhancer:
       id: ''
-    disabled: false
   hash:
+    disabled: false
     fieldName: hash
     publicName: hash
     enhancer:
       id: ''
-    disabled: false
   type:
+    disabled: false
     fieldName: type
     publicName: type
     enhancer:
       id: ''
-    disabled: false
   uid:
+    disabled: false
     fieldName: uid
     publicName: uid
     enhancer:
       id: ''
-    disabled: false
   redirect_source:
+    disabled: false
     fieldName: redirect_source
     publicName: redirect_source
     enhancer:
       id: ''
-    disabled: false
   redirect_redirect:
+    disabled: false
     fieldName: redirect_redirect
     publicName: redirect_redirect
     enhancer:
       id: ''
-    disabled: false
   language:
+    disabled: false
     fieldName: language
     publicName: language
     enhancer:
       id: ''
-    disabled: false
   status_code:
+    disabled: false
     fieldName: status_code
     publicName: status_code
     enhancer:
       id: ''
-    disabled: false
   created:
+    disabled: false
     fieldName: created
     publicName: created
     enhancer:
       id: ''
-    disabled: false
   metatag:
+    disabled: false
     fieldName: metatag
     publicName: metatag
     enhancer:
       id: ''
-    disabled: false

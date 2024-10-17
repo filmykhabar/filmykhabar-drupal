@@ -1,7 +1,32 @@
 uuid: 840b6322-46ae-4608-b2b9-2d3c24f34706
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - entityqueue.entity_queue.homepage_featured_content
+    - filter.format.full_html
+    - media.type.image
+    - media.type.remote_video
+    - node.type.article
+    - node.type.news
+    - node.type.photos
+    - node.type.videos
+  module:
+    - content_moderation
+    - entityqueue
+    - file
+    - filter
+    - media
+    - node
+    - paragraphs
+    - paragraphs_type_permissions
+    - path
+    - quickedit
+    - scheduler
+    - shortcut
+    - statistics
+    - system
+    - toolbar
 id: editor
 label: Editor
 weight: -5

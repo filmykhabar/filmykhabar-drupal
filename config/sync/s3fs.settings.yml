@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: 2TdbOQWlW9VarRBSmW3arGSoJ8HpkzYb89aPE6E-iQo
+langcode: ne
 credentials_file: ''
 bucket: ''
 region: us-west-2
@@ -26,9 +29,6 @@ cssjs_host: ''
 use_credentials_cache: false
 credentials_cache_dir: ''
 keymodule:
-  access_key_name: ''
   secret_key_name: ''
-_core:
-  default_config_hash: 2TdbOQWlW9VarRBSmW3arGSoJ8HpkzYb89aPE6E-iQo
-langcode: ne
+  access_key_name: ''
 disable_shared_config_files: true

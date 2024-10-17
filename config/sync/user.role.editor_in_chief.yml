@@ -1,7 +1,37 @@
 uuid: c99df8ac-962e-4635-98cb-f4b0d4b2b3c9
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - entityqueue.entity_queue.homepage_featured_content
+    - filter.format.full_html
+    - media.type.image
+    - media.type.remote_video
+    - node.type.article
+    - node.type.news
+    - node.type.photos
+    - node.type.profile
+    - node.type.videos
+    - taxonomy.vocabulary.news_location
+    - taxonomy.vocabulary.tags
+  module:
+    - content_moderation
+    - entityqueue
+    - file
+    - filter
+    - media
+    - node
+    - paragraphs
+    - paragraphs_type_permissions
+    - path
+    - quickedit
+    - redirect
+    - scheduler
+    - shortcut
+    - statistics
+    - system
+    - taxonomy
+    - toolbar
 id: editor_in_chief
 label: Editor-in-Chief
 weight: -6

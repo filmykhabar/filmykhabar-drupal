@@ -15,8 +15,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
   ds:
     layout:
       id: layout_onecol
@@ -42,22 +42,22 @@ mode: full
 content:
   field_body:
     type: entity_reference_revisions_entity_view
-    weight: 2
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_media_remote_video:
     type: entity_reference_entity_view
-    weight: 1
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   addtoany: true
   field_video_type: true

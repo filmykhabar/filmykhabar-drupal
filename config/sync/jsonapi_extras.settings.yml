@@ -1,5 +1,7 @@
-path_prefix: api/v1
-include_count: true
 _core:
   default_config_hash: eZ7KZ6nM56SRhfriFWCo1372Z9UiKufhSLRbkdhVmUg
 langcode: ne
+path_prefix: api/v1
+include_count: true
+default_disabled: false
+validate_configuration_integrity: false
