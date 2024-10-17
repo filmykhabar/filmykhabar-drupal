@@ -19,9 +19,7 @@ module:
   comment: 0
   config: 0
   config_filter: 0
-  config_split: 0
   config_translation: 0
-  consumers: 0
   contact: 0
   content_moderation: 0
   contextual: 0
@@ -36,12 +34,12 @@ module:
   editor: 0
   entity_reference_revisions: 0
   entityqueue: 0
-  environment_indicator: 0
   field: 0
   field_group: 0
   field_ui: 0
   file: 0
   filmykhabar_api: 0
+  filmykhabar_core: 0
   filter: 0
   focal_point: 0
   hal: 0
@@ -83,7 +81,6 @@ module:
   search_api_db: 0
   serialization: 0
   shortcut: 0
-  simple_oauth: 0
   simple_sitemap: 0
   simple_sitemap_engines: 0
   statistics: 0

@@ -2,7 +2,7 @@ label: 'Moderated content'
 description: 'Find and moderate content.'
 display:
   default:
-    display_title: Default
+    display_title: Master
     display_options:
       exposed_form:
         options:

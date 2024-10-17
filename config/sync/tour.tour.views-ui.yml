@@ -81,7 +81,7 @@ tips:
   views-ui-preview:
     id: views-ui-preview
     plugin: text
-    label: Preview
+    label: पूर्वावलोकन
     body: 'Show a preview of the view output.'
     weight: 10
     selector: '#preview-submit'

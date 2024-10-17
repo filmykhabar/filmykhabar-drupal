@@ -29,7 +29,7 @@ tips:
   search-api-index-status:
     id: search-api-index-status
     plugin: text
-    label: Status
+    label: अवस्था
     body: 'Shows whether the index is currently enabled or disabled.'
     weight: 3
     selector: .search-api-index-summary--status
