@@ -1,0 +1,29 @@
+From 53479799d82fb27e0b5020f2e29c50665c0d0025 Mon Sep 17 00:00:00 2001
+From: catch <6915-catch@users.noreply.drupalcode.org>
+Date: Wed, 9 Oct 2024 10:07:02 +0100
+Subject: [PATCH] Add an isset().
+
+---
+ core/lib/Drupal/Core/Extension/ThemeHandler.php | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/core/lib/Drupal/Core/Extension/ThemeHandler.php b/core/lib/Drupal/Core/Extension/ThemeHandler.php
+index 6ea873af2b5e..57cbf66da2a6 100644
+--- a/core/lib/Drupal/Core/Extension/ThemeHandler.php
++++ b/core/lib/Drupal/Core/Extension/ThemeHandler.php
+@@ -71,7 +71,11 @@ public function listInfo() {
+       if (!empty($installed_themes)) {
+         $list = $this->themeList->getList();
+         foreach (array_keys($installed_themes) as $theme_name) {
+-          $this->addTheme($list[$theme_name]);
++          // Avoid a type error if the list of installed themes is invalid.
++          // @todo: log a useful error instead.
++          if (isset($list[$theme_name])) {
++            $this->addTheme($list[$theme_name]);
++          }
+         }
+       }
+     }
+-- 
+GitLab
+

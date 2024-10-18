@@ -1,9 +1,12 @@
 uuid: f49eb9c4-1aea-46b0-a486-722e1fbadc59
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - file
 id: photographer
 label: Photographer
 weight: -3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'delete own files'

@@ -1,12 +1,10 @@
-label: 'Aggregator RSS feed'
 display:
   default:
-    display_title: Default
     display_options:
-      title: 'Aggregator RSS feed'
       fields:
         iid:
           label: 'Item ID'
+      title: 'Aggregator RSS feed'
       pager:
         options:
           tags:
@@ -25,5 +23,7 @@ display:
           exposed_sorts_label: 'Sort by'
           sort_asc_label: Asc
           sort_desc_label: Desc
+    display_title: Default
   feed_items:
     display_title: Feed
+label: 'Aggregator RSS feed'

@@ -38,6 +38,8 @@ content:
     settings:
       responsive_image_style: homepage_featured_content_primary
       image_link: file
+      image_loading:
+        attribute: eager
     third_party_settings: {  }
     weight: 1
     region: content

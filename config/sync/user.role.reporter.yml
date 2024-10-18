@@ -6,12 +6,14 @@ dependencies:
     - node.type.news
     - node.type.photos
   module:
+    - file
     - node
 id: reporter
 label: Reporter
 weight: -4
 is_admin: null
 permissions:
+  - 'delete own files'
   - 'edit any news content'
   - 'edit any photos content'
   - 'edit own news content'
