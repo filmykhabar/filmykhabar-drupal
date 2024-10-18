@@ -48,6 +48,7 @@ permissions:
   - 'create remote_video media'
   - 'create url aliases'
   - 'create videos content'
+  - 'delete own files'
   - 'delete paragraph content blockquote'
   - 'delete paragraph content image'
   - 'delete paragraph content text'

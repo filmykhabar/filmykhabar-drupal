@@ -4,7 +4,8 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: lO5ziR5dVI1PpEeHZsSOfQ-Y7NWihSDKW8-MMf6uoms
-name: Tags
+name: ट्यागहरू
 vid: tags
 description: 'Use tags to group articles on similar topics into categories.'
 weight: -10
+new_revision: false

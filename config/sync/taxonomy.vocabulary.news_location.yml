@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'News Location'
 vid: news_location
-description: ''
+description: null
 weight: -9
+new_revision: false

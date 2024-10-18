@@ -9,6 +9,7 @@ dependencies:
     - rest.resource.news
     - rest.resource.news_collection
   module:
+    - file
     - filter
     - rest
     - system
@@ -20,6 +21,7 @@ weight: -9
 is_admin: false
 permissions:
   - 'access content'
+  - 'delete own files'
   - 'restful get home'
   - 'restful get news'
   - 'restful get news_collection'

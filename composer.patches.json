@@ -1,4 +1,7 @@
 {
     "patches": {
+        "drupal/core": {
+            "Type error due to missing theme": "patches/53479799d82fb27e0b5020f2e29c50665c0d0025.patch"
+        }
     }
 }

@@ -31,7 +31,9 @@ content:
     weight: 100
     region: content
 hidden:
+  addtoany: true
   field_first_name: true
   field_image: true
   field_last_name: true
   langcode: true
+  search_api_excerpt: true

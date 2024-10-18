@@ -19,6 +19,7 @@ dependencies:
     - entityqueue
     - file
     - filter
+    - help
     - media
     - node
     - paragraphs
@@ -40,6 +41,7 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access files overview'
+  - 'access help pages'
   - 'access in-place editing'
   - 'access media overview'
   - 'access shortcuts'
@@ -60,6 +62,7 @@ permissions:
   - 'create terms in tags'
   - 'create url aliases'
   - 'create videos content'
+  - 'delete own files'
   - 'delete paragraph content blockquote'
   - 'delete paragraph content image'
   - 'delete paragraph content text'
