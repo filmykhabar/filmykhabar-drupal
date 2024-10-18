@@ -26,6 +26,13 @@ class News extends ResourceBase
     use HelperTrait;
 
     /**
+     * The entity type manager.
+     *
+     * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+     */
+    protected $entityTypeManager;
+
+    /**
      * A current user instance.
      *
      * @var \Drupal\Core\Session\AccountProxyInterface
