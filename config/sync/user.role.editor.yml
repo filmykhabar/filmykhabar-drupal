@@ -24,7 +24,6 @@ dependencies:
     - quickedit
     - scheduler
     - shortcut
-    - statistics
     - system
     - toolbar
 id: editor
@@ -75,7 +74,6 @@ permissions:
   - 'view paragraph content image'
   - 'view paragraph content text'
   - 'view photos revisions'
-  - 'view post access counter'
   - 'view scheduled content'
   - 'view the administration theme'
   - 'view unpublished paragraphs'

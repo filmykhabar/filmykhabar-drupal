@@ -29,7 +29,6 @@ dependencies:
     - redirect
     - scheduler
     - shortcut
-    - statistics
     - system
     - taxonomy
     - toolbar
@@ -98,7 +97,6 @@ permissions:
   - 'view paragraph content image'
   - 'view paragraph content text'
   - 'view photos revisions'
-  - 'view post access counter'
   - 'view profile revisions'
   - 'view scheduled content'
   - 'view the administration theme'

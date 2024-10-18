@@ -8,7 +8,7 @@ libraries:
   - fkt/global-styling
   - fkt/google-fonts
 
-base theme: classy
+base theme: olivero
 
 regions:
   header: Header
