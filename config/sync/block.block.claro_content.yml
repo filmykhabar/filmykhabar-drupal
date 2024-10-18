@@ -1,6 +1,6 @@
 uuid: e7acb26a-9668-4ab2-bc29-6541ff3bc338
 langcode: ne
-status: false
+status: true
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: a0Yyx1GeyKarZ4T_yXQBR_ZFKnXiFLtxAb6gWLd8nr0
 id: claro_content
 theme: claro
-region: header
-weight: 0
+region: content
+weight: -2
 provider: null
 plugin: system_main_block
 settings:

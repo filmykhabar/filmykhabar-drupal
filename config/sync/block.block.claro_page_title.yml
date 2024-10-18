@@ -1,6 +1,6 @@
 uuid: 2671e0e0-0a6f-4943-ac27-00a3f490cb74
 langcode: ne
-status: false
+status: true
 dependencies:
   theme:
     - claro

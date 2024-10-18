@@ -1,6 +1,6 @@
 uuid: 7e064060-1549-452a-9572-ba2c570d6d5b
 langcode: ne
-status: false
+status: true
 dependencies:
   module:
     - help
@@ -10,8 +10,8 @@ _core:
   default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
 id: claro_help
 theme: claro
-region: header
-weight: 0
+region: help
+weight: -3
 provider: null
 plugin: help_block
 settings:

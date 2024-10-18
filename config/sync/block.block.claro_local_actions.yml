@@ -1,6 +1,6 @@
 uuid: 30997305-6c1e-477d-a4bc-928d9e796c04
 langcode: ne
-status: false
+status: true
 dependencies:
   theme:
     - claro
@@ -8,8 +8,8 @@ _core:
   default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
 id: claro_local_actions
 theme: claro
-region: header
-weight: -10
+region: content
+weight: -3
 provider: null
 plugin: local_actions_block
 settings:

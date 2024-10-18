@@ -1,6 +1,6 @@
 uuid: 74799e26-c720-4305-be7d-323cbbf7b1bf
 langcode: ne
-status: false
+status: true
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
 id: claro_breadcrumbs
 theme: claro
-region: header
-weight: 0
+region: breadcrumb
+weight: -3
 provider: null
 plugin: system_breadcrumb_block
 settings:

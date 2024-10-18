@@ -1,6 +1,6 @@
 uuid: 04431a3c-cfc6-4388-b0d8-6eb81844c4b6
 langcode: ne
-status: false
+status: true
 dependencies:
   theme:
     - claro
@@ -9,7 +9,7 @@ _core:
 id: claro_primary_local_tasks
 theme: claro
 region: header
-weight: 0
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:
