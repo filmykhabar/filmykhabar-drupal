@@ -53,7 +53,7 @@
         "drupal/search_api": "^1.18",
         "drupal/upgrade_status": "^4.3",
         "drupal/webform": "^6.2",
-        "drush/drush": "^12",
+        "drush/drush": "^13",
         "pachabhaiya/nepali-calendar": "^1.0@alpha"
     },
     "conflict": {
