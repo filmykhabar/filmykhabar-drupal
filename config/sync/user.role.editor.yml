@@ -21,7 +21,6 @@ dependencies:
     - paragraphs
     - paragraphs_type_permissions
     - path
-    - quickedit
     - scheduler
     - shortcut
     - system
@@ -33,7 +32,6 @@ is_admin: null
 permissions:
   - 'access content overview'
   - 'access files overview'
-  - 'access in-place editing'
   - 'access media overview'
   - 'access shortcuts'
   - 'access toolbar'

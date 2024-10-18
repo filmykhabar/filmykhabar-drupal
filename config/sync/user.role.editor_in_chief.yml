@@ -25,7 +25,6 @@ dependencies:
     - paragraphs
     - paragraphs_type_permissions
     - path
-    - quickedit
     - redirect
     - scheduler
     - shortcut
@@ -41,7 +40,6 @@ permissions:
   - 'access content overview'
   - 'access files overview'
   - 'access help pages'
-  - 'access in-place editing'
   - 'access media overview'
   - 'access shortcuts'
   - 'access taxonomy overview'
