@@ -29,7 +29,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Media
+      title: मिडिया
       fields:
         media_bulk_form:
           id: media_bulk_form
@@ -81,7 +81,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: कारवाही
           include_exclude: exclude
           selected_actions: {  }
         rendered_entity:
@@ -158,7 +158,7 @@ display:
         options:
           submit_button: 'Apply filters'
           reset_button: false
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
           sort_asc_label: Asc
@@ -260,7 +260,7 @@ display:
               authenticated: authenticated
           is_grouped: true
           group_info:
-            label: Published
+            label: प्रकाशित
             description: ''
             identifier: status
             optional: true
@@ -271,7 +271,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Published
+                title: प्रकाशित
                 operator: '='
                 value: '1'
               2:
@@ -421,7 +421,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: भाषा
             description: ''
             use_operator: false
             operator: langcode_op
@@ -487,7 +487,7 @@ display:
       tags: {  }
   page:
     id: page
-    display_title: Page
+    display_title: पृष्ठ
     display_plugin: page
     position: 1
     display_options:
@@ -542,7 +542,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: कारवाही
           include_exclude: exclude
           selected_actions: {  }
         name:
@@ -909,7 +909,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: सबै
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -1154,7 +1154,7 @@ display:
           entity_type: media
           entity_field: uid
           plugin_id: field
-          label: Author
+          label: लेखक
           type: entity_reference_label
           settings:
             link: true
@@ -1191,7 +1191,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: सबै
           title_enable: false
           title: ''
           default_argument_type: fixed

@@ -1,7 +1,7 @@
 name: "FilmyKhabar Migration"
 type: module
 description: "Migrate data from old FilmyKhabar custom CMS to new Drupal site."
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^8 || ^9 || ^10 || ^11
 package: "FilmyKhabar"
 dependencies:
   - drupal:migrate

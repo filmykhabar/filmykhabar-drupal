@@ -2,7 +2,7 @@ name: FilmyKhabar
 type: theme
 description: 'A custom Drupal 8 theme for <a href="https://www.filmykhabar.com">filmykhabar.com</a>.'
 package: Other
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^8.8 || ^9 || ^10 || ^11
 
 libraries:
   - fkt/global-styling

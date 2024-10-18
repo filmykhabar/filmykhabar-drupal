@@ -132,7 +132,7 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-          label: Author
+          label: लेखक
           exclude: false
           alter:
             alter_text: false
@@ -150,7 +150,7 @@ display:
           entity_type: node
           entity_field: status
           plugin_id: field
-          label: Status
+          label: अवस्था
           exclude: false
           alter:
             alter_text: false
@@ -164,7 +164,7 @@ display:
           settings:
             format: custom
             format_custom_false: Unpublished
-            format_custom_true: Published
+            format_custom_true: प्रकाशित
         changed:
           id: changed
           table: node_field_data
@@ -195,7 +195,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: entity_operations
-          label: Operations
+          label: सञ्चालनहरू
           exclude: false
           alter:
             alter_text: false
@@ -249,9 +249,9 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: फिल्टर
           reset_button: true
-          reset_button_label: Reset
+          reset_button_label: 'रिसेट गर्नुहोस्'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
@@ -374,7 +374,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Status
+            label: अवस्था
             description: ''
             use_operator: false
             operator: status_op
@@ -399,7 +399,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Published
+                title: प्रकाशित
                 operator: '='
                 value: '1'
               2:
@@ -422,7 +422,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: भाषा
             description: ''
             use_operator: false
             operator: langcode_op
@@ -585,7 +585,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: Page
+    display_title: पृष्ठ
     display_plugin: page
     position: 1
     display_options:
