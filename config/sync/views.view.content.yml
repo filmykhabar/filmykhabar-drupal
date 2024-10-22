@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: tS8PbpJX90aRFC3-UTgXzdqkq7_2frk2pz4TMijEebM
 id: content
-label: विषयवस्तु
+label: Content
 module: node
 description: 'Find and manage content.'
 tag: default
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: विषयवस्तु
+      title: Content
       fields:
         node_bulk_form:
           id: node_bulk_form
@@ -46,7 +46,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: शीर्षक
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -299,7 +299,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: शीर्षक
+            label: Title
             description: ''
             use_operator: false
             operator: title_op
@@ -603,14 +603,14 @@ display:
       path: admin/content/node
       menu:
         type: 'default tab'
-        title: विषयवस्तु
+        title: Content
         description: ''
         weight: -10
         menu_name: admin
         context: ''
       tab_options:
         type: normal
-        title: विषयवस्तु
+        title: Content
         description: 'Find and manage content'
         weight: -10
         menu_name: admin

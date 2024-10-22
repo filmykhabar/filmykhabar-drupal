@@ -1,4 +1,4 @@
-label: 'Scheduled content'
+label: 'Scheduled Content'
 description: 'Find and manage scheduled content.'
 display:
   default:
@@ -71,8 +71,8 @@ display:
   overview:
     display_options:
       menu:
-        title: Scheduled
-        description: 'Content scheduled for publishing and unpublishing'
+        title: 'Scheduled Content'
+        description: 'Content that is scheduled for publishing or unpublishing'
       tab_options:
         title: Content
         description: 'Find and manage scheduled content'
@@ -94,4 +94,5 @@ display:
       empty:
         area_text_custom:
           content: 'No scheduled content for user {{ arguments.uid }}'
-    display_title: 'User profile tab'
+      display_comment: 'Access to the user view is controlled via SchedulerRouteSubscriber::alterRoutes(). The high-level permission "access content" is added to satisfy the security_review module'
+    display_title: User

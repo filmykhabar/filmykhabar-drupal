@@ -22,7 +22,6 @@ dependencies:
     - paragraphs_type_permissions
     - path
     - scheduler
-    - shortcut
     - system
     - toolbar
 id: editor
@@ -33,7 +32,6 @@ permissions:
   - 'access content overview'
   - 'access files overview'
   - 'access media overview'
-  - 'access shortcuts'
   - 'access toolbar'
   - 'create article content'
   - 'create image media'

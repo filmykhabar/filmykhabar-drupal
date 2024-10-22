@@ -31,7 +31,6 @@ dependencies:
     - redirect
     - role_delegation
     - scheduler
-    - shortcut
     - system
     - taxonomy
     - toolbar
@@ -45,7 +44,6 @@ permissions:
   - 'access files overview'
   - 'access help pages'
   - 'access media overview'
-  - 'access shortcuts'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
