@@ -10,7 +10,7 @@ id: node.news.field_media_image
 field_name: field_media_image
 entity_type: node
 bundle: news
-label: 'Media: Image'
+label: Image
 description: ''
 required: false
 translatable: false
@@ -23,6 +23,7 @@ settings:
       image: image
     sort:
       field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

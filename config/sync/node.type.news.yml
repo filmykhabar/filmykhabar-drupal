@@ -19,9 +19,9 @@ third_party_settings:
     publish_revision: true
     publish_touch: true
     show_message_after_update: true
-    unpublish_enable: false
+    unpublish_enable: true
     unpublish_required: false
-    unpublish_revision: false
+    unpublish_revision: true
 name: News
 type: news
 description: 'Use <em>News</em> content type for news contents.'

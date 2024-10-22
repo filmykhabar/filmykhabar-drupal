@@ -10,22 +10,9 @@ dependencies:
     - image.style.16x9_medium
     - node.type.videos
   module:
-    - ds
     - media
     - paragraphs
     - user
-third_party_settings:
-  ds:
-    layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      content:
-        - field_media_remote_video
-        - field_body
 id: node.videos.teaser
 targetEntityType: node
 bundle: videos

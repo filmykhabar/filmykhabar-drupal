@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.videos.field_video_type
     - node.type.videos
   module:
-    - ds
     - entity_reference_revisions
     - layout_builder
     - user
@@ -17,24 +16,6 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-  ds:
-    layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      content:
-        - node_post_date
-        - field_media_remote_video
-        - field_body
-    fields:
-      node_post_date:
-        plugin_id: node_post_date
-        weight: 0
-        label: hidden
-        formatter: ds_post_date_long
 id: node.videos.full
 targetEntityType: node
 bundle: videos

@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.photos.field_photo_gallery
     - node.type.photos
   module:
-    - ds
     - entity_reference_revisions
     - layout_builder
     - text
@@ -18,24 +17,6 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-  ds:
-    layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      content:
-        - node_post_date
-        - body
-        - field_photo_gallery
-    fields:
-      node_post_date:
-        plugin_id: node_post_date
-        weight: 0
-        label: hidden
-        formatter: ds_post_date_long
 id: node.photos.full
 targetEntityType: node
 bundle: photos

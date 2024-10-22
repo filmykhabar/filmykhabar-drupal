@@ -1,6 +1,6 @@
 uuid: 6d08574f-0d07-4117-a99f-9e72b5d6f583
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.card_2
@@ -13,43 +13,10 @@ dependencies:
     - field.field.node.news.field_teaser_body
     - node.type.news
   module:
-    - ds
     - field_group
     - layout_builder
     - user
 third_party_settings:
-  ds:
-    layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        label: null
-    regions:
-      content:
-        - group_image_with_tag
-        - field_media_image
-        - node_title
-        - field_tags
-        - group_author_and_published_date
-        - field_author
-        - node_post_date
-    fields:
-      node_post_date:
-        plugin_id: node_post_date
-        weight: 4
-        label: hidden
-        formatter: ds_post_date_short
-      node_title:
-        plugin_id: node_title
-        weight: 1
-        label: hidden
-        formatter: default
-        settings:
-          link: true
-          wrapper: ''
-          class: ''
   layout_builder:
     enabled: false
     allow_custom: false
@@ -111,9 +78,7 @@ content:
     label: hidden
     settings:
       link: true
-    third_party_settings:
-      ds:
-        ds_limit: '1'
+    third_party_settings: {  }
     weight: 2
     region: content
 hidden:
