@@ -51,6 +51,7 @@
         "drupal/s3fs": "^3.0@beta",
         "drupal/scheduler": "^2.1",
         "drupal/search_api": "^1.18",
+        "drupal/tagify": "^1.2",
         "drupal/upgrade_status": "^4.3",
         "drupal/webform": "^6.2",
         "drush/drush": "^13",
