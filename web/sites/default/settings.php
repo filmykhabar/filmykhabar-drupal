@@ -820,7 +820,7 @@ $settings['trusted_host_patterns'] = array(
   '^filmykhabar\.lndo\.site$',
 );
 
-$settings['config_sync_directory'] = '../config/sync';
+$settings['config_sync_directory'] = '../config/default';
 
 $settings['file_private_path'] = '../private-files';
 $settings['file_public_path'] = 'sites/default/files';
