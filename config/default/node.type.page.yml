@@ -1,12 +1,31 @@
-uuid: 8bd1d6d1-de95-4141-9222-b0f7601e16fa
-langcode: ne
+uuid: 78776945-9332-49e6-bac1-52e220c52d15
+langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: KuyA4NHPXcmKAjRtwa0vQc2ZcyrUJy6IlS2TAyMNRbc
-name: 'Basic page'
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
+name: Page
 type: page
-description: "Use <em>basic pages</em> for your static content, such as an 'About us' page."
+description: null
 help: null
 new_revision: true
 preview_mode: 1

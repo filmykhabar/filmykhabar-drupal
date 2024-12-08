@@ -1,20 +1,20 @@
-uuid: a87b2cd4-824c-4719-89ed-04762145effc
+uuid: 5eab7296-7dfa-4e3a-b83b-94f34fed1c06
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_body
+    - field.storage.node.field_components
     - node.type.page
     - paragraphs.paragraphs_type.blockquote
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
-id: node.page.field_body
-field_name: field_body
+id: node.page.field_components
+field_name: field_components
 entity_type: node
 bundle: page
-label: Body
+label: Components
 description: ''
 required: false
 translatable: false
@@ -24,18 +24,18 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      text: text
-      image: image
       blockquote: blockquote
+      image: image
+      text: text
     negate: 0
     target_bundles_drag_drop:
       blockquote:
-        weight: -5
+        weight: 4
         enabled: true
       image:
-        weight: -6
+        weight: 5
         enabled: true
       text:
-        weight: -7
+        weight: 6
         enabled: true
 field_type: entity_reference_revisions

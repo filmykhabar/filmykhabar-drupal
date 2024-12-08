@@ -10,7 +10,6 @@ dependencies:
     - media.type.remote_video
     - node.type.article
     - node.type.news
-    - node.type.page
     - node.type.photos
     - node.type.profile
     - node.type.videos
@@ -60,7 +59,6 @@ permissions:
   - 'create file media'
   - 'create image media'
   - 'create news content'
-  - 'create page content'
   - 'create paragraph content blockquote'
   - 'create paragraph content image'
   - 'create paragraph content text'
@@ -75,7 +73,6 @@ permissions:
   - 'delete any file media'
   - 'delete any image media'
   - 'delete any news content'
-  - 'delete any page content'
   - 'delete any photos content'
   - 'delete any profile content'
   - 'delete any remote_video media'
@@ -90,7 +87,6 @@ permissions:
   - 'edit any file media'
   - 'edit any image media'
   - 'edit any news content'
-  - 'edit any page content'
   - 'edit any photos content'
   - 'edit any profile content'
   - 'edit any remote_video media'
@@ -101,7 +97,6 @@ permissions:
   - 'manipulate entityqueues'
   - 'revert article revisions'
   - 'revert news revisions'
-  - 'revert page revisions'
   - 'revert photos revisions'
   - 'revert profile revisions'
   - 'revert videos revisions'
@@ -118,7 +113,6 @@ permissions:
   - 'view media'
   - 'view news revisions'
   - 'view own unpublished content'
-  - 'view page revisions'
   - 'view paragraph content blockquote'
   - 'view paragraph content image'
   - 'view paragraph content text'

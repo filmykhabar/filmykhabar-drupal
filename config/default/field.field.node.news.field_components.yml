@@ -1,20 +1,20 @@
-uuid: 33aa0f1a-ca33-4194-8308-e813929aa440
+uuid: 1e014fcc-eb5b-4fa9-ab23-48da1f76f54b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_body
+    - field.storage.node.field_components
     - node.type.news
     - paragraphs.paragraphs_type.blockquote
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
-id: node.news.field_body
-field_name: field_body
+id: node.news.field_components
+field_name: field_components
 entity_type: node
 bundle: news
-label: Body
+label: Components
 description: ''
 required: false
 translatable: false
@@ -24,18 +24,18 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      text: text
-      image: image
       blockquote: blockquote
+      image: image
+      text: text
     negate: 0
     target_bundles_drag_drop:
       blockquote:
-        weight: -5
+        weight: 4
         enabled: true
       image:
-        weight: -6
+        weight: 5
         enabled: true
       text:
-        weight: -7
+        weight: 6
         enabled: true
 field_type: entity_reference_revisions

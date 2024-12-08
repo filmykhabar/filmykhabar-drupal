@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.field_authors
-    - field.field.node.news.field_body
+    - field.field.node.news.field_components
     - field.field.node.news.field_media_image
     - field.field.node.news.field_news_location
     - field.field.node.news.field_news_type
@@ -12,16 +12,30 @@ dependencies:
     - field.field.node.news.field_teaser_body
     - node.type.news
   module:
+    - entity_reference_revisions
     - user
 id: node.news.default
 targetEntityType: node
 bundle: news
 mode: default
-content: {  }
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
 hidden:
   addtoany: true
   field_authors: true
-  field_body: true
   field_media_image: true
   field_news_location: true
   field_news_type: true
