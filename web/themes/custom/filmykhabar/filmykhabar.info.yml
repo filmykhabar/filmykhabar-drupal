@@ -1,0 +1,22 @@
+name: filmykhabar
+type: theme
+'base theme': stable9
+version: 1.0.0
+libraries:
+  - filmykhabar/base
+  - filmykhabar/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - filmykhabar/user
+  core/drupal.dropbutton:
+    - filmykhabar/dropbutton
+  core/drupal.dialog:
+    - filmykhabar/dialog
+  file/drupal.file:
+    - filmykhabar/file
+  core/drupal.progress:
+    - filmykhabar/progress
+description: ''
+core_version_requirement: ^10
+generator: 'starterkit_theme:10.3.10'
